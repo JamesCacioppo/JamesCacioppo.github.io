@@ -27,4 +27,3 @@ Username
 `git config --global user.email "james.m.cacioppo@gmail.com"`
 
 Aliases
-
