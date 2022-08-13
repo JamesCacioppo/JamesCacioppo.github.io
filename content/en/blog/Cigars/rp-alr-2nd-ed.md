@@ -1,10 +1,10 @@
 
 ---
-title: "Another Great Release"
-linkTitle: "Release New Features"
-date: 2018-01-04
+title: "Rocky Patel Age Limited Rare Second Edition"
+linkTitle: "RP ALR 2nd Ed"
+date: 2022-06-04
 description: >
-  A short lead description about this content page. Text here can also be **bold** or _italic_ and can even be split over multiple paragraphs.
+  Tasting notes and thoughts on the Rocky Patel Age Limited Rare Second Edition
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://github.com) should be blue with no underlines (unless hovered over).
