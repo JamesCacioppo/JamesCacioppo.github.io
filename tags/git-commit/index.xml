@@ -1,0 +1,28 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Modern Engineer – git-commit</title><link>/tags/git-commit/</link><description>Recent content in git-commit on Modern Engineer</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/git-commit/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Git Commits</title><link>/docs/git/commits/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/commits/</guid><description>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="git-configuration-location">Git configuration location&lt;/h3>
+&lt;p>There are three places where configuration is stored:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>System&lt;/strong>: &lt;code>[path]/etc/gitconfig&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Global&lt;/strong>: &lt;code>~/.gitconfig&lt;/code> or &lt;code>/.config/git/config&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Local&lt;/strong>: &lt;code>[repo]/.git/config&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>When using the &lt;code>git config&lt;/code> command you can pass &lt;code>--system&lt;/code>, &lt;code>--global&lt;/code>, or &lt;code>--local&lt;/code> to specify which configuration you&amp;rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.&lt;/p>
+&lt;p>To show all configurations and their source execute &lt;code>git config --list --show-origin&lt;/code>&lt;/p>
+&lt;h3 id="how-to-use-git-config">How to use git-config&lt;/h3>
+&lt;p>To see the man page, which is really good for this command, execute &lt;code>man git-config&lt;/code>. The &amp;ldquo;name&amp;rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).&lt;/p>
+&lt;p>There are several options &lt;code>query/set/replace/unset&lt;/code>.&lt;br>
+To create &lt;code>git config alias.br 'branch -a'&lt;/code>
+To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
+&lt;h3 id="required-configurations">Required configurations&lt;/h3>
+&lt;p>In order to commit in a repo you&amp;rsquo;ll need to ensure that two values are set at some configuration level:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Email&lt;/strong>: &lt;code>git config --global user.name &amp;quot;[User Name]&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Username&lt;/strong>: &lt;code>git config --global user.email &amp;quot;james.m.cacioppo@gmail.com&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="aliases">Aliases&lt;/h3>
+&lt;p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.&lt;/p>
+&lt;p>To create an alias &lt;code>git config --global alias.[alias name] [command]&lt;/code>&lt;/p>
+&lt;p>An example would be to set &lt;code>git br&lt;/code> to &lt;code>git branch -a&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git config --global alias.br &lt;span style="color:#4e9a06">&amp;#39;branch -a&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

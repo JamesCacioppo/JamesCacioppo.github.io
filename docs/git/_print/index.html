@@ -1,0 +1,246 @@
+<!doctype html><html lang=en class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=canonical type=text/html href=/docs/git/>
+<link rel=alternate type=application/rss+xml href=/docs/git/index.xml>
+<meta name=robots content="noindex, nofollow">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>Git | Modern Engineer</title>
+<meta name=description content="Git from zero to hero.  Basic to advanced concepts along with examples and tutorials.
+">
+<meta property="og:title" content="Git">
+<meta property="og:description" content="Git from zero to hero.  Basic to advanced concepts along with examples and tutorials.
+">
+<meta property="og:type" content="website">
+<meta property="og:url" content="/docs/git/"><meta property="og:site_name" content="Modern Engineer">
+<meta itemprop=name content="Git">
+<meta itemprop=description content="Git from zero to hero.  Basic to advanced concepts along with examples and tutorials.
+"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Git">
+<meta name=twitter:description content="Git from zero to hero.  Basic to advanced concepts along with examples and tutorials.
+">
+<link rel=preload href=/scss/main.min.cd6c2bbb05cdf98237b53882fed8c7a8b3fd7a7f7963d7cb305dd0d984782137.css as=style>
+<link href=/scss/main.min.cd6c2bbb05cdf98237b53882fed8c7a8b3fd7a7f7963d7cb305dd0d984782137.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
+<link rel=stylesheet href=/css/prism.css>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-00000000-0','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body class=td-section>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<span class=navbar-logo></span><span class=font-weight-bold>Modern Engineer</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/about/><span>About</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/docs/><span class=active>Documentation</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/blog/><span>Blog</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/community/><span>Community</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off>
+</div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<div class=td-content>
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href=# onclick="return print(),!1">Click here to print</a>.
+</p><p>
+<a href=/docs/git/>Return to the regular view of this page</a>.
+</p>
+</div>
+<h1 class=title>Git</h1>
+<div class=lead>Git from zero to hero. Basic to advanced concepts along with examples and tutorials.</div>
+<ul>
+<li>1: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
+<li>2: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
+<li>3: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
+</ul>
+<div class=content>
+</div>
+</div>
+<div class=td-content>
+<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>1 - Git Commits</h1>
+<div class=lead>How to configure git.</div>
+<h2 id=configuration>Configuration</h2>
+<h3 id=git-configuration-location>Git configuration location</h3>
+<p>There are three places where configuration is stored:</p>
+<ol>
+<li><strong>System</strong>: <code>[path]/etc/gitconfig</code></li>
+<li><strong>Global</strong>: <code>~/.gitconfig</code> or <code>/.config/git/config</code></li>
+<li><strong>Local</strong>: <code>[repo]/.git/config</code></li>
+</ol>
+<p>When using the <code>git config</code> command you can pass <code>--system</code>, <code>--global</code>, or <code>--local</code> to specify which configuration you&rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.</p>
+<p>To show all configurations and their source execute <code>git config --list --show-origin</code></p>
+<h3 id=how-to-use-git-config>How to use git-config</h3>
+<p>To see the man page, which is really good for this command, execute <code>man git-config</code>. The &ldquo;name&rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).</p>
+<p>There are several options <code>query/set/replace/unset</code>.<br>
+To create <code>git config alias.br 'branch -a'</code>
+To unset <code>git config --unset alias.br</code></p>
+<h3 id=required-configurations>Required configurations</h3>
+<p>In order to commit in a repo you&rsquo;ll need to ensure that two values are set at some configuration level:</p>
+<ul>
+<li><strong>Email</strong>: <code>git config --global user.name "[User Name]"</code></li>
+<li><strong>Username</strong>: <code>git config --global user.email "james.m.cacioppo@gmail.com"</code></li>
+</ul>
+<h3 id=aliases>Aliases</h3>
+<p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.</p>
+<p>To create an alias <code>git config --global alias.[alias name] [command]</code></p>
+<p>An example would be to set <code>git br</code> to <code>git branch -a</code></p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global alias.br <span style=color:#4e9a06>&#39;branch -a&#39;</span>
+</code></pre></div>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-6a19582a95197f2ee94de00825c74b64>2 - Git Branching</h1>
+<div class=lead>Branching concepts and commands.</div>
+<p>The first thing to understand about Git is it&rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&rsquo;t stored in a central location. It&rsquo;s stored on every developer&rsquo;s computer. When it was first created this was how it was used. We now have a feature called a <em>remote</em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.</p>
+<h2 id=clone-a-repo>Clone a repo</h2>
+<p>Cloning a repo is the act of downloading a copy of the repo to your local machine so you can work on it. The <code>git clone</code> command will create a new sub directory within your present working directory and clone the repo to it. To clone a repo using the HTTPS protocol:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone https://github.com/JamesCacioppo/git-zero-to-hero-demo.git
+</code></pre></div><p>To clone a repo using SSH:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
+</code></pre></div><h2 id=remotes>Remotes</h2>
+<h2 id=branching>Branching</h2>
+<p>When you first clone a repo you&rsquo;ll be in the default branch. This was historically called <em>master</em> and is now often named <em>main</em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into <em>main</em>.</p>
+<h3 id=creating-branches>Creating Branches</h3>
+<p>The formal way to create a branch is with the <em>git-branch</em> command:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch <span style=color:#ce5c00;font-weight:700>[</span>branch name<span style=color:#ce5c00;font-weight:700>]</span>
+</code></pre></div><p>However, the previous command does not place you on that branch and you&rsquo;d still need to use the <em>git-checkout</em> command to switch branches. To create a branch and switch to it in one command use <em>git-checkout</em>:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout -b <span style=color:#ce5c00;font-weight:700>[</span>branchname<span style=color:#ce5c00;font-weight:700>]</span>
+</code></pre></div><p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git push --set-upstream origin <span style=color:#ce5c00;font-weight:700>[</span>branchname<span style=color:#ce5c00;font-weight:700>]</span>
+</code></pre></div><h3 id=useful-branching-commands>Useful Branching Commands</h3>
+<p>To list local branches <code>git branch</code>
+To list branches locally and remotely <code>git branch -a</code>
+To rename the current branch <code>git branch -m [branch name]</code>
+To checkout a branch use <code>git checkout [branch name]</code></p>
+<h3 id=deleting-branches>Deleting Branches</h3>
+<p>When it comes time to delete a branch there are a few things to note.</p>
+<ul>
+<li>Deleting a branch locally is different from deleting a branch on the remote.</li>
+<li>There are two ways to remove a branch locally listed below.
+<ul>
+<li>The &ldquo;safe&rdquo; way will only remove the branch if its changes have been merged into <em>main</em> while the &ldquo;forcefull&rdquo; method will remove the branch regardless of its status.</li>
+</ul>
+</li>
+<li>You cannot remove a branch if you have it checked out.</li>
+<li>When you delete a remote branch your local repo does not know and will need to be updated. To do this you must remove the branch refs.</li>
+</ul>
+<p>To safely remove a local branch use <code>git branch -d [branch name]</code>
+To forcefully remove a local branch use <code>git branch -D [branch name]</code>
+To remove a remote branch use <code>git push origin --delete [branch name]</code>
+To remove deleted branch refs use <code>git remote prune origin</code></p>
+<h2 id=branching-strategies>Branching Strategies</h2>
+<p>When a team is using Git, some sort of workflow or branching strategy is required for the team to develop effectively. Junior developers need an understanding of various common strategies so they can onboard quickly to various teams and projects. Intermediate and senior developers will need a more in-depth understanding of the common strategies, their variants, benefits and drawbacks of each, and when to choose one strategy over another. What follows is just a brief introduction into a few common strategies.</p>
+<h3 id=gitflow>Gitflow</h3>
+<p>In 2010, Vincent Driessen documented <a href=https://nvie.com/posts/a-successful-git-branching-model/>Gitflow</a>. In a vacuum of well documented and capable strategies, <em>Gitflow</em> became almost ubiquitous in development teams and is still almost required knowledge. While this strategy works well under certain conditions, <em>Gitflow</em> has many drawbacks. In fact, Vincent even updated his post in 2020 explaining that it shouldn&rsquo;t necessarily be the default or go-to for all dev teams. We&rsquo;ll discuss some of the pro&rsquo;s and con&rsquo;s of <em>Gitflow</em>, but first, let&rsquo;s take a look at how it works.</p>
+<p><img src=https://nvie.com/img/git-model@2x.png alt></p>
+<p>Two branches live forever. They are <em>develop</em> and <em>master</em>. The <em>develop</em> branch is the branch from which almost all work is done. Developers will create feature branches from <em>develop</em> and merge their work back in.</p>
+<p>Developers will also create <em>release</em> branches from <em>develop</em>. The purpose of creating these is to start preparing code for release or production deployment. Once this prep work is complete, <em>release</em> branches will be merged into <em>master</em>.</p>
+<p>Bug and <em>hotfix</em> branches will be created from <em>master</em> and when complete they will be merged back into <em>master</em> as well as <em>develop</em>.</p>
+<p>As you can see, this is a complex strategy which can result in some interesting merge conflicts. It also does not facilitate CI/CD.</p>
+<p>There are circumstances, however, where releasing and deploying at a high frequency is undesirable or impossible. In these cases, this strategy can be helpful as there&rsquo;s a natural delay between selecting a release candidate and a push to production. The dedicated release branch allows developers to fix issues with the release candidate while continuing development of the baseline on <em>develop</em>.</p>
+<h3 id=github-flow>Github flow</h3>
+<p><em>Github flow</em>, designed by Github, is meant to provide many of the benefits seen in <em>Gitflow</em> while massively reducing complexity. Their <a href=https://docs.github.com/en/get-started/quickstart/github-flow>documentation</a> is clear and concise and definitely worth a look.</p>
+<p><img src=https://github.com/JamesCacioppo/jimFlow/raw/master/jimFlow.png alt></p>
+<p>In <em>Github flow</em>, there is only one long lived branch and it&rsquo;s the <em>main</em> branch. All working branches come from <em>main</em> and merge back into <em>main</em>. This includes branches for features, ops updates, bug and hot fixes, etc. When a commit on master is chosen for release a version tag is applied to it.</p>
+<p>This strategy is very flexible. Testing can be done at any point. In fact, we&rsquo;ve found that it&rsquo;s effective to perform builds, deployments, and testing when a PR is created and on each subsequent commit which changes a PR. Then, we perform the same and more testing when merged back into <em>main</em>, build and push artifacts, and deploy into UAT environments.</p>
+<h3 id=trunk>Trunk</h3>
+<p>One of the main issues with many common strategies is the rate of integration. Continuous Integration (CI) means integrating, or merging, code back into the mainline as frequently as possible. In <em>Gitflow</em>, <em>Github flow</em>, and other similar strategies, developers commonly keep feature branches open for days if not entire sprints. What often results is sometimes called &ldquo;integration hell&rdquo; or &ldquo;merge hell&rdquo; as developers attempt to merge their code, which has become further and further out of date from the mainline as time has passed.</p>
+<p>Enter <a href=https://trunkbaseddevelopment.com/>Trunk Based</a> workflows.</p>
+<p><img src=https://trunkbaseddevelopment.com/trunk1c.png alt></p>
+<p>The idea is that code is integrated into the mainline as often as every commit and at least once every 24 hours. Small two dev teams who are paired programming may commit directly to <em>master</em> while larger &ldquo;at scale&rdquo; teams will need to use feature branches. The key difference here is that feature branches should be very short lived and should be integrated at least once every 24 hours.</p>
+<p>In order for this to work, thorough testing must be conducted before merging using various methods such as pre-commit hooks and the baseline should be kept in good working condition. If a bug is found in the baseline fixing it should be the priority.</p>
+<p>A great resource is the site at <a href=https://continuousdelivery.com>ContinuousDelivery.com</a>. The page on <a href=https://continuousdelivery.com/foundations/continuous-integration/>Continuous Integration</a> is especially relevant to this topic.</p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-72917d778cefb3b60488baee65f8afd6>3 - Git Configuration</h1>
+<div class=lead>How to configure git.</div>
+<h2 id=configuration>Configuration</h2>
+<h3 id=git-configuration-location>Git configuration location</h3>
+<p>There are three places where configuration is stored:</p>
+<ol>
+<li><strong>System</strong>: <code>[path]/etc/gitconfig</code></li>
+<li><strong>Global</strong>: <code>~/.gitconfig</code> or <code>/.config/git/config</code></li>
+<li><strong>Local</strong>: <code>[repo]/.git/config</code></li>
+</ol>
+<p>When using the <code>git config</code> command you can pass <code>--system</code>, <code>--global</code>, or <code>--local</code> to specify which configuration you&rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.</p>
+<p>To show all configurations and their source execute <code>git config --list --show-origin</code></p>
+<h3 id=how-to-use-git-config>How to use git-config</h3>
+<p>To see the man page, which is really good for this command, execute <code>man git-config</code>. The &ldquo;name&rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).</p>
+<p>There are several options <code>query/set/replace/unset</code>.<br>
+To create <code>git config alias.br 'branch -a'</code>
+To unset <code>git config --unset alias.br</code></p>
+<h3 id=required-configurations>Required configurations</h3>
+<p>In order to commit in a repo you&rsquo;ll need to ensure that two values are set at some configuration level:</p>
+<ul>
+<li><strong>Email</strong>: <code>git config --global user.name "[User Name]"</code></li>
+<li><strong>Username</strong>: <code>git config --global user.email "james.m.cacioppo@gmail.com"</code></li>
+</ul>
+<h3 id=aliases>Aliases</h3>
+<p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.</p>
+<p>To create an alias <code>git config --global alias.[alias name] [command]</code></p>
+<p>An example would be to set <code>git br</code> to <code>git branch -a</code></p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global alias.br <span style=color:#4e9a06>&#39;branch -a&#39;</span>
+</code></pre></div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub>
+<a class=text-white target=_blank rel=noopener href=https://github.com/JamesCacioppo/JamesCacioppoDocsySource aria-label=GitHub>
+<i class="fab fa-github"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class=text-white>&copy; 2022 James Cacioppo All Rights Reserved</small>
+<small class=ml-1><a href=https://policies.google.com/privacy target=_blank rel=noopener>Privacy Policy</a></small>
+<p class=mt-2><a href=/about/>About James</a></p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
+<script src=/js/tabpane-persist.js></script>
+<script src=/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX+Tl8gad2fOgyZHxAmmuA=" crossorigin=anonymous></script>
+<script src=/js/prism.js></script>
+</body>
+</html>

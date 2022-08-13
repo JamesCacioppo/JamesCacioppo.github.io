@@ -1,0 +1,114 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Modern Engineer – Documentation</title><link>/docs/</link><description>Recent content in Documentation on Modern Engineer</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Git Commits</title><link>/docs/git/commits/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/commits/</guid><description>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="git-configuration-location">Git configuration location&lt;/h3>
+&lt;p>There are three places where configuration is stored:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>System&lt;/strong>: &lt;code>[path]/etc/gitconfig&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Global&lt;/strong>: &lt;code>~/.gitconfig&lt;/code> or &lt;code>/.config/git/config&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Local&lt;/strong>: &lt;code>[repo]/.git/config&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>When using the &lt;code>git config&lt;/code> command you can pass &lt;code>--system&lt;/code>, &lt;code>--global&lt;/code>, or &lt;code>--local&lt;/code> to specify which configuration you&amp;rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.&lt;/p>
+&lt;p>To show all configurations and their source execute &lt;code>git config --list --show-origin&lt;/code>&lt;/p>
+&lt;h3 id="how-to-use-git-config">How to use git-config&lt;/h3>
+&lt;p>To see the man page, which is really good for this command, execute &lt;code>man git-config&lt;/code>. The &amp;ldquo;name&amp;rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).&lt;/p>
+&lt;p>There are several options &lt;code>query/set/replace/unset&lt;/code>.&lt;br>
+To create &lt;code>git config alias.br 'branch -a'&lt;/code>
+To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
+&lt;h3 id="required-configurations">Required configurations&lt;/h3>
+&lt;p>In order to commit in a repo you&amp;rsquo;ll need to ensure that two values are set at some configuration level:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Email&lt;/strong>: &lt;code>git config --global user.name &amp;quot;[User Name]&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Username&lt;/strong>: &lt;code>git config --global user.email &amp;quot;james.m.cacioppo@gmail.com&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="aliases">Aliases&lt;/h3>
+&lt;p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.&lt;/p>
+&lt;p>To create an alias &lt;code>git config --global alias.[alias name] [command]&lt;/code>&lt;/p>
+&lt;p>An example would be to set &lt;code>git br&lt;/code> to &lt;code>git branch -a&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git config --global alias.br &lt;span style="color:#4e9a06">&amp;#39;branch -a&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Git Branching</title><link>/docs/git/branching/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/branching/</guid><description>
+&lt;p>The first thing to understand about Git is it&amp;rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&amp;rsquo;t stored in a central location. It&amp;rsquo;s stored on every developer&amp;rsquo;s computer. When it was first created this was how it was used. We now have a feature called a &lt;em>remote&lt;/em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.&lt;/p>
+&lt;h2 id="clone-a-repo">Clone a repo&lt;/h2>
+&lt;p>Cloning a repo is the act of downloading a copy of the repo to your local machine so you can work on it. The &lt;code>git clone&lt;/code> command will create a new sub directory within your present working directory and clone the repo to it. To clone a repo using the HTTPS protocol:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git clone https://github.com/JamesCacioppo/git-zero-to-hero-demo.git
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>To clone a repo using SSH:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="remotes">Remotes&lt;/h2>
+&lt;h2 id="branching">Branching&lt;/h2>
+&lt;p>When you first clone a repo you&amp;rsquo;ll be in the default branch. This was historically called &lt;em>master&lt;/em> and is now often named &lt;em>main&lt;/em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into &lt;em>main&lt;/em>.&lt;/p>
+&lt;h3 id="creating-branches">Creating Branches&lt;/h3>
+&lt;p>The formal way to create a branch is with the &lt;em>git-branch&lt;/em> command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git branch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branch name&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, the previous command does not place you on that branch and you&amp;rsquo;d still need to use the &lt;em>git-checkout&lt;/em> command to switch branches. To create a branch and switch to it in one command use &lt;em>git-checkout&lt;/em>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git checkout -b &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branchname&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git push --set-upstream origin &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branchname&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="useful-branching-commands">Useful Branching Commands&lt;/h3>
+&lt;p>To list local branches &lt;code>git branch&lt;/code>
+To list branches locally and remotely &lt;code>git branch -a&lt;/code>
+To rename the current branch &lt;code>git branch -m [branch name]&lt;/code>
+To checkout a branch use &lt;code>git checkout [branch name]&lt;/code>&lt;/p>
+&lt;h3 id="deleting-branches">Deleting Branches&lt;/h3>
+&lt;p>When it comes time to delete a branch there are a few things to note.&lt;/p>
+&lt;ul>
+&lt;li>Deleting a branch locally is different from deleting a branch on the remote.&lt;/li>
+&lt;li>There are two ways to remove a branch locally listed below.
+&lt;ul>
+&lt;li>The &amp;ldquo;safe&amp;rdquo; way will only remove the branch if its changes have been merged into &lt;em>main&lt;/em> while the &amp;ldquo;forcefull&amp;rdquo; method will remove the branch regardless of its status.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>You cannot remove a branch if you have it checked out.&lt;/li>
+&lt;li>When you delete a remote branch your local repo does not know and will need to be updated. To do this you must remove the branch refs.&lt;/li>
+&lt;/ul>
+&lt;p>To safely remove a local branch use &lt;code>git branch -d [branch name]&lt;/code>
+To forcefully remove a local branch use &lt;code>git branch -D [branch name]&lt;/code>
+To remove a remote branch use &lt;code>git push origin --delete [branch name]&lt;/code>
+To remove deleted branch refs use &lt;code>git remote prune origin&lt;/code>&lt;/p>
+&lt;h2 id="branching-strategies">Branching Strategies&lt;/h2>
+&lt;p>When a team is using Git, some sort of workflow or branching strategy is required for the team to develop effectively. Junior developers need an understanding of various common strategies so they can onboard quickly to various teams and projects. Intermediate and senior developers will need a more in-depth understanding of the common strategies, their variants, benefits and drawbacks of each, and when to choose one strategy over another. What follows is just a brief introduction into a few common strategies.&lt;/p>
+&lt;h3 id="gitflow">Gitflow&lt;/h3>
+&lt;p>In 2010, Vincent Driessen documented &lt;a href="https://nvie.com/posts/a-successful-git-branching-model/">Gitflow&lt;/a>. In a vacuum of well documented and capable strategies, &lt;em>Gitflow&lt;/em> became almost ubiquitous in development teams and is still almost required knowledge. While this strategy works well under certain conditions, &lt;em>Gitflow&lt;/em> has many drawbacks. In fact, Vincent even updated his post in 2020 explaining that it shouldn&amp;rsquo;t necessarily be the default or go-to for all dev teams. We&amp;rsquo;ll discuss some of the pro&amp;rsquo;s and con&amp;rsquo;s of &lt;em>Gitflow&lt;/em>, but first, let&amp;rsquo;s take a look at how it works.&lt;/p>
+&lt;p>&lt;img src="https://nvie.com/img/git-model@2x.png" alt="">&lt;/p>
+&lt;p>Two branches live forever. They are &lt;em>develop&lt;/em> and &lt;em>master&lt;/em>. The &lt;em>develop&lt;/em> branch is the branch from which almost all work is done. Developers will create feature branches from &lt;em>develop&lt;/em> and merge their work back in.&lt;/p>
+&lt;p>Developers will also create &lt;em>release&lt;/em> branches from &lt;em>develop&lt;/em>. The purpose of creating these is to start preparing code for release or production deployment. Once this prep work is complete, &lt;em>release&lt;/em> branches will be merged into &lt;em>master&lt;/em>.&lt;/p>
+&lt;p>Bug and &lt;em>hotfix&lt;/em> branches will be created from &lt;em>master&lt;/em> and when complete they will be merged back into &lt;em>master&lt;/em> as well as &lt;em>develop&lt;/em>.&lt;/p>
+&lt;p>As you can see, this is a complex strategy which can result in some interesting merge conflicts. It also does not facilitate CI/CD.&lt;/p>
+&lt;p>There are circumstances, however, where releasing and deploying at a high frequency is undesirable or impossible. In these cases, this strategy can be helpful as there&amp;rsquo;s a natural delay between selecting a release candidate and a push to production. The dedicated release branch allows developers to fix issues with the release candidate while continuing development of the baseline on &lt;em>develop&lt;/em>.&lt;/p>
+&lt;h3 id="github-flow">Github flow&lt;/h3>
+&lt;p>&lt;em>Github flow&lt;/em>, designed by Github, is meant to provide many of the benefits seen in &lt;em>Gitflow&lt;/em> while massively reducing complexity. Their &lt;a href="https://docs.github.com/en/get-started/quickstart/github-flow">documentation&lt;/a> is clear and concise and definitely worth a look.&lt;/p>
+&lt;p>&lt;img src="https://github.com/JamesCacioppo/jimFlow/raw/master/jimFlow.png" alt="">&lt;/p>
+&lt;p>In &lt;em>Github flow&lt;/em>, there is only one long lived branch and it&amp;rsquo;s the &lt;em>main&lt;/em> branch. All working branches come from &lt;em>main&lt;/em> and merge back into &lt;em>main&lt;/em>. This includes branches for features, ops updates, bug and hot fixes, etc. When a commit on master is chosen for release a version tag is applied to it.&lt;/p>
+&lt;p>This strategy is very flexible. Testing can be done at any point. In fact, we&amp;rsquo;ve found that it&amp;rsquo;s effective to perform builds, deployments, and testing when a PR is created and on each subsequent commit which changes a PR. Then, we perform the same and more testing when merged back into &lt;em>main&lt;/em>, build and push artifacts, and deploy into UAT environments.&lt;/p>
+&lt;h3 id="trunk">Trunk&lt;/h3>
+&lt;p>One of the main issues with many common strategies is the rate of integration. Continuous Integration (CI) means integrating, or merging, code back into the mainline as frequently as possible. In &lt;em>Gitflow&lt;/em>, &lt;em>Github flow&lt;/em>, and other similar strategies, developers commonly keep feature branches open for days if not entire sprints. What often results is sometimes called &amp;ldquo;integration hell&amp;rdquo; or &amp;ldquo;merge hell&amp;rdquo; as developers attempt to merge their code, which has become further and further out of date from the mainline as time has passed.&lt;/p>
+&lt;p>Enter &lt;a href="https://trunkbaseddevelopment.com/">Trunk Based&lt;/a> workflows.&lt;/p>
+&lt;p>&lt;img src="https://trunkbaseddevelopment.com/trunk1c.png" alt="">&lt;/p>
+&lt;p>The idea is that code is integrated into the mainline as often as every commit and at least once every 24 hours. Small two dev teams who are paired programming may commit directly to &lt;em>master&lt;/em> while larger &amp;ldquo;at scale&amp;rdquo; teams will need to use feature branches. The key difference here is that feature branches should be very short lived and should be integrated at least once every 24 hours.&lt;/p>
+&lt;p>In order for this to work, thorough testing must be conducted before merging using various methods such as pre-commit hooks and the baseline should be kept in good working condition. If a bug is found in the baseline fixing it should be the priority.&lt;/p>
+&lt;p>A great resource is the site at &lt;a href="https://continuousdelivery.com">ContinuousDelivery.com&lt;/a>. The page on &lt;a href="https://continuousdelivery.com/foundations/continuous-integration/">Continuous Integration&lt;/a> is especially relevant to this topic.&lt;/p></description></item><item><title>Docs: Git Configuration</title><link>/docs/git/configuration/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/configuration/</guid><description>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="git-configuration-location">Git configuration location&lt;/h3>
+&lt;p>There are three places where configuration is stored:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>System&lt;/strong>: &lt;code>[path]/etc/gitconfig&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Global&lt;/strong>: &lt;code>~/.gitconfig&lt;/code> or &lt;code>/.config/git/config&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Local&lt;/strong>: &lt;code>[repo]/.git/config&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>When using the &lt;code>git config&lt;/code> command you can pass &lt;code>--system&lt;/code>, &lt;code>--global&lt;/code>, or &lt;code>--local&lt;/code> to specify which configuration you&amp;rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.&lt;/p>
+&lt;p>To show all configurations and their source execute &lt;code>git config --list --show-origin&lt;/code>&lt;/p>
+&lt;h3 id="how-to-use-git-config">How to use git-config&lt;/h3>
+&lt;p>To see the man page, which is really good for this command, execute &lt;code>man git-config&lt;/code>. The &amp;ldquo;name&amp;rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).&lt;/p>
+&lt;p>There are several options &lt;code>query/set/replace/unset&lt;/code>.&lt;br>
+To create &lt;code>git config alias.br 'branch -a'&lt;/code>
+To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
+&lt;h3 id="required-configurations">Required configurations&lt;/h3>
+&lt;p>In order to commit in a repo you&amp;rsquo;ll need to ensure that two values are set at some configuration level:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Email&lt;/strong>: &lt;code>git config --global user.name &amp;quot;[User Name]&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Username&lt;/strong>: &lt;code>git config --global user.email &amp;quot;james.m.cacioppo@gmail.com&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="aliases">Aliases&lt;/h3>
+&lt;p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.&lt;/p>
+&lt;p>To create an alias &lt;code>git config --global alias.[alias name] [command]&lt;/code>&lt;/p>
+&lt;p>An example would be to set &lt;code>git br&lt;/code> to &lt;code>git branch -a&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git config --global alias.br &lt;span style="color:#4e9a06">&amp;#39;branch -a&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

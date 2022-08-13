@@ -1,0 +1,282 @@
+<!doctype html><html lang=en class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.91.2">
+<meta name=robots content="index, follow">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>Git Branching | Modern Engineer</title>
+<meta name=description content="Branching concepts and commands.
+">
+<meta property="og:title" content="Git Branching">
+<meta property="og:description" content="Branching concepts and commands.
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/docs/git/branching/"><meta property="article:section" content="docs">
+<meta property="article:published_time" content="2022-04-25T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-08-12T22:24:42-04:00"><meta property="og:site_name" content="Modern Engineer">
+<meta itemprop=name content="Git Branching">
+<meta itemprop=description content="Branching concepts and commands.
+"><meta itemprop=datePublished content="2022-04-25T00:00:00+00:00">
+<meta itemprop=dateModified content="2022-08-12T22:24:42-04:00">
+<meta itemprop=wordCount content="1198">
+<meta itemprop=keywords content="git,branching,docs,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Git Branching">
+<meta name=twitter:description content="Branching concepts and commands.
+">
+<link rel=preload href=/scss/main.min.cd6c2bbb05cdf98237b53882fed8c7a8b3fd7a7f7963d7cb305dd0d984782137.css as=style>
+<link href=/scss/main.min.cd6c2bbb05cdf98237b53882fed8c7a8b3fd7a7f7963d7cb305dd0d984782137.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
+<link rel=stylesheet href=/css/prism.css>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-00000000-0','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body class=td-page>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<span class=navbar-logo></span><span class=font-weight-bold>Modern Engineer</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/about/><span>About</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/docs/><span class=active>Documentation</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/blog/><span>Blog</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/community/><span>Community</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off>
+</div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id=td-sidebar-menu class=td-sidebar__inner>
+<form class="td-sidebar__search d-flex align-items-center">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
+</button>
+</form>
+<nav class="collapse td-sidebar-nav" id=td-section-nav>
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
+<a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Documentation</span></a>
+<ul class=ul-1>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsgit-li>
+<a href=/docs/git/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgit><span>Git</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitcommits-li>
+<a href=/docs/git/commits/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitcommits><span>Git Commits</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsgitbranching-li>
+<a href=/docs/git/branching/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsgitbranching><span class=td-sidebar-nav-active-item>Git Branching</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitconfiguration-li>
+<a href=/docs/git/configuration/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitconfiguration><span>Git Configuration</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsmarkdown-li>
+<a href=/docs/markdown/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsmarkdown><span>Markdown</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href=https://github.com/JamesCacioppo/JamesCacioppoDocsySource/tree/main/content/en/docs/Git/branching.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+<a href=https://github.com/JamesCacioppo/JamesCacioppoDocsySource/edit/main/content/en/docs/Git/branching.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/JamesCacioppo/JamesCacioppoDocsySource/new/main/content/en/docs/Git/branching.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/JamesCacioppo/JamesCacioppoDocsySource/issues/new?title=Git%20Branching" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href=https://github.com/JamesCacioppo/JamesCacioppoDocsySource/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+<a id=print href=/docs/git/_print/><i class="fa fa-print fa-fw"></i> Print entire section</a>
+</div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li><a href=#clone-a-repo>Clone a repo</a></li>
+<li><a href=#remotes>Remotes</a></li>
+<li><a href=#branching>Branching</a>
+<ul>
+<li><a href=#creating-branches>Creating Branches</a></li>
+<li><a href=#useful-branching-commands>Useful Branching Commands</a></li>
+<li><a href=#deleting-branches>Deleting Branches</a></li>
+</ul>
+</li>
+<li><a href=#branching-strategies>Branching Strategies</a>
+<ul>
+<li><a href=#gitflow>Gitflow</a></li>
+<li><a href=#github-flow>Github flow</a></li>
+<li><a href=#trunk>Trunk</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+<div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tag Cloud</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=/tags/branching/ data-taxonomy-term=branching><span class=taxonomy-label>branching</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span><span class=taxonomy-count>5</span></a></li>
+<li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span><span class=taxonomy-count>4</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-commit/ data-taxonomy-term=git-commit><span class=taxonomy-label>git-commit</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-config/ data-taxonomy-term=git-config><span class=taxonomy-label>git-config</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/markdown/ data-taxonomy-term=markdown><span class=taxonomy-label>markdown</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/sample/ data-taxonomy-term=sample><span class=taxonomy-label>sample</span><span class=taxonomy-count>1</span></a></li>
+</ul>
+</div>
+<div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=/categories/examples/ data-taxonomy-term=examples><span class=taxonomy-label>Examples</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/categories/git/ data-taxonomy-term=git><span class=taxonomy-label>Git</span><span class=taxonomy-count>4</span></a></li>
+<li><a class=taxonomy-term href=/categories/markdown/ data-taxonomy-term=markdown><span class=taxonomy-label>Markdown</span><span class=taxonomy-count>1</span></a></li>
+</ul>
+</div>
+</aside>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<nav aria-label=breadcrumb class=td-breadcrumbs>
+<ol class=breadcrumb>
+<li class=breadcrumb-item>
+<a href=/docs/>Documentation</a>
+</li>
+<li class=breadcrumb-item>
+<a href=/docs/git/>Git</a>
+</li>
+<li class="breadcrumb-item active" aria-current=page>
+<a href=/docs/git/branching/>Git Branching</a>
+</li>
+</ol>
+</nav>
+<div class=td-content>
+<h1>Git Branching</h1>
+<div class=lead>Branching concepts and commands.</div>
+<header class=article-meta>
+<div class="taxonomy taxonomy-terms-article taxo-tags">
+<h5 class=taxonomy-title>Tags:</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span></a></li>
+<li><a class=taxonomy-term href=/tags/branching/ data-taxonomy-term=branching><span class=taxonomy-label>branching</span></a></li>
+<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span></a></li>
+</ul>
+</div>
+<div class="taxonomy taxonomy-terms-article taxo-categories">
+<h5 class=taxonomy-title>Categories:</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=/categories/git/ data-taxonomy-term=git><span class=taxonomy-label>Git</span></a></li>
+</ul>
+</div>
+</header>
+<p>The first thing to understand about Git is it&rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&rsquo;t stored in a central location. It&rsquo;s stored on every developer&rsquo;s computer. When it was first created this was how it was used. We now have a feature called a <em>remote</em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.</p>
+<h2 id=clone-a-repo>Clone a repo</h2>
+<p>Cloning a repo is the act of downloading a copy of the repo to your local machine so you can work on it. The <code>git clone</code> command will create a new sub directory within your present working directory and clone the repo to it. To clone a repo using the HTTPS protocol:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone https://github.com/JamesCacioppo/git-zero-to-hero-demo.git
+</code></pre></div><p>To clone a repo using SSH:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
+</code></pre></div><h2 id=remotes>Remotes</h2>
+<h2 id=branching>Branching</h2>
+<p>When you first clone a repo you&rsquo;ll be in the default branch. This was historically called <em>master</em> and is now often named <em>main</em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into <em>main</em>.</p>
+<h3 id=creating-branches>Creating Branches</h3>
+<p>The formal way to create a branch is with the <em>git-branch</em> command:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch <span style=color:#ce5c00;font-weight:700>[</span>branch name<span style=color:#ce5c00;font-weight:700>]</span>
+</code></pre></div><p>However, the previous command does not place you on that branch and you&rsquo;d still need to use the <em>git-checkout</em> command to switch branches. To create a branch and switch to it in one command use <em>git-checkout</em>:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout -b <span style=color:#ce5c00;font-weight:700>[</span>branchname<span style=color:#ce5c00;font-weight:700>]</span>
+</code></pre></div><p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git push --set-upstream origin <span style=color:#ce5c00;font-weight:700>[</span>branchname<span style=color:#ce5c00;font-weight:700>]</span>
+</code></pre></div><h3 id=useful-branching-commands>Useful Branching Commands</h3>
+<p>To list local branches <code>git branch</code>
+To list branches locally and remotely <code>git branch -a</code>
+To rename the current branch <code>git branch -m [branch name]</code>
+To checkout a branch use <code>git checkout [branch name]</code></p>
+<h3 id=deleting-branches>Deleting Branches</h3>
+<p>When it comes time to delete a branch there are a few things to note.</p>
+<ul>
+<li>Deleting a branch locally is different from deleting a branch on the remote.</li>
+<li>There are two ways to remove a branch locally listed below.
+<ul>
+<li>The &ldquo;safe&rdquo; way will only remove the branch if its changes have been merged into <em>main</em> while the &ldquo;forcefull&rdquo; method will remove the branch regardless of its status.</li>
+</ul>
+</li>
+<li>You cannot remove a branch if you have it checked out.</li>
+<li>When you delete a remote branch your local repo does not know and will need to be updated. To do this you must remove the branch refs.</li>
+</ul>
+<p>To safely remove a local branch use <code>git branch -d [branch name]</code>
+To forcefully remove a local branch use <code>git branch -D [branch name]</code>
+To remove a remote branch use <code>git push origin --delete [branch name]</code>
+To remove deleted branch refs use <code>git remote prune origin</code></p>
+<h2 id=branching-strategies>Branching Strategies</h2>
+<p>When a team is using Git, some sort of workflow or branching strategy is required for the team to develop effectively. Junior developers need an understanding of various common strategies so they can onboard quickly to various teams and projects. Intermediate and senior developers will need a more in-depth understanding of the common strategies, their variants, benefits and drawbacks of each, and when to choose one strategy over another. What follows is just a brief introduction into a few common strategies.</p>
+<h3 id=gitflow>Gitflow</h3>
+<p>In 2010, Vincent Driessen documented <a href=https://nvie.com/posts/a-successful-git-branching-model/>Gitflow</a>. In a vacuum of well documented and capable strategies, <em>Gitflow</em> became almost ubiquitous in development teams and is still almost required knowledge. While this strategy works well under certain conditions, <em>Gitflow</em> has many drawbacks. In fact, Vincent even updated his post in 2020 explaining that it shouldn&rsquo;t necessarily be the default or go-to for all dev teams. We&rsquo;ll discuss some of the pro&rsquo;s and con&rsquo;s of <em>Gitflow</em>, but first, let&rsquo;s take a look at how it works.</p>
+<p><img src=https://nvie.com/img/git-model@2x.png alt></p>
+<p>Two branches live forever. They are <em>develop</em> and <em>master</em>. The <em>develop</em> branch is the branch from which almost all work is done. Developers will create feature branches from <em>develop</em> and merge their work back in.</p>
+<p>Developers will also create <em>release</em> branches from <em>develop</em>. The purpose of creating these is to start preparing code for release or production deployment. Once this prep work is complete, <em>release</em> branches will be merged into <em>master</em>.</p>
+<p>Bug and <em>hotfix</em> branches will be created from <em>master</em> and when complete they will be merged back into <em>master</em> as well as <em>develop</em>.</p>
+<p>As you can see, this is a complex strategy which can result in some interesting merge conflicts. It also does not facilitate CI/CD.</p>
+<p>There are circumstances, however, where releasing and deploying at a high frequency is undesirable or impossible. In these cases, this strategy can be helpful as there&rsquo;s a natural delay between selecting a release candidate and a push to production. The dedicated release branch allows developers to fix issues with the release candidate while continuing development of the baseline on <em>develop</em>.</p>
+<h3 id=github-flow>Github flow</h3>
+<p><em>Github flow</em>, designed by Github, is meant to provide many of the benefits seen in <em>Gitflow</em> while massively reducing complexity. Their <a href=https://docs.github.com/en/get-started/quickstart/github-flow>documentation</a> is clear and concise and definitely worth a look.</p>
+<p><img src=https://github.com/JamesCacioppo/jimFlow/raw/master/jimFlow.png alt></p>
+<p>In <em>Github flow</em>, there is only one long lived branch and it&rsquo;s the <em>main</em> branch. All working branches come from <em>main</em> and merge back into <em>main</em>. This includes branches for features, ops updates, bug and hot fixes, etc. When a commit on master is chosen for release a version tag is applied to it.</p>
+<p>This strategy is very flexible. Testing can be done at any point. In fact, we&rsquo;ve found that it&rsquo;s effective to perform builds, deployments, and testing when a PR is created and on each subsequent commit which changes a PR. Then, we perform the same and more testing when merged back into <em>main</em>, build and push artifacts, and deploy into UAT environments.</p>
+<h3 id=trunk>Trunk</h3>
+<p>One of the main issues with many common strategies is the rate of integration. Continuous Integration (CI) means integrating, or merging, code back into the mainline as frequently as possible. In <em>Gitflow</em>, <em>Github flow</em>, and other similar strategies, developers commonly keep feature branches open for days if not entire sprints. What often results is sometimes called &ldquo;integration hell&rdquo; or &ldquo;merge hell&rdquo; as developers attempt to merge their code, which has become further and further out of date from the mainline as time has passed.</p>
+<p>Enter <a href=https://trunkbaseddevelopment.com/>Trunk Based</a> workflows.</p>
+<p><img src=https://trunkbaseddevelopment.com/trunk1c.png alt></p>
+<p>The idea is that code is integrated into the mainline as often as every commit and at least once every 24 hours. Small two dev teams who are paired programming may commit directly to <em>master</em> while larger &ldquo;at scale&rdquo; teams will need to use feature branches. The key difference here is that feature branches should be very short lived and should be integrated at least once every 24 hours.</p>
+<p>In order for this to work, thorough testing must be conducted before merging using various methods such as pre-commit hooks and the baseline should be kept in good working condition. If a bug is found in the baseline fixing it should be the priority.</p>
+<p>A great resource is the site at <a href=https://continuousdelivery.com>ContinuousDelivery.com</a>. The page on <a href=https://continuousdelivery.com/foundations/continuous-integration/>Continuous Integration</a> is especially relevant to this topic.</p>
+<div class="text-muted mt-5 pt-3 border-top">
+Last modified August 12, 2022: <a href=https://github.com/JamesCacioppo/JamesCacioppoDocsySource/commit/296edb0a933f51c529b6295cff095dcdb672e0b3>Initial scaffolding (296edb0)</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub>
+<a class=text-white target=_blank rel=noopener href=https://github.com/JamesCacioppo/JamesCacioppoDocsySource aria-label=GitHub>
+<i class="fab fa-github"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class=text-white>&copy; 2022 James Cacioppo All Rights Reserved</small>
+<small class=ml-1><a href=https://policies.google.com/privacy target=_blank rel=noopener>Privacy Policy</a></small>
+<p class=mt-2><a href=/about/>About James</a></p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
+<script src=/js/tabpane-persist.js></script>
+<script src=/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX+Tl8gad2fOgyZHxAmmuA=" crossorigin=anonymous></script>
+<script src=/js/prism.js></script>
+</body>
+</html>
