@@ -30,23 +30,25 @@ When you first clone a repo you'll be in the default branch.  This was historica
 
 ### Creating Branches
 The formal way to create a branch is with the _git-branch_ command:
-```bash
-$ git branch [branch name]
-```
+
+<pre>git branch <var>BRANCH-NAME</var></pre>
+
 However, the previous command does not place you on that branch and you'd still need to use the _git-checkout_ command to switch branches.  To create a branch and switch to it in one command use _git-checkout_:
-```bash
-$ git checkout -b [branchname]
-```
+
+<pre>git checkout -b <var>BRANCH-NAME</var></pre>
 
 At this point your local repo is tracking the new branch but the remote is not.  To update the remote:
-```bash
-$ git push --set-upstream origin [branchname]
-```
+
+<pre>git push --set-upstream origin <var>BRANCH-NAME</var></pre>
+
 ### Useful Branching Commands
-To list local branches `git branch`
-To list branches locally and remotely `git branch -a`
-To rename the current branch `git branch -m [branch name]`
-To checkout a branch use `git checkout [branch name]`
+To list local branches: <code>git branch</code>
+
+To list branches locally and remotely: <code>git branch -a</code>
+
+To rename the current branch: <code>git branch -m <var>BRANCH-NAME</var></code>
+
+To checkout a branch use: <code>git checkout <var>BRANCH-NAME</var></code> 
 
 ### Deleting Branches
 When it comes time to delete a branch there are a few things to note.
@@ -56,10 +58,13 @@ When it comes time to delete a branch there are a few things to note.
 * You cannot remove a branch if you have it checked out.
 * When you delete a remote branch your local repo does not know and will need to be updated.  To do this you must remove the branch refs.
 
-To safely remove a local branch use `git branch -d [branch name]`
-To forcefully remove a local branch use `git branch -D [branch name]`
-To remove a remote branch use `git push origin --delete [branch name]`
-To remove deleted branch refs use `git remote prune origin`
+To safely remove a local branch use <code>git branch -d <var>BRANCH-NAME</var></code>
+
+To forcefully remove a local branch use <code>git branch -D <var>BRANCH-NAME</var></code>
+
+To remove a remote branch use <code>git push origin --delete <var>BRANCH-NAME</var></code>
+
+To remove deleted branch refs use <code>git remote prune origin</code>
 
 ## Branching Strategies
 When a team is using Git, some sort of workflow or branching strategy is required for the team to develop effectively.  Junior developers need an understanding of various common strategies so they can onboard quickly to various teams and projects.  Intermediate and senior developers will need a more in-depth understanding of the common strategies, their variants, benefits and drawbacks of each, and when to choose one strategy over another.  What follows is just a brief introduction into a few common strategies.
