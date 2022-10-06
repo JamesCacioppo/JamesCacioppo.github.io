@@ -10,16 +10,16 @@
 &lt;p>When you first clone a repo you&amp;rsquo;ll be in the default branch. This was historically called &lt;em>master&lt;/em> and is now often named &lt;em>main&lt;/em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into &lt;em>main&lt;/em>.&lt;/p>
 &lt;h3 id="creating-branches">Creating Branches&lt;/h3>
 &lt;p>The formal way to create a branch is with the &lt;em>git-branch&lt;/em> command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git branch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branch name&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, the previous command does not place you on that branch and you&amp;rsquo;d still need to use the &lt;em>git-checkout&lt;/em> command to switch branches. To create a branch and switch to it in one command use &lt;em>git-checkout&lt;/em>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git checkout -b &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branchname&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git push --set-upstream origin &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branchname&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="useful-branching-commands">Useful Branching Commands&lt;/h3>
-&lt;p>To list local branches &lt;code>git branch&lt;/code>
-To list branches locally and remotely &lt;code>git branch -a&lt;/code>
-To rename the current branch &lt;code>git branch -m [branch name]&lt;/code>
-To checkout a branch use &lt;code>git checkout [branch name]&lt;/code>&lt;/p>
+&lt;pre>git branch &lt;var>BRANCH-NAME&lt;/var>&lt;/pre>
+&lt;p>However, the previous command does not place you on that branch and you&amp;rsquo;d still need to use the &lt;em>git-checkout&lt;/em> command to switch branches. To create a branch and switch to it in one command use &lt;em>git-checkout&lt;/em>:&lt;/p>
+&lt;pre>git checkout -b &lt;var>BRANCH-NAME&lt;/var>&lt;/pre>
+&lt;p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:&lt;/p>
+&lt;pre>git push --set-upstream origin &lt;var>BRANCH-NAME&lt;/var>&lt;/pre>
+&lt;h3 id="useful-branching-commands">Useful Branching Commands&lt;/h3>
+&lt;p>To list local branches: &lt;code>git branch&lt;/code>&lt;/p>
+&lt;p>To list branches locally and remotely: &lt;code>git branch -a&lt;/code>&lt;/p>
+&lt;p>To rename the current branch: &lt;code>git branch -m &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To checkout a branch use: &lt;code>git checkout &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
 &lt;h3 id="deleting-branches">Deleting Branches&lt;/h3>
 &lt;p>When it comes time to delete a branch there are a few things to note.&lt;/p>
 &lt;ul>
@@ -32,10 +32,10 @@ To checkout a branch use &lt;code>git checkout [branch name]&lt;/code>&lt;/p>
 &lt;li>You cannot remove a branch if you have it checked out.&lt;/li>
 &lt;li>When you delete a remote branch your local repo does not know and will need to be updated. To do this you must remove the branch refs.&lt;/li>
 &lt;/ul>
-&lt;p>To safely remove a local branch use &lt;code>git branch -d [branch name]&lt;/code>
-To forcefully remove a local branch use &lt;code>git branch -D [branch name]&lt;/code>
-To remove a remote branch use &lt;code>git push origin --delete [branch name]&lt;/code>
-To remove deleted branch refs use &lt;code>git remote prune origin&lt;/code>&lt;/p>
+&lt;p>To safely remove a local branch use &lt;code>git branch -d &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To forcefully remove a local branch use &lt;code>git branch -D &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To remove a remote branch use &lt;code>git push origin &amp;ndash;delete &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To remove deleted branch refs use &lt;code>git remote prune origin&lt;/code>&lt;/p>
 &lt;h2 id="branching-strategies">Branching Strategies&lt;/h2>
 &lt;p>When a team is using Git, some sort of workflow or branching strategy is required for the team to develop effectively. Junior developers need an understanding of various common strategies so they can onboard quickly to various teams and projects. Intermediate and senior developers will need a more in-depth understanding of the common strategies, their variants, benefits and drawbacks of each, and when to choose one strategy over another. What follows is just a brief introduction into a few common strategies.&lt;/p>
 &lt;h3 id="gitflow">Gitflow&lt;/h3>

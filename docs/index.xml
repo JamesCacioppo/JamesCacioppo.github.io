@@ -1,28 +1,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Modern Engineer – Documentation</title><link>/docs/</link><description>Recent content in Documentation on Modern Engineer</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Git Commits</title><link>/docs/git/commits/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/commits/</guid><description>
+&lt;h2 id="commits">Commits&lt;/h2></description></item><item><title>Docs: Git Configuration</title><link>/docs/git/configuration/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/configuration/</guid><description>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;h3 id="git-configuration-location">Git configuration location&lt;/h3>
 &lt;p>There are three places where configuration is stored:&lt;/p>
 &lt;ol>
-&lt;li>&lt;strong>System&lt;/strong>: &lt;code>[path]/etc/gitconfig&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Global&lt;/strong>: &lt;code>~/.gitconfig&lt;/code> or &lt;code>/.config/git/config&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Local&lt;/strong>: &lt;code>[repo]/.git/config&lt;/code>&lt;/li>
+&lt;li>System: &lt;code>&lt;var>path&lt;/var>/etc/gitconfig&lt;/code>&lt;/li>
+&lt;li>Global: &lt;code>~/.gitconfig&lt;/code> or &lt;code>/.config/git/config&lt;/code>&lt;/li>
+&lt;li>Local: &lt;code>&lt;var>repo&lt;/var>/.git/config&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;p>When using the &lt;code>git config&lt;/code> command you can pass &lt;code>--system&lt;/code>, &lt;code>--global&lt;/code>, or &lt;code>--local&lt;/code> to specify which configuration you&amp;rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.&lt;/p>
 &lt;p>To show all configurations and their source execute &lt;code>git config --list --show-origin&lt;/code>&lt;/p>
 &lt;h3 id="how-to-use-git-config">How to use git-config&lt;/h3>
 &lt;p>To see the man page, which is really good for this command, execute &lt;code>man git-config&lt;/code>. The &amp;ldquo;name&amp;rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).&lt;/p>
-&lt;p>There are several options &lt;code>query/set/replace/unset&lt;/code>.&lt;br>
-To create &lt;code>git config alias.br 'branch -a'&lt;/code>
-To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
+&lt;p>There are several options &lt;code>query/set/replace/unset&lt;/code>.&lt;/p>
+&lt;p>To create &lt;code>git config alias.br 'branch -a'&lt;/code>&lt;/p>
+&lt;p>To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
 &lt;h3 id="required-configurations">Required configurations&lt;/h3>
 &lt;p>In order to commit in a repo you&amp;rsquo;ll need to ensure that two values are set at some configuration level:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Email&lt;/strong>: &lt;code>git config --global user.name &amp;quot;[User Name]&amp;quot;&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Username&lt;/strong>: &lt;code>git config --global user.email &amp;quot;james.m.cacioppo@gmail.com&amp;quot;&lt;/code>&lt;/li>
+&lt;li>Email: &lt;code>git config &amp;ndash;global user.name &amp;ldquo;&lt;var>USER-NAME&lt;/var>&amp;quot;&lt;/code>&lt;/li>
+&lt;li>Username: &lt;code>git config &amp;ndash;global user.email &amp;ldquo;&lt;var>EMAIL&lt;/var>&amp;quot;&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="aliases">Aliases&lt;/h3>
 &lt;p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.&lt;/p>
-&lt;p>To create an alias &lt;code>git config --global alias.[alias name] [command]&lt;/code>&lt;/p>
+&lt;p>To create an alias &lt;code>git config &amp;ndash;global alias.&lt;var>ALIAS-NAME&lt;/var> &lt;var>COMMAND&lt;/var>&lt;/code>&lt;/p>
 &lt;p>An example would be to set &lt;code>git br&lt;/code> to &lt;code>git branch -a&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git config --global alias.br &lt;span style="color:#4e9a06">&amp;#39;branch -a&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Git Branching</title><link>/docs/git/branching/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/branching/</guid><description>
@@ -37,16 +38,16 @@ To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
 &lt;p>When you first clone a repo you&amp;rsquo;ll be in the default branch. This was historically called &lt;em>master&lt;/em> and is now often named &lt;em>main&lt;/em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into &lt;em>main&lt;/em>.&lt;/p>
 &lt;h3 id="creating-branches">Creating Branches&lt;/h3>
 &lt;p>The formal way to create a branch is with the &lt;em>git-branch&lt;/em> command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git branch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branch name&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, the previous command does not place you on that branch and you&amp;rsquo;d still need to use the &lt;em>git-checkout&lt;/em> command to switch branches. To create a branch and switch to it in one command use &lt;em>git-checkout&lt;/em>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git checkout -b &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branchname&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git push --set-upstream origin &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>branchname&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="useful-branching-commands">Useful Branching Commands&lt;/h3>
-&lt;p>To list local branches &lt;code>git branch&lt;/code>
-To list branches locally and remotely &lt;code>git branch -a&lt;/code>
-To rename the current branch &lt;code>git branch -m [branch name]&lt;/code>
-To checkout a branch use &lt;code>git checkout [branch name]&lt;/code>&lt;/p>
+&lt;pre>git branch &lt;var>BRANCH-NAME&lt;/var>&lt;/pre>
+&lt;p>However, the previous command does not place you on that branch and you&amp;rsquo;d still need to use the &lt;em>git-checkout&lt;/em> command to switch branches. To create a branch and switch to it in one command use &lt;em>git-checkout&lt;/em>:&lt;/p>
+&lt;pre>git checkout -b &lt;var>BRANCH-NAME&lt;/var>&lt;/pre>
+&lt;p>At this point your local repo is tracking the new branch but the remote is not. To update the remote:&lt;/p>
+&lt;pre>git push --set-upstream origin &lt;var>BRANCH-NAME&lt;/var>&lt;/pre>
+&lt;h3 id="useful-branching-commands">Useful Branching Commands&lt;/h3>
+&lt;p>To list local branches: &lt;code>git branch&lt;/code>&lt;/p>
+&lt;p>To list branches locally and remotely: &lt;code>git branch -a&lt;/code>&lt;/p>
+&lt;p>To rename the current branch: &lt;code>git branch -m &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To checkout a branch use: &lt;code>git checkout &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
 &lt;h3 id="deleting-branches">Deleting Branches&lt;/h3>
 &lt;p>When it comes time to delete a branch there are a few things to note.&lt;/p>
 &lt;ul>
@@ -59,10 +60,10 @@ To checkout a branch use &lt;code>git checkout [branch name]&lt;/code>&lt;/p>
 &lt;li>You cannot remove a branch if you have it checked out.&lt;/li>
 &lt;li>When you delete a remote branch your local repo does not know and will need to be updated. To do this you must remove the branch refs.&lt;/li>
 &lt;/ul>
-&lt;p>To safely remove a local branch use &lt;code>git branch -d [branch name]&lt;/code>
-To forcefully remove a local branch use &lt;code>git branch -D [branch name]&lt;/code>
-To remove a remote branch use &lt;code>git push origin --delete [branch name]&lt;/code>
-To remove deleted branch refs use &lt;code>git remote prune origin&lt;/code>&lt;/p>
+&lt;p>To safely remove a local branch use &lt;code>git branch -d &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To forcefully remove a local branch use &lt;code>git branch -D &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To remove a remote branch use &lt;code>git push origin &amp;ndash;delete &lt;var>BRANCH-NAME&lt;/var>&lt;/code>&lt;/p>
+&lt;p>To remove deleted branch refs use &lt;code>git remote prune origin&lt;/code>&lt;/p>
 &lt;h2 id="branching-strategies">Branching Strategies&lt;/h2>
 &lt;p>When a team is using Git, some sort of workflow or branching strategy is required for the team to develop effectively. Junior developers need an understanding of various common strategies so they can onboard quickly to various teams and projects. Intermediate and senior developers will need a more in-depth understanding of the common strategies, their variants, benefits and drawbacks of each, and when to choose one strategy over another. What follows is just a brief introduction into a few common strategies.&lt;/p>
 &lt;h3 id="gitflow">Gitflow&lt;/h3>
@@ -230,31 +231,4 @@ To remove deleted branch refs use &lt;code>git remote prune origin&lt;/code>&lt;
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;/etc/kubernetes&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">empty-dir&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">emptyDir&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Git Configuration</title><link>/docs/git/configuration/</link><pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate><guid>/docs/git/configuration/</guid><description>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;h3 id="git-configuration-location">Git configuration location&lt;/h3>
-&lt;p>There are three places where configuration is stored:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>System&lt;/strong>: &lt;code>[path]/etc/gitconfig&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Global&lt;/strong>: &lt;code>~/.gitconfig&lt;/code> or &lt;code>/.config/git/config&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Local&lt;/strong>: &lt;code>[repo]/.git/config&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;p>When using the &lt;code>git config&lt;/code> command you can pass &lt;code>--system&lt;/code>, &lt;code>--global&lt;/code>, or &lt;code>--local&lt;/code> to specify which configuration you&amp;rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.&lt;/p>
-&lt;p>To show all configurations and their source execute &lt;code>git config --list --show-origin&lt;/code>&lt;/p>
-&lt;h3 id="how-to-use-git-config">How to use git-config&lt;/h3>
-&lt;p>To see the man page, which is really good for this command, execute &lt;code>man git-config&lt;/code>. The &amp;ldquo;name&amp;rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).&lt;/p>
-&lt;p>There are several options &lt;code>query/set/replace/unset&lt;/code>.&lt;br>
-To create &lt;code>git config alias.br 'branch -a'&lt;/code>
-To unset &lt;code>git config --unset alias.br&lt;/code>&lt;/p>
-&lt;h3 id="required-configurations">Required configurations&lt;/h3>
-&lt;p>In order to commit in a repo you&amp;rsquo;ll need to ensure that two values are set at some configuration level:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Email&lt;/strong>: &lt;code>git config --global user.name &amp;quot;[User Name]&amp;quot;&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Username&lt;/strong>: &lt;code>git config --global user.email &amp;quot;james.m.cacioppo@gmail.com&amp;quot;&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h3 id="aliases">Aliases&lt;/h3>
-&lt;p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.&lt;/p>
-&lt;p>To create an alias &lt;code>git config --global alias.[alias name] [command]&lt;/code>&lt;/p>
-&lt;p>An example would be to set &lt;code>git br&lt;/code> to &lt;code>git branch -a&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git config --global alias.br &lt;span style="color:#4e9a06">&amp;#39;branch -a&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

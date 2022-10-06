@@ -15,23 +15,23 @@
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
 <title>Git Commits | Modern Engineer</title>
-<meta name=description content="How to configure git.
+<meta name=description content="How to commit.
 ">
 <meta property="og:title" content="Git Commits">
-<meta property="og:description" content="How to configure git.
+<meta property="og:description" content="How to commit.
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/git/commits/"><meta property="article:section" content="docs">
 <meta property="article:published_time" content="2022-04-25T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-08-12T22:24:42-04:00"><meta property="og:site_name" content="Modern Engineer">
+<meta property="article:modified_time" content="2022-10-06T16:45:30-04:00"><meta property="og:site_name" content="Modern Engineer">
 <meta itemprop=name content="Git Commits">
-<meta itemprop=description content="How to configure git.
+<meta itemprop=description content="How to commit.
 "><meta itemprop=datePublished content="2022-04-25T00:00:00+00:00">
-<meta itemprop=dateModified content="2022-08-12T22:24:42-04:00">
-<meta itemprop=wordCount content="245">
+<meta itemprop=dateModified content="2022-10-06T16:45:30-04:00">
+<meta itemprop=wordCount content="1">
 <meta itemprop=keywords content="git,git-commit,docs,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Git Commits">
-<meta name=twitter:description content="How to configure git.
+<meta name=twitter:description content="How to commit.
 ">
 <link rel=preload href=/scss/main.min.cd6c2bbb05cdf98237b53882fed8c7a8b3fd7a7f7963d7cb305dd0d984782137.css as=style>
 <link href=/scss/main.min.cd6c2bbb05cdf98237b53882fed8c7a8b3fd7a7f7963d7cb305dd0d984782137.css rel=stylesheet integrity>
@@ -60,7 +60,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.d2a4a63daeb312daeeecdb45ca7faea3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.fb2142abf83e8e52c2b398dcd634f96f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -70,7 +70,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.d2a4a63daeb312daeeecdb45ca7faea3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.fb2142abf83e8e52c2b398dcd634f96f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -84,10 +84,10 @@
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsgitcommits-li>
 <a href=/docs/git/commits/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsgitcommits><span class=td-sidebar-nav-active-item>Git Commits</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitbranching-li>
-<a href=/docs/git/branching/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitbranching><span>Git Branching</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitconfiguration-li>
 <a href=/docs/git/configuration/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitconfiguration><span>Git Configuration</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitbranching-li>
+<a href=/docs/git/branching/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitbranching><span>Git Branching</span></a>
 </li>
 </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docskube-bench-li>
@@ -110,26 +110,13 @@
 <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 <a id=print href=/docs/git/_print/><i class="fa fa-print fa-fw"></i> Print entire section</a>
 </div>
-<div class=td-toc><nav id=TableOfContents>
-<ul>
-<li><a href=#configuration>Configuration</a>
-<ul>
-<li><a href=#git-configuration-location>Git configuration location</a></li>
-<li><a href=#how-to-use-git-config>How to use git-config</a></li>
-<li><a href=#required-configurations>Required configurations</a></li>
-<li><a href=#aliases>Aliases</a></li>
-</ul>
-</li>
-</ul>
-</nav></div>
 <div class="taxonomy taxonomy-terms-cloud taxo-tags">
 <h5 class=taxonomy-title>Tag Cloud</h5>
 <ul class=taxonomy-terms>
 <li><a class=taxonomy-term href=/tags/branching/ data-taxonomy-term=branching><span class=taxonomy-label>branching</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span><span class=taxonomy-count>6</span></a></li>
 <li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span><span class=taxonomy-count>4</span></a></li>
-<li><a class=taxonomy-term href=/tags/git-commit/ data-taxonomy-term=git-commit><span class=taxonomy-label>git-commit</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/git-config/ data-taxonomy-term=git-config><span class=taxonomy-label>git-config</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-commit/ data-taxonomy-term=git-commit><span class=taxonomy-label>git-commit</span><span class=taxonomy-count>2</span></a></li>
 <li><a class=taxonomy-term href=/tags/k8s/ data-taxonomy-term=k8s><span class=taxonomy-label>k8s</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/kube-bench/ data-taxonomy-term=kube-bench><span class=taxonomy-label>kube-bench</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/kubernetes/ data-taxonomy-term=kubernetes><span class=taxonomy-label>kubernetes</span><span class=taxonomy-count>1</span></a></li>
@@ -165,7 +152,7 @@
 </nav>
 <div class=td-content>
 <h1>Git Commits</h1>
-<div class=lead>How to configure git.</div>
+<div class=lead>How to commit.</div>
 <header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
 <h5 class=taxonomy-title>Tags:</h5>
@@ -182,35 +169,9 @@
 </ul>
 </div>
 </header>
-<h2 id=configuration>Configuration</h2>
-<h3 id=git-configuration-location>Git configuration location</h3>
-<p>There are three places where configuration is stored:</p>
-<ol>
-<li><strong>System</strong>: <code>[path]/etc/gitconfig</code></li>
-<li><strong>Global</strong>: <code>~/.gitconfig</code> or <code>/.config/git/config</code></li>
-<li><strong>Local</strong>: <code>[repo]/.git/config</code></li>
-</ol>
-<p>When using the <code>git config</code> command you can pass <code>--system</code>, <code>--global</code>, or <code>--local</code> to specify which configuration you&rsquo;d like to modify. The list above is in order of precedence from lowest to highest. Values in the local config will override values in global and system. Values in global will override values in system.</p>
-<p>To show all configurations and their source execute <code>git config --list --show-origin</code></p>
-<h3 id=how-to-use-git-config>How to use git-config</h3>
-<p>To see the man page, which is really good for this command, execute <code>man git-config</code>. The &ldquo;name&rdquo; of the option to affect is the section and key separated by a period (e.g. alias.br).</p>
-<p>There are several options <code>query/set/replace/unset</code>.<br>
-To create <code>git config alias.br 'branch -a'</code>
-To unset <code>git config --unset alias.br</code></p>
-<h3 id=required-configurations>Required configurations</h3>
-<p>In order to commit in a repo you&rsquo;ll need to ensure that two values are set at some configuration level:</p>
-<ul>
-<li><strong>Email</strong>: <code>git config --global user.name "[User Name]"</code></li>
-<li><strong>Username</strong>: <code>git config --global user.email "james.m.cacioppo@gmail.com"</code></li>
-</ul>
-<h3 id=aliases>Aliases</h3>
-<p>A very useful configuration is an alias. It allows you to create a short alias for a long command. Another benefit is having an alias is like having notes you can look up when you forget a seldom used command.</p>
-<p>To create an alias <code>git config --global alias.[alias name] [command]</code></p>
-<p>An example would be to set <code>git br</code> to <code>git branch -a</code></p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global alias.br <span style=color:#4e9a06>&#39;branch -a&#39;</span>
-</code></pre></div>
+<h2 id=commits>Commits</h2>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified August 12, 2022: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/296edb0a933f51c529b6295cff095dcdb672e0b3>Initial scaffolding (296edb0)</a>
+Last modified October 6, 2022: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/ffcedddef7a77bc0991c83b1de2e4c2580d1275b>Use HTML tags so we can use &lt;var> in code (ffceddd)</a>
 </div>
 </div>
 </main>
