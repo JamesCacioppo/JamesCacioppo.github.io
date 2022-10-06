@@ -38,7 +38,7 @@ An identity provider tied to the cluster's OIDC provider is required to link AWS
 ### Create an IAM Policy
 Create an IAM policy allowing write access to a specific S3 bucket:
 
-~~~json
+```json
 {
  “Version”: “2012–10–17”,
  “Statement”: [
@@ -51,7 +51,7 @@ Create an IAM policy allowing write access to a specific S3 bucket:
     }
  ]
 }
-~~~
+```
 
 ### Create an IAM Role
 
