@@ -1,6 +1,6 @@
 ---
 categories: ["Git"]
-tags: ["git", "git-commit", "docs"]
+tags: ["git", "tag"]
 title: "Git Configuration"
 linkTitle: "Git Configuration"
 date: 2022-04-25
