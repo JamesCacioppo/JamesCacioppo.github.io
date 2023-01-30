@@ -59,7 +59,7 @@ Here you will find the main purpose of this site: documentation, cheat sheets, a
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.880c49749dcd29f8f0d90f4e2834b52b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e54bed9677808e6354991f9b8c920e71.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -80,9 +80,10 @@ This is the multi-page printable view of this section.
 <ul>
 <li>1: <a href=#pg-7d7eef4618c2f177c684c0ca94af17b0>Git</a></li>
 <ul>
-<li>1.1: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
-<li>1.2: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
-<li>1.3: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
+<li>1.1: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
+<li>1.2: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
+<li>1.3: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
+<li>1.4: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
 </ul>
 <li>2: <a href=#pg-2dec58b4d93ae59695d63ede8505159d>Kube Bench</a></li>
 <li>3: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
@@ -100,12 +101,70 @@ This is the multi-page printable view of this section.
 <div class=lead>Git from zero to hero. Basic to advanced concepts along with examples and tutorials.</div>
 </div>
 <div class=td-content>
-<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>1.1 - Git Commits</h1>
+<h1 id=pg-0304081d2c62be026198404960422fbb>1.1 - Git Tagging</h1>
+<div class=lead>How to create and handle tags in Git. This page is a WIP.</div>
+<h2 id=creating-tags>Creating tags</h2>
+<p>There are two types of tags, lightweight and annotated. The following explanation was taken from a Stack Overflow post:</p>
+<blockquote>
+<p>A lightweight tag is very much like a branch that doesn&rsquo;t change - it&rsquo;s just a pointer to a specific commit.</p>
+</blockquote>
+<blockquote>
+<p>Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.</p>
+</blockquote>
+<h3 id=create-lightweight-tag>Create lightweight tag</h3>
+<p><code>git tag 0.1.0</code></p>
+<h3 id=create-annotated-tag>Create annotated tag</h3>
+<p><code>git tag -a 0.1.0 -m "some message"</code></p>
+<h2 id=handling-tags>Handling tags</h2>
+<h3 id=pushing-new-tags>Pushing new tags</h3>
+<p><code>git push origin 0.1.0</code></p>
+<h3 id=deleting-local-tags>Deleting local tags</h3>
+<p><code>git tag -d 0.1.0</code></p>
+<h3 id=deleting-remote-tags>Deleting remote tags</h3>
+<p><code>git push origin --delete 0.1.0</code></p>
+<h2 id=listing-tags>Listing tags</h2>
+<p><code>git tag</code></p>
+<h3 id=sorting-output>Sorting output</h3>
+<p>Use the <em>sort</em> switch <code>--sort=&lt;type></code>, where <em>type</em> can be:</p>
+<ul>
+<li><code>refname</code>: lexicographic order</li>
+<li><code>version:refname</code> or <code>v:refname</code>: tag names are treated as versions
+<div class="alert alert-info" role=alert>
+<h4 class=alert-heading>Reverse order</h4>
+Prepend <em>type</em> with <code>-</code> to reverse order.
+</div>
+</li>
+</ul>
+<h3 id=examples>Examples</h3>
+<p>Lexical sort</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
+foo1.10
+foo1.3
+foo1.6
+</code></pre></div><p>Version sort</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>version:refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
+foo1.10
+foo1.6
+foo1.3
+</code></pre></div><p>Reverse version sort</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>-version:refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
+foo1.10
+foo1.6
+foo1.3
+</code></pre></div><p>Reverse lexical sort</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>-refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
+foo1.6
+foo1.3
+foo1.10
+</code></pre></div>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>1.2 - Git Commits</h1>
 <div class=lead>How to commit.</div>
 <h2 id=commits>Commits</h2>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-72917d778cefb3b60488baee65f8afd6>1.2 - Git Configuration</h1>
+<h1 id=pg-72917d778cefb3b60488baee65f8afd6>1.3 - Git Configuration</h1>
 <div class=lead>How to configure git.</div>
 <h2 id=configuration>Configuration</h2>
 <h3 id=git-configuration-location>Git configuration location</h3>
@@ -136,7 +195,7 @@ This is the multi-page printable view of this section.
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-6a19582a95197f2ee94de00825c74b64>1.3 - Git Branching</h1>
+<h1 id=pg-6a19582a95197f2ee94de00825c74b64>1.4 - Git Branching</h1>
 <div class=lead>Branching concepts and commands.</div>
 <p>The first thing to understand about Git is it&rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&rsquo;t stored in a central location. It&rsquo;s stored on every developer&rsquo;s computer. When it was first created this was how it was used. We now have a feature called a <em>remote</em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.</p>
 <h2 id=clone-a-repo>Clone a repo</h2>
