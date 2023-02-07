@@ -9,5 +9,8 @@ description: >
   How to commit.
 ---
 
+Removing a commmit
 
-## Commits
+Delete the last commit: `git reset --hard HEAD~1`
+Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></code>
+
