@@ -6,8 +6,10 @@ linkTitle: "Git Commits"
 date: 2022-04-25
 weight: 1
 description: >
-  How to commit.
+  How to commit.  This is a WIP.
 ---
+
+# This is a WIP
 
 Removing a commmit
 
