@@ -59,7 +59,7 @@ Here you will find the main purpose of this site: documentation, cheat sheets, a
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.37ab389a350cec0b6cce08a87d13a263.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,15 +78,16 @@ This is the multi-page printable view of this section.
 </div>
 <h1 class=title>Documentation</h1>
 <ul>
-<li>1: <a href=#pg-7d7eef4618c2f177c684c0ca94af17b0>Git</a></li>
+<li>1: <a href=#pg-db34099f4e0017534e14336b93a49d03>OpenSSL Cheat Sheet</a></li>
+<li>2: <a href=#pg-7d7eef4618c2f177c684c0ca94af17b0>Git</a></li>
 <ul>
-<li>1.1: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
-<li>1.2: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
-<li>1.3: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
-<li>1.4: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
+<li>2.1: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
+<li>2.2: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
+<li>2.3: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
+<li>2.4: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
 </ul>
-<li>2: <a href=#pg-2dec58b4d93ae59695d63ede8505159d>Kube Bench</a></li>
-<li>3: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
+<li>3: <a href=#pg-2dec58b4d93ae59695d63ede8505159d>Kube Bench</a></li>
+<li>4: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
 <ul>
 </ul>
 </ul>
@@ -97,11 +98,87 @@ This is the multi-page printable view of this section.
 </div>
 </div>
 <div class=td-content>
-<h1 id=pg-7d7eef4618c2f177c684c0ca94af17b0>1 - Git</h1>
+<h1 id=pg-db34099f4e0017534e14336b93a49d03>1 - OpenSSL Cheat Sheet</h1>
+<div class=lead>OpenSSL command cheat sheet</div>
+<h1 id=certificate-types>Certificate types</h1>
+<h2 id=x509>X509</h2>
+<h3 id=pem>PEM</h3>
+<p>PEM (originally “Privacy Enhanced Mail”) is the most common format for X.509 certificates, CSRs, and cryptographic keys. A PEM file is a text file containing one or more items in Base64 ASCII encoding, each with plain-text headers and footers (e.g. <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code>). A single PEM file could contain an end-entity certificate, a private key, or multiple certificates forming a complete chain of trust.
+(Source: <a href=https://www.ssl.com/guide/pem-der-crt-and-cer-x-509-encodings-and-conversions/>SSL.com</a>)</p>
+<p>Common file extensions are <code>.crt</code>, <code>.cer</code>, <code>.pem</code>, <code>.key</code>, <code>ca-bundle</code>.</p>
+<p>View contents of the certificate in <code>CERTIFICATE_FILE</code>: <pre>openssl x509 -in <var>CERTIFICATE_FILE</var> -text -noout</pre></p>
+<p>Convert PEM to DER: <pre>openssl x509 -outform der -in <var>PEM_FILE</var> -out <var>DER_FILE</var></pre></p>
+<p>Convert PEM to PKCS#7: <pre>openssl crl2pkcs7 -nocrl -certfile <var>CERTIFICATE_PEM_FILE</var> -certfile <var>CA_CHAIN_PEM_FILE</var> -out <var>OUTPUT_FILE</var></pre></p>
+<p>Convert PEM to PKCS#12: <pre>openssl pkcs12 -export -out <var>CERTIFICATE_FILE</var> -inkey <var>PRIVATE_KEY_FILE</var> -in <var>CERTIFICATE</var> -certfile <var>CA_CHAIN</var></pre></p>
+<h3 id=der>DER</h3>
+<p>DER (Distinguished Encoding Rules) is a binary encoding for X.509 certificates and private keys. Unlike PEM, DER-encoded files do not contain plain text statements such as <code>-----BEGIN CERTIFICATE-----</code>. DER files are most commonly seen in Java contexts.
+(Source: <a href=https://www.ssl.com/guide/pem-der-crt-and-cer-x-509-encodings-and-conversions/>SSL.com</a>)</p>
+<p>Common file extensions are <code>.der</code> and <code>.cer</code>.</p>
+<p>View contents of <code>CERTIFICATE_DER_FILE</code>: <pre>openssl x509 -inform der -in <var>CERTIFICATE_DER_FILE</var> -text -noout</pre></p>
+<p>Convert <code>CERTIFICATE_DER_FILE</code> to a PEM: <pre>openssl x509 -inform der -in <var>CERTIFICATE_DER_FILE</var> -out <var>CERTIFICATE_PEM_FILE</var></pre></p>
+<h2 id=certificate-container-formats>Certificate container formats</h2>
+<h3 id=pkcs7>PKCS#7</h3>
+<p>PKCS#7 (also known as P7B) is a container format for digital certificates that is most often found in Windows and Java server contexts, and usually has the extension <code>.p7b</code>. PKCS#7 files are not used to store private keys.</p>
+<h3 id=pkcs12>PKCS#12</h3>
+<p>PKCS#12 (also known as PKCS12 or PFX) is a common binary format for storing a certificate chain and private key in a single, encryptable file, and usually have the filename extensions <code>.p12</code> or <code>.pfx</code>.</p>
+<h4 id=convert-pkcs-to-x509>Convert PKCS to x509</h4>
+<p>Extract the private key:</p>
+<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_KEY_FILE</var> -nocerts -nodes</pre>
+<p>Extract the certificate:</p>
+<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes</pre>
+<p>Extract the CA chain:</p>
+<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CA_CHAIN_FILE</var> -nokeys -cacerts -chain</pre>
+<h1 id=handy-commands>Handy commands</h1>
+<h2 id=misc-commands>Misc commands</h2>
+<p>Get an x509 secret from Kubernetes and output details:</p>
+<pre>kubectl get secret <var>SECRET_NAME</var> -ojson | jq -r '.data."<var>KEY</var>"' | base64 -d | openssl x509 -text</pre>
+<p>Create a self signed X.509 certificate:</p>
+<pre>openssl req -x509 -nodes -newkey rsa:4096 -keyout "<var>PRIVATE_KEY_FILE</var>" -out "<var>PUBLIC_KEY_FILE</var>" -subj "<var>SUBJECT</var>"</pre>
+<p>Extract the client key and pass to AWK to remove all newline characters:</p>
+<pre>openssl pkcs12 -in <var>PKCS12_FILE</var> -clcerts -nokeys -password pass:<var>PASSWORD</var> | awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}'</pre>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>arg</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-in</td>
+<td>file</td>
+<td>Input file to read from. STDIN if not provided</td>
+</tr>
+<tr>
+<td>-clcerts</td>
+<td></td>
+<td>Only output client certificates (not CA certs)</td>
+</tr>
+<tr>
+<td>-nokeys</td>
+<td></td>
+<td>Do not output private keys</td>
+</tr>
+<tr>
+<td>-password</td>
+<td></td>
+<td>not found in linux or mac openssl</td>
+</tr>
+<tr>
+<td>pass:password</td>
+<td></td>
+<td>Where password is the password</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-7d7eef4618c2f177c684c0ca94af17b0>2 - Git</h1>
 <div class=lead>Git from zero to hero. Basic to advanced concepts along with examples and tutorials.</div>
 </div>
 <div class=td-content>
-<h1 id=pg-0304081d2c62be026198404960422fbb>1.1 - Git Tagging</h1>
+<h1 id=pg-0304081d2c62be026198404960422fbb>2.1 - Git Tagging</h1>
 <div class=lead>How to create and handle tags in Git. This page is a WIP.</div>
 <h2 id=creating-tags>Creating tags</h2>
 <p>There are two types of tags, lightweight and annotated. The following explanation was taken from a Stack Overflow post:</p>
@@ -159,7 +236,7 @@ foo1.10
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>1.2 - Git Commits</h1>
+<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>2.2 - Git Commits</h1>
 <div class=lead>How to commit. This is a WIP.</div>
 <h1 id=this-is-a-wip>This is a WIP</h1>
 <p>Removing a commmit</p>
@@ -167,7 +244,7 @@ foo1.10
 Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></code></p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-72917d778cefb3b60488baee65f8afd6>1.3 - Git Configuration</h1>
+<h1 id=pg-72917d778cefb3b60488baee65f8afd6>2.3 - Git Configuration</h1>
 <div class=lead>How to configure git.</div>
 <h2 id=configuration>Configuration</h2>
 <h3 id=git-configuration-location>Git configuration location</h3>
@@ -198,7 +275,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-6a19582a95197f2ee94de00825c74b64>1.4 - Git Branching</h1>
+<h1 id=pg-6a19582a95197f2ee94de00825c74b64>2.4 - Git Branching</h1>
 <div class=lead>Branching concepts and commands.</div>
 <p>The first thing to understand about Git is it&rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&rsquo;t stored in a central location. It&rsquo;s stored on every developer&rsquo;s computer. When it was first created this was how it was used. We now have a feature called a <em>remote</em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.</p>
 <h2 id=clone-a-repo>Clone a repo</h2>
@@ -261,7 +338,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 <p>A great resource is the site at <a href=https://continuousdelivery.com>ContinuousDelivery.com</a>. The page on <a href=https://continuousdelivery.com/foundations/continuous-integration/>Continuous Integration</a> is especially relevant to this topic.</p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-2dec58b4d93ae59695d63ede8505159d>2 - Kube Bench</h1>
+<h1 id=pg-2dec58b4d93ae59695d63ede8505159d>3 - Kube Bench</h1>
 <div class=lead>Set up kube-bench to perform scans and export the results.</div>
 <h1 id=the-bluf>The BLUF</h1>
 <p>How to set up <em>kube-bench</em> scans and export reports in an <em>EKS cluster</em>.</p>
@@ -411,7 +488,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </span></code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-d77fd444f8f51d12a8a2fdbaba8cce61>3 - Markdown</h1>
+<h1 id=pg-d77fd444f8f51d12a8a2fdbaba8cce61>4 - Markdown</h1>
 <div class=lead>A complete breakdown of widely accepted Markdown</div>
 <div class="pageinfo pageinfo-primary">
 <p>This is a placeholder page. Replace it with your own content.</p>
