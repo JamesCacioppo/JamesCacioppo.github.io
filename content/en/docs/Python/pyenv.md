@@ -1,12 +1,12 @@
 ---
-categories: ["Python"]
+categories: ["Development"]
 tags: ["pyenv", "python"]
 title: "Pyenv"
 linkTitle: "Pyenv"
 date: 2023-01-30
 weight: 2
 description: >
-  Pyenv
+  How to install and configure Pyenv.  This is a WIP.
 ---
 
 Install pyenv:

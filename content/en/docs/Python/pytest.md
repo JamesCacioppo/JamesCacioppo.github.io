@@ -1,5 +1,5 @@
 ---
-categories: ["Python"]
+categories: ["Development"]
 tags: ["pytest", "python"]
 title: "Pytest"
 linkTitle: "Pytest"

@@ -1,5 +1,5 @@
 ---
-categories: ["Python"]
+categories: ["Development"]
 tags: ["venv", "python"]
 title: "Virtualenv"
 linkTitle: "virtualenv"
