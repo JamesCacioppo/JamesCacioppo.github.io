@@ -1,6 +1,6 @@
 ---
-categories: ["Git"]
-tags: ["git", "git-commit", "docs"]
+categories: ["Docs"]
+tags: ["git", "git-commit"]
 title: "Git Commits"
 linkTitle: "Git Commits"
 date: 2022-04-25

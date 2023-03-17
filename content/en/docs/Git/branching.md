@@ -1,6 +1,6 @@
 ---
-categories: ["Git"]
-tags: ["git", "branching", "docs"]
+categories: ["Docs"]
+tags: ["git", "branching"]
 title: "Git Branching"
 linkTitle: "Git Branching"
 date: 2022-04-25
@@ -24,6 +24,22 @@ $ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
 ```
 
 ## Remotes
+
+Display configured remotes:
+```bash
+$ git remote -v
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git (fetch)
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git (push)
+```
+
+To change a local branch's upstream tracking:
+<pre>git branch --set-upstream-to <var>REMOTE_NAME</var>/<var>BRANCH_NAME</var></pre>
+
+```bash
+$ git branch --set-upstream-to origin/main
+branch 'main' set up to track 'origin/main'.
+```
+
 ## Branching
 
 When you first clone a repo you'll be in the default branch.  This was historically called _master_ and is now often named _main_.  Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into _main_.

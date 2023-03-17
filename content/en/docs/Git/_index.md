@@ -1,6 +1,4 @@
 ---
-categories: ["Git", "Examples"]
-tags: ["git","docs"] 
 title: "Git"
 linkTitle: "Git"
 weight: 2

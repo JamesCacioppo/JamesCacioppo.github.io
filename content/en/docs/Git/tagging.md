@@ -1,6 +1,6 @@
 ---
-categories: ["Git"]
-tags: ["git", "tag"]
+categories: ["Docs"]
+tags: ["git", "git-tag", "tagging"]
 title: "Git Tagging"
 linkTitle: "Git Tagging"
 date: 2023-01-30
