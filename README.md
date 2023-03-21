@@ -6,16 +6,26 @@ To contribute to this project, fork this repository and submit PR's from a branc
 
 1) Create a fork of the repository
 1) Clone your fork:
-   <pre>git clone git@github.com:<var>USER_NAME</var>JamesCacioppo.github.io.git</pre>
+   ```bash
+   git clone git@github.com:[USER_NAME]/JamesCacioppo.github.io.git
+   ```
 1) Add an _upstream_ remote
-   <pre>git remote add upstream git@github.com:JamesCacioppo/JamesCacioppo.github.io.git</pre>
+   ```bash
+   git remote add upstream git@github.com:JamesCacioppo/JamesCacioppo.github.io.git
+   ```
 1) Create a branch for your work:
-   <pre>git checkout -b <var>BRANCH_NAME</var></pre>
+   ```bash
+   git checkout -b [BRANCH_NAME]
+   ```
 1) Push that branch to your fork:
-   <pre>git push --set-upstream origin <var>BRANCH_NAME</var></pre>
+   ```bash
+   git push --set-upstream origin [BRANCH_NAME]
+   ```
 1) Submit a PR when complete
 1) When the PR has been merged, update your `main`:
-   <pre>git checkout main && git pull upstream && git push origin</pre>
+   ```bash
+   git checkout main && git pull upstream && git push origin
+   ```
 
 ## Issues
 If you'd like to report a problem or request documentation be added but don't can't contribute, please create an issue at https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues.
