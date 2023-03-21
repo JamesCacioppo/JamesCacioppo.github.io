@@ -1,5 +1,5 @@
 ---
-categories: ["Git"]
+categories: ["Docs"]
 tags: ["git", "git-config"]
 title: "Git Configuration"
 linkTitle: "Git Configuration"
