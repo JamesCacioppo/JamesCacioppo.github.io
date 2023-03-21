@@ -56,7 +56,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3c529a23dea248a523dc9e3c0b481c38.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -76,17 +76,37 @@ This is the multi-page printable view of this section.
 <h1 class=title>Git</h1>
 <div class=lead>Git from zero to hero. Basic to advanced concepts along with examples and tutorials.</div>
 <ul>
-<li>1: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
-<li>2: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
-<li>3: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
-<li>4: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
+<li>1: <a href=#pg-24d869ba2b6662ae570dfb963bd58e42>The Working Tree and Stashing</a></li>
+<li>2: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
+<li>3: <a href=#pg-0cde9297815cb0591dfd63e7a143ee56>Git Commands</a></li>
+<li>4: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
+<li>5: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
 </ul>
 <div class=content>
 </div>
 </div>
 <div class=td-content>
-<h1 id=pg-0304081d2c62be026198404960422fbb>1 - Git Tagging</h1>
-<div class=lead>How to create and handle tags in Git. This page is a WIP.</div>
+<h1 id=pg-24d869ba2b6662ae570dfb963bd58e42>1 - The Working Tree and Stashing</h1>
+<div class=lead>Working with the Working Tree and how to stash. This page is a WIP</div>
+<ul>
+<li><code>git stash -h</code> - get help</li>
+<li><code>git stash</code></li>
+<li><code>git stash -u</code> - also stashes untracked changes</li>
+<li><code>git stash -a</code> - also stashes ignored files</li>
+<li><code>git stash save "message"</code> - add annotation to stash</li>
+<li><code>git stash list</code> - show all stashes</li>
+<li><code>git stash show stash@{0}</code> - Show changed files in a stash</li>
+<li><code>git stash show -p</code> - Shows diff</li>
+<li><code>git stash show -v stash@{0}</code> - Show actual changes</li>
+<li><code>git stash pop</code> - empty the stash and apply changes</li>
+<li><code>git stash apply</code> - apply changes <em>and</em> keep them in your stash. Useful if you want to apply changes to multiple branches.</li>
+<li><code>git stash clear</code> - delete all stashes</li>
+<li><code>git stash drop stash@{0}</code> - delete a single stash</li>
+</ul>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-0304081d2c62be026198404960422fbb>2 - Git Tagging</h1>
+<div class=lead>How to create and handle tags in Git.</div>
 <h2 id=creating-tags>Creating tags</h2>
 <p>There are two types of tags, lightweight and annotated. The following explanation was taken from a Stack Overflow post:</p>
 <blockquote>
@@ -96,18 +116,18 @@ This is the multi-page printable view of this section.
 <p>Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.</p>
 </blockquote>
 <h3 id=create-lightweight-tag>Create lightweight tag</h3>
-<p><code>git tag 0.1.0</code></p>
+<pre>git tag <var>TAG</var></pre>
 <h3 id=create-annotated-tag>Create annotated tag</h3>
-<p><code>git tag -a 0.1.0 -m "some message"</code></p>
+<pre>git tag -a <var>TAG</var> -m <var>COMMIT MESSAGE</var></pre>
 <h2 id=handling-tags>Handling tags</h2>
 <h3 id=pushing-new-tags>Pushing new tags</h3>
-<p><code>git push origin 0.1.0</code></p>
+<pre>git push origin <var>TAG</var></pre>
 <h3 id=deleting-local-tags>Deleting local tags</h3>
-<p><code>git tag -d 0.1.0</code></p>
+<pre>git tag -d <var>TAG</var></pre>
 <h3 id=deleting-remote-tags>Deleting remote tags</h3>
-<p><code>git push origin --delete 0.1.0</code></p>
+<pre>git push origin --delete <var>TAG</var></pre>
 <h2 id=listing-tags>Listing tags</h2>
-<p><code>git tag</code></p>
+<pre>git tag</pre>
 <h3 id=sorting-output>Sorting output</h3>
 <p>Use the <em>sort</em> switch <code>--sort=&lt;type></code>, where <em>type</em> can be:</p>
 <ul>
@@ -143,15 +163,42 @@ foo1.10
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>2 - Git Commits</h1>
-<div class=lead>How to commit. This is a WIP.</div>
+<h1 id=pg-0cde9297815cb0591dfd63e7a143ee56>3 - Git Commands</h1>
+<div class=lead>Various git commands. This is a WIP.</div>
 <h1 id=this-is-a-wip>This is a WIP</h1>
-<p>Removing a commmit</p>
+<h2 id=git-add>git-add</h2>
+<h2 id=git-commit>git-commit</h2>
+<h2 id=git-merge>git-merge</h2>
+<h2 id=git-log>git-log</h2>
+<ul>
+<li><code>git log --oneline</code></li>
+<li><code>git log --stat</code></li>
+<li><code>git log -p</code></li>
+<li><code>git shortlog</code> - groups commits by user</li>
+<li><code>git log --graph --oneline --decorate</code> - the golden command</li>
+</ul>
+<p>Additional resources:
+<a href=https://www.atlassian.com/git/tutorials/git-log>https://www.atlassian.com/git/tutorials/git-log</a></p>
+<h2 id=git-blame>git-blame</h2>
+<h2 id=git-diff>git-diff</h2>
+<h2 id=git-show>git-show</h2>
+<p>Show information about various objects</p>
+<h2 id=git-restore>git-restore</h2>
+<p>Restore a file from a previous commit</p>
+<pre>git restore --source <var>HEAD~1</var> <var>FILE_NAME<var></pre>
+<p>Restore a file from HEAD</p>
+<pre>git restore <var>FILE_NAME</var></pre>
+<p>Restore all files in the current directory from HEAD</p>
+<pre>git restore .</pre>
+<h2 id=git-reset>git-reset</h2>
+<pre>git reset --soft <var>COMMIT</var></pre>
+<pre>git reset --hard <var>COMMIT</var></pre>
+<h2 id=removing-a-commit>Removing a commit</h2>
 <p>Delete the last commit: <code>git reset --hard HEAD~1</code>
 Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></code></p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-72917d778cefb3b60488baee65f8afd6>3 - Git Configuration</h1>
+<h1 id=pg-72917d778cefb3b60488baee65f8afd6>4 - Git Configuration</h1>
 <div class=lead>How to configure git.</div>
 <h2 id=configuration>Configuration</h2>
 <h3 id=git-configuration-location>Git configuration location</h3>
@@ -182,7 +229,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-6a19582a95197f2ee94de00825c74b64>4 - Git Branching</h1>
+<h1 id=pg-6a19582a95197f2ee94de00825c74b64>5 - Git Branching</h1>
 <div class=lead>Branching concepts and commands.</div>
 <p>The first thing to understand about Git is it&rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&rsquo;t stored in a central location. It&rsquo;s stored on every developer&rsquo;s computer. When it was first created this was how it was used. We now have a feature called a <em>remote</em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.</p>
 <h2 id=clone-a-repo>Clone a repo</h2>
@@ -191,7 +238,17 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </code></pre></div><p>To clone a repo using SSH:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
 </code></pre></div><h2 id=remotes>Remotes</h2>
-<h2 id=branching>Branching</h2>
+<p>Display configured remotes:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git remote -v
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git <span style=color:#ce5c00;font-weight:700>(</span>fetch<span style=color:#ce5c00;font-weight:700>)</span>
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git <span style=color:#ce5c00;font-weight:700>(</span>push<span style=color:#ce5c00;font-weight:700>)</span>
+</code></pre></div><p>To add a remote:</p>
+<pre>git remote add upstream <var>URL</var></pre>
+<p>To change a local branch&rsquo;s upstream tracking:</p>
+<pre>git branch --set-upstream-to <var>REMOTE_NAME</var>/<var>BRANCH_NAME</var></pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch --set-upstream-to origin/main
+branch <span style=color:#4e9a06>&#39;main&#39;</span> <span style=color:#204a87>set</span> up to track <span style=color:#4e9a06>&#39;origin/main&#39;</span>.
+</code></pre></div><h2 id=branching>Branching</h2>
 <p>When you first clone a repo you&rsquo;ll be in the default branch. This was historically called <em>master</em> and is now often named <em>main</em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into <em>main</em>.</p>
 <h3 id=creating-branches>Creating Branches</h3>
 <p>The formal way to create a branch is with the <em>git-branch</em> command:</p>
@@ -205,6 +262,10 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 <p>To list branches locally and remotely: <code>git branch -a</code></p>
 <p>To rename the current branch: <code>git branch -m <var>BRANCH-NAME</var></code></p>
 <p>To checkout a branch use: <code>git checkout <var>BRANCH-NAME</var></code></p>
+<div class="alert alert-info" role=alert>
+<h4 class=alert-heading>git-checkout</h4>
+The git-checkout command only moves the <em>HEAD</em> pointer, not the branch pointer. This is different from git-reset.
+</div>
 <h3 id=deleting-branches>Deleting Branches</h3>
 <p>When it comes time to delete a branch there are a few things to note.</p>
 <ul>

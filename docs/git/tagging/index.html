@@ -15,23 +15,23 @@
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
 <title>Git Tagging | Modern Engineer</title>
-<meta name=description content="How to create and handle tags in Git.  This page is a WIP.
+<meta name=description content="How to create and handle tags in Git.
 ">
 <meta property="og:title" content="Git Tagging">
-<meta property="og:description" content="How to create and handle tags in Git.  This page is a WIP.
+<meta property="og:description" content="How to create and handle tags in Git.
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/git/tagging/"><meta property="article:section" content="docs">
 <meta property="article:published_time" content="2023-01-30T00:00:00+00:00">
-<meta property="article:modified_time" content="2023-01-30T13:14:15-05:00"><meta property="og:site_name" content="Modern Engineer">
+<meta property="article:modified_time" content="2023-03-20T21:19:58-04:00"><meta property="og:site_name" content="Modern Engineer">
 <meta itemprop=name content="Git Tagging">
-<meta itemprop=description content="How to create and handle tags in Git.  This page is a WIP.
+<meta itemprop=description content="How to create and handle tags in Git.
 "><meta itemprop=datePublished content="2023-01-30T00:00:00+00:00">
-<meta itemprop=dateModified content="2023-01-30T13:14:15-05:00">
+<meta itemprop=dateModified content="2023-03-20T21:19:58-04:00">
 <meta itemprop=wordCount content="239">
-<meta itemprop=keywords content="git,tag,"><meta name=twitter:card content="summary">
+<meta itemprop=keywords content="git,git-tag,tagging,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Git Tagging">
-<meta name=twitter:description content="How to create and handle tags in Git.  This page is a WIP.
+<meta name=twitter:description content="How to create and handle tags in Git.
 ">
 <link rel=preload href=/scss/main.min.79e3930541ca05b5395c14b2a313b798fad1dc69f9a14aefa57b62eaa9f65f14.css as=style>
 <link href=/scss/main.min.79e3930541ca05b5395c14b2a313b798fad1dc69f9a14aefa57b62eaa9f65f14.css rel=stylesheet integrity>
@@ -60,7 +60,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3c529a23dea248a523dc9e3c0b481c38.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -70,7 +70,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3c529a23dea248a523dc9e3c0b481c38.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -79,15 +79,33 @@
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Documentation</span></a>
 <ul class=ul-1>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsopensslcheat-sheet-li>
-<a href=/docs/openssl/cheat-sheet/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsopensslcheat-sheet><span>OpenSSL Cheat Sheet</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsrandomtobesortednotes-li>
+<a href=/docs/randomtobesortednotes/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsrandomtobesortednotes><span>Random Notes</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotessafer_bash_scripts_with_set_euxo_pipefail-li>
+<a href=/docs/randomtobesortednotes/safer_bash_scripts_with_set_euxo_pipefail/ title="Safer bash scripts with 'set -euxo pipefail'" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotessafer_bash_scripts_with_set_euxo_pipefail><span>Safer BASH</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotesscratch_pad-li>
+<a href=/docs/randomtobesortednotes/scratch_pad/ title="Scratch Pad" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotesscratch_pad><span>Scratch PAd</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotespulumi-li>
+<a href=/docs/randomtobesortednotes/pulumi/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotespulumi><span>Pulumi</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsencryption-li>
+<a href=/docs/encryption/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsencryption><span>Encryption</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsencryptionopenssl-cheat-sheet-li>
+<a href=/docs/encryption/openssl-cheat-sheet/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsencryptionopenssl-cheat-sheet><span>OpenSSL Cheat Sheet</span></a>
+</li>
+</ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsgit-li>
 <a href=/docs/git/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgit><span>Git</span></a>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsgittagging-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitworking_tree-li>
+<a href=/docs/git/working_tree/ title="The Working Tree and Stashing" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitworking_tree><span>Working Tree and Stash</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsgittagging-li>
 <a href=/docs/git/tagging/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsgittagging><span class=td-sidebar-nav-active-item>Git Tagging</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitcommits-li>
-<a href=/docs/git/commits/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitcommits><span>Git Commits</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitcommands-li>
+<a href=/docs/git/commands/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitcommands><span>Git Commands</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitconfiguration-li>
 <a href=/docs/git/configuration/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitconfiguration><span>Git Configuration</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitbranching-li>
@@ -95,7 +113,7 @@
 </li>
 </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docskube-bench-li>
-<a href=/docs/kube-bench/ title="Kube Bench" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docskube-bench><span>kube-bench</span></a>
+<a href=/docs/kube-bench/ title="Kube Bench" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docskube-bench><span>kube-bench</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsmarkdown-li>
 <a href=/docs/markdown/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsmarkdown><span>Markdown</span></a>
 </li>
@@ -140,33 +158,35 @@
 <div class="taxonomy taxonomy-terms-cloud taxo-tags">
 <h5 class=taxonomy-title>Tag Cloud</h5>
 <ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=/tags/bash/ data-taxonomy-term=bash><span class=taxonomy-label>bash</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/branching/ data-taxonomy-term=branching><span class=taxonomy-label>branching</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/certificates/ data-taxonomy-term=certificates><span class=taxonomy-label>certificates</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span><span class=taxonomy-count>5</span></a></li>
+<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span><span class=taxonomy-count>5</span></a></li>
-<li><a class=taxonomy-term href=/tags/git-commit/ data-taxonomy-term=git-commit><span class=taxonomy-label>git-commit</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-commands/ data-taxonomy-term=git-commands><span class=taxonomy-label>git commands</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/git-config/ data-taxonomy-term=git-config><span class=taxonomy-label>git-config</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-stash/ data-taxonomy-term=git-stash><span class=taxonomy-label>git-stash</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-tag/ data-taxonomy-term=git-tag><span class=taxonomy-label>git-tag</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/iac/ data-taxonomy-term=iac><span class=taxonomy-label>iac</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/k8s/ data-taxonomy-term=k8s><span class=taxonomy-label>k8s</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/kube-bench/ data-taxonomy-term=kube-bench><span class=taxonomy-label>kube-bench</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/kubernetes/ data-taxonomy-term=kubernetes><span class=taxonomy-label>kubernetes</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/markdown/ data-taxonomy-term=markdown><span class=taxonomy-label>markdown</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/md/ data-taxonomy-term=md><span class=taxonomy-label>md</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/openssl/ data-taxonomy-term=openssl><span class=taxonomy-label>openssl</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/sample/ data-taxonomy-term=sample><span class=taxonomy-label>sample</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/pulumi/ data-taxonomy-term=pulumi><span class=taxonomy-label>pulumi</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/scripts/ data-taxonomy-term=scripts><span class=taxonomy-label>scripts</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/security/ data-taxonomy-term=security><span class=taxonomy-label>security</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/ssl/ data-taxonomy-term=ssl><span class=taxonomy-label>ssl</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/tag/ data-taxonomy-term=tag><span class=taxonomy-label>tag</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/tagging/ data-taxonomy-term=tagging><span class=taxonomy-label>tagging</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/tls/ data-taxonomy-term=tls><span class=taxonomy-label>tls</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/working-tree/ data-taxonomy-term=working-tree><span class=taxonomy-label>working tree</span><span class=taxonomy-count>1</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-cloud taxo-categories">
 <h5 class=taxonomy-title>Categories</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=/categories/examples/ data-taxonomy-term=examples><span class=taxonomy-label>Examples</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=/categories/git/ data-taxonomy-term=git><span class=taxonomy-label>Git</span><span class=taxonomy-count>5</span></a></li>
-<li><a class=taxonomy-term href=/categories/kubernetes/ data-taxonomy-term=kubernetes><span class=taxonomy-label>Kubernetes</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/categories/markdown/ data-taxonomy-term=markdown><span class=taxonomy-label>Markdown</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/categories/security/ data-taxonomy-term=security><span class=taxonomy-label>Security</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/categories/ssl/ data-taxonomy-term=ssl><span class=taxonomy-label>SSL</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/categories/docs/ data-taxonomy-term=docs><span class=taxonomy-label>Docs</span><span class=taxonomy-count>11</span></a></li>
 </ul>
 </div>
 </aside>
@@ -186,19 +206,20 @@
 </nav>
 <div class=td-content>
 <h1>Git Tagging</h1>
-<div class=lead>How to create and handle tags in Git. This page is a WIP.</div>
+<div class=lead>How to create and handle tags in Git.</div>
 <header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
 <h5 class=taxonomy-title>Tags:</h5>
 <ul class=taxonomy-terms>
 <li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span></a></li>
-<li><a class=taxonomy-term href=/tags/tag/ data-taxonomy-term=tag><span class=taxonomy-label>tag</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-tag/ data-taxonomy-term=git-tag><span class=taxonomy-label>git-tag</span></a></li>
+<li><a class=taxonomy-term href=/tags/tagging/ data-taxonomy-term=tagging><span class=taxonomy-label>tagging</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-article taxo-categories">
 <h5 class=taxonomy-title>Categories:</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=/categories/git/ data-taxonomy-term=git><span class=taxonomy-label>Git</span></a></li>
+<li><a class=taxonomy-term href=/categories/docs/ data-taxonomy-term=docs><span class=taxonomy-label>Docs</span></a></li>
 </ul>
 </div>
 </header>
@@ -211,18 +232,18 @@
 <p>Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.</p>
 </blockquote>
 <h3 id=create-lightweight-tag>Create lightweight tag</h3>
-<p><code>git tag 0.1.0</code></p>
+<pre>git tag <var>TAG</var></pre>
 <h3 id=create-annotated-tag>Create annotated tag</h3>
-<p><code>git tag -a 0.1.0 -m "some message"</code></p>
+<pre>git tag -a <var>TAG</var> -m <var>COMMIT MESSAGE</var></pre>
 <h2 id=handling-tags>Handling tags</h2>
 <h3 id=pushing-new-tags>Pushing new tags</h3>
-<p><code>git push origin 0.1.0</code></p>
+<pre>git push origin <var>TAG</var></pre>
 <h3 id=deleting-local-tags>Deleting local tags</h3>
-<p><code>git tag -d 0.1.0</code></p>
+<pre>git tag -d <var>TAG</var></pre>
 <h3 id=deleting-remote-tags>Deleting remote tags</h3>
-<p><code>git push origin --delete 0.1.0</code></p>
+<pre>git push origin --delete <var>TAG</var></pre>
 <h2 id=listing-tags>Listing tags</h2>
-<p><code>git tag</code></p>
+<pre>git tag</pre>
 <h3 id=sorting-output>Sorting output</h3>
 <p>Use the <em>sort</em> switch <code>--sort=&lt;type></code>, where <em>type</em> can be:</p>
 <ul>
@@ -257,7 +278,7 @@ foo1.3
 foo1.10
 </code></pre></div>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified January 30, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/af7ef4e1fcecfdc0a15c635f54828ceacbe1d73c>Adding in tagging.md (af7ef4e)</a>
+Last modified March 20, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/ac16cbaf5a27eb1b2092c92028e370db5a638570>Styling of code blocks (ac16cba)</a>
 </div>
 </div>
 </main>

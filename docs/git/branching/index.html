@@ -23,13 +23,13 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/git/branching/"><meta property="article:section" content="docs">
 <meta property="article:published_time" content="2022-04-25T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-10-06T16:45:30-04:00"><meta property="og:site_name" content="Modern Engineer">
+<meta property="article:modified_time" content="2023-03-20T21:45:19-04:00"><meta property="og:site_name" content="Modern Engineer">
 <meta itemprop=name content="Git Branching">
 <meta itemprop=description content="Branching concepts and commands.
 "><meta itemprop=datePublished content="2022-04-25T00:00:00+00:00">
-<meta itemprop=dateModified content="2022-10-06T16:45:30-04:00">
-<meta itemprop=wordCount content="1189">
-<meta itemprop=keywords content="git,branching,docs,"><meta name=twitter:card content="summary">
+<meta itemprop=dateModified content="2023-03-20T21:45:19-04:00">
+<meta itemprop=wordCount content="1252">
+<meta itemprop=keywords content="git,branching,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Git Branching">
 <meta name=twitter:description content="Branching concepts and commands.
 ">
@@ -60,7 +60,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3c529a23dea248a523dc9e3c0b481c38.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -70,7 +70,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3c529a23dea248a523dc9e3c0b481c38.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -79,15 +79,33 @@
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Documentation</span></a>
 <ul class=ul-1>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsopensslcheat-sheet-li>
-<a href=/docs/openssl/cheat-sheet/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsopensslcheat-sheet><span>OpenSSL Cheat Sheet</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsrandomtobesortednotes-li>
+<a href=/docs/randomtobesortednotes/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsrandomtobesortednotes><span>Random Notes</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotessafer_bash_scripts_with_set_euxo_pipefail-li>
+<a href=/docs/randomtobesortednotes/safer_bash_scripts_with_set_euxo_pipefail/ title="Safer bash scripts with 'set -euxo pipefail'" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotessafer_bash_scripts_with_set_euxo_pipefail><span>Safer BASH</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotesscratch_pad-li>
+<a href=/docs/randomtobesortednotes/scratch_pad/ title="Scratch Pad" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotesscratch_pad><span>Scratch PAd</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotespulumi-li>
+<a href=/docs/randomtobesortednotes/pulumi/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotespulumi><span>Pulumi</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsencryption-li>
+<a href=/docs/encryption/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsencryption><span>Encryption</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsencryptionopenssl-cheat-sheet-li>
+<a href=/docs/encryption/openssl-cheat-sheet/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsencryptionopenssl-cheat-sheet><span>OpenSSL Cheat Sheet</span></a>
+</li>
+</ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsgit-li>
 <a href=/docs/git/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgit><span>Git</span></a>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgittagging-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitworking_tree-li>
+<a href=/docs/git/working_tree/ title="The Working Tree and Stashing" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitworking_tree><span>Working Tree and Stash</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgittagging-li>
 <a href=/docs/git/tagging/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgittagging><span>Git Tagging</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitcommits-li>
-<a href=/docs/git/commits/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitcommits><span>Git Commits</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitcommands-li>
+<a href=/docs/git/commands/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitcommands><span>Git Commands</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitconfiguration-li>
 <a href=/docs/git/configuration/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitconfiguration><span>Git Configuration</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsgitbranching-li>
@@ -95,7 +113,7 @@
 </li>
 </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docskube-bench-li>
-<a href=/docs/kube-bench/ title="Kube Bench" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docskube-bench><span>kube-bench</span></a>
+<a href=/docs/kube-bench/ title="Kube Bench" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docskube-bench><span>kube-bench</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsmarkdown-li>
 <a href=/docs/markdown/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsmarkdown><span>Markdown</span></a>
 </li>
@@ -137,33 +155,35 @@
 <div class="taxonomy taxonomy-terms-cloud taxo-tags">
 <h5 class=taxonomy-title>Tag Cloud</h5>
 <ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=/tags/bash/ data-taxonomy-term=bash><span class=taxonomy-label>bash</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/branching/ data-taxonomy-term=branching><span class=taxonomy-label>branching</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/certificates/ data-taxonomy-term=certificates><span class=taxonomy-label>certificates</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span><span class=taxonomy-count>5</span></a></li>
+<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span><span class=taxonomy-count>5</span></a></li>
-<li><a class=taxonomy-term href=/tags/git-commit/ data-taxonomy-term=git-commit><span class=taxonomy-label>git-commit</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-commands/ data-taxonomy-term=git-commands><span class=taxonomy-label>git commands</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/git-config/ data-taxonomy-term=git-config><span class=taxonomy-label>git-config</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-stash/ data-taxonomy-term=git-stash><span class=taxonomy-label>git-stash</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/git-tag/ data-taxonomy-term=git-tag><span class=taxonomy-label>git-tag</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/iac/ data-taxonomy-term=iac><span class=taxonomy-label>iac</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/k8s/ data-taxonomy-term=k8s><span class=taxonomy-label>k8s</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/kube-bench/ data-taxonomy-term=kube-bench><span class=taxonomy-label>kube-bench</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/kubernetes/ data-taxonomy-term=kubernetes><span class=taxonomy-label>kubernetes</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/markdown/ data-taxonomy-term=markdown><span class=taxonomy-label>markdown</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/md/ data-taxonomy-term=md><span class=taxonomy-label>md</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/openssl/ data-taxonomy-term=openssl><span class=taxonomy-label>openssl</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/sample/ data-taxonomy-term=sample><span class=taxonomy-label>sample</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/pulumi/ data-taxonomy-term=pulumi><span class=taxonomy-label>pulumi</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/scripts/ data-taxonomy-term=scripts><span class=taxonomy-label>scripts</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/security/ data-taxonomy-term=security><span class=taxonomy-label>security</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/ssl/ data-taxonomy-term=ssl><span class=taxonomy-label>ssl</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/tags/tag/ data-taxonomy-term=tag><span class=taxonomy-label>tag</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/tagging/ data-taxonomy-term=tagging><span class=taxonomy-label>tagging</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=/tags/tls/ data-taxonomy-term=tls><span class=taxonomy-label>tls</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/tags/working-tree/ data-taxonomy-term=working-tree><span class=taxonomy-label>working tree</span><span class=taxonomy-count>1</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-cloud taxo-categories">
 <h5 class=taxonomy-title>Categories</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=/categories/examples/ data-taxonomy-term=examples><span class=taxonomy-label>Examples</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=/categories/git/ data-taxonomy-term=git><span class=taxonomy-label>Git</span><span class=taxonomy-count>5</span></a></li>
-<li><a class=taxonomy-term href=/categories/kubernetes/ data-taxonomy-term=kubernetes><span class=taxonomy-label>Kubernetes</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/categories/markdown/ data-taxonomy-term=markdown><span class=taxonomy-label>Markdown</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/categories/security/ data-taxonomy-term=security><span class=taxonomy-label>Security</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=/categories/ssl/ data-taxonomy-term=ssl><span class=taxonomy-label>SSL</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=/categories/docs/ data-taxonomy-term=docs><span class=taxonomy-label>Docs</span><span class=taxonomy-count>11</span></a></li>
 </ul>
 </div>
 </aside>
@@ -190,13 +210,12 @@
 <ul class=taxonomy-terms>
 <li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span></a></li>
 <li><a class=taxonomy-term href=/tags/branching/ data-taxonomy-term=branching><span class=taxonomy-label>branching</span></a></li>
-<li><a class=taxonomy-term href=/tags/docs/ data-taxonomy-term=docs><span class=taxonomy-label>docs</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-article taxo-categories">
 <h5 class=taxonomy-title>Categories:</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=/categories/git/ data-taxonomy-term=git><span class=taxonomy-label>Git</span></a></li>
+<li><a class=taxonomy-term href=/categories/docs/ data-taxonomy-term=docs><span class=taxonomy-label>Docs</span></a></li>
 </ul>
 </div>
 </header>
@@ -207,7 +226,17 @@
 </code></pre></div><p>To clone a repo using SSH:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
 </code></pre></div><h2 id=remotes>Remotes</h2>
-<h2 id=branching>Branching</h2>
+<p>Display configured remotes:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git remote -v
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git <span style=color:#ce5c00;font-weight:700>(</span>fetch<span style=color:#ce5c00;font-weight:700>)</span>
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git <span style=color:#ce5c00;font-weight:700>(</span>push<span style=color:#ce5c00;font-weight:700>)</span>
+</code></pre></div><p>To add a remote:</p>
+<pre>git remote add upstream <var>URL</var></pre>
+<p>To change a local branch&rsquo;s upstream tracking:</p>
+<pre>git branch --set-upstream-to <var>REMOTE_NAME</var>/<var>BRANCH_NAME</var></pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch --set-upstream-to origin/main
+branch <span style=color:#4e9a06>&#39;main&#39;</span> <span style=color:#204a87>set</span> up to track <span style=color:#4e9a06>&#39;origin/main&#39;</span>.
+</code></pre></div><h2 id=branching>Branching</h2>
 <p>When you first clone a repo you&rsquo;ll be in the default branch. This was historically called <em>master</em> and is now often named <em>main</em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into <em>main</em>.</p>
 <h3 id=creating-branches>Creating Branches</h3>
 <p>The formal way to create a branch is with the <em>git-branch</em> command:</p>
@@ -221,6 +250,10 @@
 <p>To list branches locally and remotely: <code>git branch -a</code></p>
 <p>To rename the current branch: <code>git branch -m <var>BRANCH-NAME</var></code></p>
 <p>To checkout a branch use: <code>git checkout <var>BRANCH-NAME</var></code></p>
+<div class="alert alert-info" role=alert>
+<h4 class=alert-heading>git-checkout</h4>
+The git-checkout command only moves the <em>HEAD</em> pointer, not the branch pointer. This is different from git-reset.
+</div>
 <h3 id=deleting-branches>Deleting Branches</h3>
 <p>When it comes time to delete a branch there are a few things to note.</p>
 <ul>
@@ -260,7 +293,7 @@
 <p>In order for this to work, thorough testing must be conducted before merging using various methods such as pre-commit hooks and the baseline should be kept in good working condition. If a bug is found in the baseline fixing it should be the priority.</p>
 <p>A great resource is the site at <a href=https://continuousdelivery.com>ContinuousDelivery.com</a>. The page on <a href=https://continuousdelivery.com/foundations/continuous-integration/>Continuous Integration</a> is especially relevant to this topic.</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified October 6, 2022: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/ffcedddef7a77bc0991c83b1de2e4c2580d1275b>Use HTML tags so we can use &lt;var> in code (ffceddd)</a>
+Last modified March 20, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/da9c24cddec1ffe840f81cc464c7046e73fdafdb>Add notes, styling, and taxonomies (da9c24c)</a>
 </div>
 </div>
 </main>

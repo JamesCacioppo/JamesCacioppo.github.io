@@ -59,7 +59,7 @@ Here you will find the main purpose of this site: documentation, cheat sheets, a
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.49e76934e5bc42aa9c14b2efe766fa4c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3c529a23dea248a523dc9e3c0b481c38.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,16 +78,28 @@ This is the multi-page printable view of this section.
 </div>
 <h1 class=title>Documentation</h1>
 <ul>
-<li>1: <a href=#pg-db34099f4e0017534e14336b93a49d03>OpenSSL Cheat Sheet</a></li>
-<li>2: <a href=#pg-7d7eef4618c2f177c684c0ca94af17b0>Git</a></li>
+<li>1: <a href=#pg-a3dc268343183a6d68ccfb2780699e41>Random Notes</a></li>
 <ul>
-<li>2.1: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
-<li>2.2: <a href=#pg-a51b709f8827faa91ff9e4e3262c056b>Git Commits</a></li>
-<li>2.3: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
-<li>2.4: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
+<li>1.1: <a href=#pg-24ae67c1d25ae474309b8b67003fc761>Safer bash scripts with 'set -euxo pipefail'</a></li>
+<li>1.2: <a href=#pg-47d637b9567e863a215dbfde351c37ae>Scratch Pad</a></li>
+<li>1.3: <a href=#pg-b9c924164a9ecf974bab37b2fd4f85b4>Pulumi</a></li>
 </ul>
-<li>3: <a href=#pg-2dec58b4d93ae59695d63ede8505159d>Kube Bench</a></li>
-<li>4: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
+<li>2: <a href=#pg-68d71c09df3f858ac5772e2ba9ad168d>Encryption</a></li>
+<ul>
+<li>2.1: <a href=#pg-533cf167b457b8369b125513c24ca2d7>OpenSSL Cheat Sheet</a></li>
+</ul>
+<li>3: <a href=#pg-7d7eef4618c2f177c684c0ca94af17b0>Git</a></li>
+<ul>
+<li>3.1: <a href=#pg-24d869ba2b6662ae570dfb963bd58e42>The Working Tree and Stashing</a></li>
+<li>3.2: <a href=#pg-0304081d2c62be026198404960422fbb>Git Tagging</a></li>
+<li>3.3: <a href=#pg-0cde9297815cb0591dfd63e7a143ee56>Git Commands</a></li>
+<li>3.4: <a href=#pg-72917d778cefb3b60488baee65f8afd6>Git Configuration</a></li>
+<li>3.5: <a href=#pg-6a19582a95197f2ee94de00825c74b64>Git Branching</a></li>
+</ul>
+<li>4: <a href=#pg-5e21f753738e878cd64571cab14673ef>Kube Bench</a></li>
+<ul>
+</ul>
+<li>5: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
 <ul>
 </ul>
 </ul>
@@ -98,7 +110,276 @@ This is the multi-page printable view of this section.
 </div>
 </div>
 <div class=td-content>
-<h1 id=pg-db34099f4e0017534e14336b93a49d03>1 - OpenSSL Cheat Sheet</h1>
+<h1 id=pg-a3dc268343183a6d68ccfb2780699e41>1 - Random Notes</h1>
+<div class=lead>A scratch pad for random notes</div>
+</div>
+<div class=td-content>
+<h1 id=pg-24ae67c1d25ae474309b8b67003fc761>1.1 - Safer bash scripts with 'set -euxo pipefail'</h1>
+<div class=lead>Safer bash scripts, taken from Tom Van Eyck</div>
+<div class="pageinfo pageinfo-primary">
+<p>The following post was sourced from Tom Van Eyck&rsquo;s blog over at <a href=https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/>https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/</a>. His last post was in 2018 and his github has been idle for as long so I&rsquo;ve become worried that something might happen to his blog. Because I refer to this article so frequently, I have decided to preserve it here.</p>
+</div>
+<p>Often times developers go about writing bash scripts the same as writing code in a higher-level language. This is a big mistake as higher-level languages offer safeguards that are not present in bash scripts by default. For example, a Ruby script will throw an error when trying to read from an uninitialized variable, whereas a bash script won&rsquo;t. In this article, we&rsquo;ll look at how we can improve on this.</p>
+<p>The bash shell comes with several builtin commands for modifying the behavior of the shell itself. We are particularly interested in the <a href=https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html>set builtin</a>, as this command has several options that will help us write safer scripts. I hope to convince you that it&rsquo;s a really good idea to add <code>set -euxo pipefail</code> to the beginning of all your future bash scripts.</p>
+<h3 id=set--e>set -e</h3>
+<p>The <code>-e</code> option will cause a bash script to exit immediately when a command fails. This is generally a vast improvement upon the default behavior where the script just ignores the failing command and continues with the next line. This option is also smart enough to not react on failing commands that are part of conditional statements. Moreover, you can append a command with <code>|| true</code> for those rare cases where you don&rsquo;t want a failing command to trigger an immediate exit.</p>
+<h4 id=before>Before</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span>
+<span style=color:#8f5902;font-style:italic># &#39;foo&#39; is a non-existing command</span>
+foo
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># line 4: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic># bar</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Note how the script didn&#39;t exit when the foo command could not be found.</span>
+<span style=color:#8f5902;font-style:italic># Instead it continued on and echoed &#39;bar&#39;.</span>
+</code></pre></div><h4 id=after>After</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -e
+
+<span style=color:#8f5902;font-style:italic># &#39;foo&#39; is a non-existing command</span>
+foo
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># line 5: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># This time around the script exited immediately when the foo command wasn&#39;t found.</span>
+<span style=color:#8f5902;font-style:italic># Such behavior is much more in line with that of higher-level languages.</span>
+</code></pre></div><h4 id=any-command-returning-a-non-zero-exit-code-will-cause-an-immediate-exit>Any command returning a non-zero exit code will cause an immediate exit</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -e
+
+<span style=color:#8f5902;font-style:italic># &#39;ls&#39; is an existing command, but giving it a nonsensical param will cause</span>
+<span style=color:#8f5902;font-style:italic># it to exit with exit code 1</span>
+<span style=color:#204a87;font-weight:700>$(</span>ls foobar<span style=color:#204a87;font-weight:700>)</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># ls: foobar: No such file or directory</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># I&#39;m putting this in here to illustrate that it&#39;s not just non-existing commands</span>
+<span style=color:#8f5902;font-style:italic># that will cause an immediate exit.</span>
+</code></pre></div><h4 id=preventing-an-immediate-exit>Preventing an immediate exit</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -e
+
+foo <span style=color:#ce5c00;font-weight:700>||</span> <span style=color:#204a87>true</span>
+<span style=color:#204a87;font-weight:700>$(</span>ls foobar<span style=color:#204a87;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>||</span> <span style=color:#204a87>true</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># line 4: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic># ls: foobar: No such file or directory</span>
+<span style=color:#8f5902;font-style:italic># bar</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Sometimes we want to ensure that, even when &#39;set -e&#39; is used, the failure of</span>
+<span style=color:#8f5902;font-style:italic># a particular command does not cause an immediate exit. We can use &#39;|| true&#39; for this.</span>
+</code></pre></div><h4 id=failing-commands-in-a-conditional-statement-will-not-cause-an-immediate-exit>Failing commands in a conditional statement will not cause an immediate exit</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -e
+
+<span style=color:#8f5902;font-style:italic># we make &#39;ls&#39; exit with exit code 1 by giving it a nonsensical param</span>
+<span style=color:#204a87;font-weight:700>if</span> ls foobar<span style=color:#000;font-weight:700>;</span> <span style=color:#204a87;font-weight:700>then</span>
+  <span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;foo&#34;</span>
+<span style=color:#204a87;font-weight:700>else</span>
+  <span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+<span style=color:#204a87;font-weight:700>fi</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># ls: foobar: No such file or directory</span>
+<span style=color:#8f5902;font-style:italic># bar</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Note that &#39;ls foobar&#39; did not cause an immediate exit despite exiting with</span>
+<span style=color:#8f5902;font-style:italic># exit code 1. This is because the command was evaluated as part of a</span>
+<span style=color:#8f5902;font-style:italic># conditional statement.</span>
+</code></pre></div><p>That&rsquo;s all for <code>set -e</code>. However, <code>set -e</code> by itself is far from enough. We can further improve upon the behavior created by <code>set -e</code> by combining it with <code>set -o pipefail</code>. Let&rsquo;s have a look at that next.</p>
+<h3 id=set--o-pipefail>set -o pipefail</h3>
+<p>The bash shell normally only looks at the exit code of the last command of a pipeline. This behavior is not ideal as it causes the <code>-e</code> option to only be able to act on the exit code of a pipeline&rsquo;s last command. This is where <code>-o pipefail</code> comes in. This particular option sets the exit code of a pipeline to that of the rightmost command to exit with a non-zero status, or to zero if all commands of the pipeline exit successfully.</p>
+<h4 id=before-1>Before</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -e
+
+<span style=color:#8f5902;font-style:italic># &#39;foo&#39; is a non-existing command</span>
+foo <span style=color:#000;font-weight:700>|</span> <span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;a&#34;</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># a</span>
+<span style=color:#8f5902;font-style:italic># line 5: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic># bar</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Note how the non-existing foo command does not cause an immediate exit, as</span>
+<span style=color:#8f5902;font-style:italic># it&#39;s non-zero exit code is ignored by piping it with &#39;| echo &#34;a&#34;&#39;.</span>
+</code></pre></div><h4 id=after-1>After</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -eo pipefail
+
+<span style=color:#8f5902;font-style:italic># &#39;foo&#39; is a non-existing command</span>
+foo <span style=color:#000;font-weight:700>|</span> <span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;a&#34;</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># a</span>
+<span style=color:#8f5902;font-style:italic># line 5: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># This time around the non-existing foo command causes an immediate exit, as</span>
+<span style=color:#8f5902;font-style:italic># &#39;-o pipefail&#39; will prevent piping from causing non-zero exit codes to be ignored.</span>
+</code></pre></div><p>This section hopefully made it clear that <code>-o pipefail</code> provides an important improvement upon just using <code>-e</code> by itself. However, as we shall see in the next section, we can still do more to make our scripts behave like higher-level languages.</p>
+<h3 id=set--u>set -u</h3>
+<p>This option causes the bash shell to treat unset variables as an error and exit immediately. Unset variables are a common cause of bugs in shell scripts, so having unset variables cause an immediate exit is often highly desirable behavior.</p>
+<h4 id=before-2>Before</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -eo pipefail
+
+<span style=color:#204a87>echo</span> <span style=color:#000>$a</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># bar</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># The default behavior will not cause unset variables to trigger an immediate exit.</span>
+<span style=color:#8f5902;font-style:italic># In this particular example, echoing the non-existing $a variable will just cause</span>
+<span style=color:#8f5902;font-style:italic># an empty line to be printed.</span>
+</code></pre></div><h4 id=after-2>After</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -euo pipefail
+
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;</span><span style=color:#000>$a</span><span style=color:#4e9a06>&#34;</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># line 5: a: unbound variable</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Notice how &#39;bar&#39; no longer gets printed. We can clearly see that &#39;-u&#39; did indeed</span>
+<span style=color:#8f5902;font-style:italic># cause an immediate exit upon encountering an unset variable.</span>
+</code></pre></div><h4 id=dealing-with-a-b-variable-assignments>Dealing with ${a:-b} variable assignments</h4>
+<p>Sometimes you&rsquo;ll want to use a <a href=https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts/122878>${a:-b} variable assignment</a> to ensure a variable is assigned a default value of <code>b</code> when <code>a</code> is either empty or undefined. The <code>-u</code> option is smart enough to not cause an immediate exit in such a scenario.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -euo pipefail
+
+<span style=color:#000>DEFAULT</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>5</span>
+<span style=color:#000>RESULT</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>${</span><span style=color:#000>VAR</span><span style=color:#204a87;font-weight:700>:-</span><span style=color:#000>$DEFAULT</span><span style=color:#4e9a06>}</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;</span><span style=color:#000>$RESULT</span><span style=color:#4e9a06>&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># 5</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Even though VAR was not defined, the &#39;-u&#39; option realizes there&#39;s no need to cause</span>
+<span style=color:#8f5902;font-style:italic># an immediate exit in this scenario as a default value has been provided.</span>
+</code></pre></div><h4 id=using-conditional-statements-that-check-if-variables-are-set>Using conditional statements that check if variables are set</h4>
+<p>Sometimes you want your script to not immediately exit when an unset variable is encountered. A common example is checking for a variable&rsquo;s existence inside an <code>if</code> statement.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -euo pipefail
+
+<span style=color:#204a87;font-weight:700>if</span> <span style=color:#ce5c00;font-weight:700>[</span> -z <span style=color:#4e9a06>&#34;</span><span style=color:#4e9a06>${</span><span style=color:#000>MY_VAR</span><span style=color:#204a87;font-weight:700>:-</span><span style=color:#4e9a06>}</span><span style=color:#4e9a06>&#34;</span> <span style=color:#ce5c00;font-weight:700>]</span><span style=color:#000;font-weight:700>;</span> <span style=color:#204a87;font-weight:700>then</span>
+  <span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;MY_VAR was not set&#34;</span>
+<span style=color:#204a87;font-weight:700>fi</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># MY_VAR was not set</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># In this scenario we don&#39;t want our program to exit when the unset MY_VAR variable</span>
+<span style=color:#8f5902;font-style:italic># is evaluated. We can prevent such an exit by using the same syntax as we did in the</span>
+<span style=color:#8f5902;font-style:italic># previous example, but this time around we specify no default value.</span>
+</code></pre></div><p>This section has brought us a lot closer to making our bash shell behave like higher-level languages. While <code>-euo pipefail</code> is great for the early detection of all kinds of problems, sometimes it won&rsquo;t be enough. This is why in the next section we&rsquo;ll look at an option that will help us figure out those really tricky bugs that you encounter every once in a while.</p>
+<h3 id=set--x>set -x</h3>
+<p>The <code>-x</code> option causes bash to print each command before executing it. This can be a great help when trying to debug a bash script failure. Note that arguments get expanded before a command gets printed, which will cause our logs to contain the actual argument values that were present at the time of execution!</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -euxo pipefail
+
+<span style=color:#000>a</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>5</span>
+<span style=color:#204a87>echo</span> <span style=color:#000>$a</span>
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># + a=5</span>
+<span style=color:#8f5902;font-style:italic># + echo 5</span>
+<span style=color:#8f5902;font-style:italic># 5</span>
+<span style=color:#8f5902;font-style:italic># + echo bar</span>
+<span style=color:#8f5902;font-style:italic># bar</span>
+</code></pre></div><p>That&rsquo;s it for the <code>-x</code> option. It&rsquo;s pretty straightforward, but can be a great help for debugging. Next up, we&rsquo;ll look at an option I had never heard of before that was suggested by a reader of this blog.</p>
+<h3 id=reader-suggestion-set--e>Reader suggestion: set -E</h3>
+<p><a href=http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html>Traps</a> are pieces of code that fire when a bash script catches certain signals. Aside from the usual signals (e.g. <code>SIGINT</code>, <code>SIGTERM</code>, &mldr;), traps can also be used to catch special bash signals like <code>EXIT</code>, <code>DEBUG</code>, <code>RETURN</code>, and <code>ERR</code>. However, reader Kevin Gibbs pointed out that using <code>-e</code> without <code>-E</code> will cause an <code>ERR</code> trap to not fire in certain scenarios.</p>
+<h4 id=before-3>Before</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -euo pipefail
+
+<span style=color:#204a87>trap</span> <span style=color:#4e9a06>&#34;echo ERR trap fired!&#34;</span> ERR
+
+myfunc<span style=color:#ce5c00;font-weight:700>()</span>
+<span style=color:#ce5c00;font-weight:700>{</span>
+  <span style=color:#8f5902;font-style:italic># &#39;foo&#39; is a non-existing command</span>
+  foo
+<span style=color:#ce5c00;font-weight:700>}</span>
+
+myfunc
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># line 9: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Notice that while &#39;-e&#39; did indeed cause an immediate exit upon trying to execute</span>
+<span style=color:#8f5902;font-style:italic># the non-existing foo command, it did not case the ERR trap to be fired.</span>
+</code></pre></div><h4 id=after-3>After</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8f5902;font-style:italic>#!/bin/bash
+</span><span style=color:#8f5902;font-style:italic></span><span style=color:#204a87>set</span> -Eeuo pipefail
+
+<span style=color:#204a87>trap</span> <span style=color:#4e9a06>&#34;echo ERR trap fired!&#34;</span> ERR
+
+myfunc<span style=color:#ce5c00;font-weight:700>()</span>
+<span style=color:#ce5c00;font-weight:700>{</span>
+  <span style=color:#8f5902;font-style:italic># &#39;foo&#39; is a non-existing command</span>
+  foo
+<span style=color:#ce5c00;font-weight:700>}</span>
+
+myfunc
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#34;bar&#34;</span>
+
+<span style=color:#8f5902;font-style:italic># output</span>
+<span style=color:#8f5902;font-style:italic># ------</span>
+<span style=color:#8f5902;font-style:italic># line 9: foo: command not found</span>
+<span style=color:#8f5902;font-style:italic># ERR trap fired!</span>
+<span style=color:#8f5902;font-style:italic>#</span>
+<span style=color:#8f5902;font-style:italic># Not only do we still have an immediate exit, we can also clearly see that the</span>
+<span style=color:#8f5902;font-style:italic># ERR trap was actually fired now.</span>
+</code></pre></div><p>The documentation states that <code>-E</code> needs to be set if we want the <code>ERR</code> trap to be inherited by shell functions, command substitutions, and commands that are executed in a subshell environment. The <code>ERR</code> trap is normally not inherited in such cases.</p>
+<h3 id=conclusion>Conclusion</h3>
+<p>I hope this post showed you why using <code>set -euxo pipefail</code> (or <code>set -Eeuxo pipefail</code>) is such a good idea. If you have any other options you want to suggest, then please let me know and I&rsquo;ll be happy to add them to this list.</p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-47d637b9567e863a215dbfde351c37ae>1.2 - Scratch Pad</h1>
+<div class=lead>A scratch pad for random notes</div>
+<pre>jq '.prefixes[] | select(.region=="us-gov-east-1") | select(.service=="EC2")' < ~/Downloads/ip-ranges.json</pre>
+<p><a href=https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html>https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html</a></p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-b9c924164a9ecf974bab37b2fd4f85b4>1.3 - Pulumi</h1>
+<div class=lead>How to use Pulumi. This is a WIP.</div>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-68d71c09df3f858ac5772e2ba9ad168d>2 - Encryption</h1>
+<div class=lead>All things encryption related.</div>
+</div>
+<div class=td-content>
+<h1 id=pg-533cf167b457b8369b125513c24ca2d7>2.1 - OpenSSL Cheat Sheet</h1>
 <div class=lead>OpenSSL command cheat sheet</div>
 <h1 id=certificate-types>Certificate types</h1>
 <h2 id=x509>X509</h2>
@@ -174,12 +455,31 @@ This is the multi-page printable view of this section.
 </table>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-7d7eef4618c2f177c684c0ca94af17b0>2 - Git</h1>
+<h1 id=pg-7d7eef4618c2f177c684c0ca94af17b0>3 - Git</h1>
 <div class=lead>Git from zero to hero. Basic to advanced concepts along with examples and tutorials.</div>
 </div>
 <div class=td-content>
-<h1 id=pg-0304081d2c62be026198404960422fbb>2.1 - Git Tagging</h1>
-<div class=lead>How to create and handle tags in Git. This page is a WIP.</div>
+<h1 id=pg-24d869ba2b6662ae570dfb963bd58e42>3.1 - The Working Tree and Stashing</h1>
+<div class=lead>Working with the Working Tree and how to stash. This page is a WIP</div>
+<ul>
+<li><code>git stash -h</code> - get help</li>
+<li><code>git stash</code></li>
+<li><code>git stash -u</code> - also stashes untracked changes</li>
+<li><code>git stash -a</code> - also stashes ignored files</li>
+<li><code>git stash save "message"</code> - add annotation to stash</li>
+<li><code>git stash list</code> - show all stashes</li>
+<li><code>git stash show stash@{0}</code> - Show changed files in a stash</li>
+<li><code>git stash show -p</code> - Shows diff</li>
+<li><code>git stash show -v stash@{0}</code> - Show actual changes</li>
+<li><code>git stash pop</code> - empty the stash and apply changes</li>
+<li><code>git stash apply</code> - apply changes <em>and</em> keep them in your stash. Useful if you want to apply changes to multiple branches.</li>
+<li><code>git stash clear</code> - delete all stashes</li>
+<li><code>git stash drop stash@{0}</code> - delete a single stash</li>
+</ul>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-0304081d2c62be026198404960422fbb>3.2 - Git Tagging</h1>
+<div class=lead>How to create and handle tags in Git.</div>
 <h2 id=creating-tags>Creating tags</h2>
 <p>There are two types of tags, lightweight and annotated. The following explanation was taken from a Stack Overflow post:</p>
 <blockquote>
@@ -189,18 +489,18 @@ This is the multi-page printable view of this section.
 <p>Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.</p>
 </blockquote>
 <h3 id=create-lightweight-tag>Create lightweight tag</h3>
-<p><code>git tag 0.1.0</code></p>
+<pre>git tag <var>TAG</var></pre>
 <h3 id=create-annotated-tag>Create annotated tag</h3>
-<p><code>git tag -a 0.1.0 -m "some message"</code></p>
+<pre>git tag -a <var>TAG</var> -m <var>COMMIT MESSAGE</var></pre>
 <h2 id=handling-tags>Handling tags</h2>
 <h3 id=pushing-new-tags>Pushing new tags</h3>
-<p><code>git push origin 0.1.0</code></p>
+<pre>git push origin <var>TAG</var></pre>
 <h3 id=deleting-local-tags>Deleting local tags</h3>
-<p><code>git tag -d 0.1.0</code></p>
+<pre>git tag -d <var>TAG</var></pre>
 <h3 id=deleting-remote-tags>Deleting remote tags</h3>
-<p><code>git push origin --delete 0.1.0</code></p>
+<pre>git push origin --delete <var>TAG</var></pre>
 <h2 id=listing-tags>Listing tags</h2>
-<p><code>git tag</code></p>
+<pre>git tag</pre>
 <h3 id=sorting-output>Sorting output</h3>
 <p>Use the <em>sort</em> switch <code>--sort=&lt;type></code>, where <em>type</em> can be:</p>
 <ul>
@@ -236,15 +536,42 @@ foo1.10
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-a51b709f8827faa91ff9e4e3262c056b>2.2 - Git Commits</h1>
-<div class=lead>How to commit. This is a WIP.</div>
+<h1 id=pg-0cde9297815cb0591dfd63e7a143ee56>3.3 - Git Commands</h1>
+<div class=lead>Various git commands. This is a WIP.</div>
 <h1 id=this-is-a-wip>This is a WIP</h1>
-<p>Removing a commmit</p>
+<h2 id=git-add>git-add</h2>
+<h2 id=git-commit>git-commit</h2>
+<h2 id=git-merge>git-merge</h2>
+<h2 id=git-log>git-log</h2>
+<ul>
+<li><code>git log --oneline</code></li>
+<li><code>git log --stat</code></li>
+<li><code>git log -p</code></li>
+<li><code>git shortlog</code> - groups commits by user</li>
+<li><code>git log --graph --oneline --decorate</code> - the golden command</li>
+</ul>
+<p>Additional resources:
+<a href=https://www.atlassian.com/git/tutorials/git-log>https://www.atlassian.com/git/tutorials/git-log</a></p>
+<h2 id=git-blame>git-blame</h2>
+<h2 id=git-diff>git-diff</h2>
+<h2 id=git-show>git-show</h2>
+<p>Show information about various objects</p>
+<h2 id=git-restore>git-restore</h2>
+<p>Restore a file from a previous commit</p>
+<pre>git restore --source <var>HEAD~1</var> <var>FILE_NAME<var></pre>
+<p>Restore a file from HEAD</p>
+<pre>git restore <var>FILE_NAME</var></pre>
+<p>Restore all files in the current directory from HEAD</p>
+<pre>git restore .</pre>
+<h2 id=git-reset>git-reset</h2>
+<pre>git reset --soft <var>COMMIT</var></pre>
+<pre>git reset --hard <var>COMMIT</var></pre>
+<h2 id=removing-a-commit>Removing a commit</h2>
 <p>Delete the last commit: <code>git reset --hard HEAD~1</code>
 Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></code></p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-72917d778cefb3b60488baee65f8afd6>2.3 - Git Configuration</h1>
+<h1 id=pg-72917d778cefb3b60488baee65f8afd6>3.4 - Git Configuration</h1>
 <div class=lead>How to configure git.</div>
 <h2 id=configuration>Configuration</h2>
 <h3 id=git-configuration-location>Git configuration location</h3>
@@ -275,7 +602,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-6a19582a95197f2ee94de00825c74b64>2.4 - Git Branching</h1>
+<h1 id=pg-6a19582a95197f2ee94de00825c74b64>3.5 - Git Branching</h1>
 <div class=lead>Branching concepts and commands.</div>
 <p>The first thing to understand about Git is it&rsquo;s a distributed Source Control Manager (SCM). This means that the repository isn&rsquo;t stored in a central location. It&rsquo;s stored on every developer&rsquo;s computer. When it was first created this was how it was used. We now have a feature called a <em>remote</em> that has become ubiquitous. A remote is commonly a Git server which can store your repository in a central place for all developers on your team to access. The first step in working with Git is almost always cloning.</p>
 <h2 id=clone-a-repo>Clone a repo</h2>
@@ -284,7 +611,17 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </code></pre></div><p>To clone a repo using SSH:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
 </code></pre></div><h2 id=remotes>Remotes</h2>
-<h2 id=branching>Branching</h2>
+<p>Display configured remotes:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git remote -v
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git <span style=color:#ce5c00;font-weight:700>(</span>fetch<span style=color:#ce5c00;font-weight:700>)</span>
+origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git <span style=color:#ce5c00;font-weight:700>(</span>push<span style=color:#ce5c00;font-weight:700>)</span>
+</code></pre></div><p>To add a remote:</p>
+<pre>git remote add upstream <var>URL</var></pre>
+<p>To change a local branch&rsquo;s upstream tracking:</p>
+<pre>git branch --set-upstream-to <var>REMOTE_NAME</var>/<var>BRANCH_NAME</var></pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch --set-upstream-to origin/main
+branch <span style=color:#4e9a06>&#39;main&#39;</span> <span style=color:#204a87>set</span> up to track <span style=color:#4e9a06>&#39;origin/main&#39;</span>.
+</code></pre></div><h2 id=branching>Branching</h2>
 <p>When you first clone a repo you&rsquo;ll be in the default branch. This was historically called <em>master</em> and is now often named <em>main</em>. Most organizations use a branching strategy which usually involves creating a branch, committing changes to the branch, and then merging that branch back into <em>main</em>.</p>
 <h3 id=creating-branches>Creating Branches</h3>
 <p>The formal way to create a branch is with the <em>git-branch</em> command:</p>
@@ -298,6 +635,10 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 <p>To list branches locally and remotely: <code>git branch -a</code></p>
 <p>To rename the current branch: <code>git branch -m <var>BRANCH-NAME</var></code></p>
 <p>To checkout a branch use: <code>git checkout <var>BRANCH-NAME</var></code></p>
+<div class="alert alert-info" role=alert>
+<h4 class=alert-heading>git-checkout</h4>
+The git-checkout command only moves the <em>HEAD</em> pointer, not the branch pointer. This is different from git-reset.
+</div>
 <h3 id=deleting-branches>Deleting Branches</h3>
 <p>When it comes time to delete a branch there are a few things to note.</p>
 <ul>
@@ -338,7 +679,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 <p>A great resource is the site at <a href=https://continuousdelivery.com>ContinuousDelivery.com</a>. The page on <a href=https://continuousdelivery.com/foundations/continuous-integration/>Continuous Integration</a> is especially relevant to this topic.</p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-2dec58b4d93ae59695d63ede8505159d>3 - Kube Bench</h1>
+<h1 id=pg-5e21f753738e878cd64571cab14673ef>4 - Kube Bench</h1>
 <div class=lead>Set up kube-bench to perform scans and export the results.</div>
 <h1 id=the-bluf>The BLUF</h1>
 <p>How to set up <em>kube-bench</em> scans and export reports in an <em>EKS cluster</em>.</p>
@@ -488,7 +829,7 @@ Force push the changes: <code>git push -f <var>remote</var> <var>branch</var></c
 </span></code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-d77fd444f8f51d12a8a2fdbaba8cce61>4 - Markdown</h1>
+<h1 id=pg-d77fd444f8f51d12a8a2fdbaba8cce61>5 - Markdown</h1>
 <div class=lead>A complete breakdown of widely accepted Markdown</div>
 <div class="pageinfo pageinfo-primary">
 <p>This is a placeholder page. Replace it with your own content.</p>
