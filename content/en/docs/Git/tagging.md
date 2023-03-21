@@ -6,7 +6,7 @@ linkTitle: "Git Tagging"
 date: 2023-01-30
 weight: 1
 description: >
-  How to create and handle tags in Git.  This page is a WIP.
+  How to create and handle tags in Git.
 ---
 
 ## Creating tags
@@ -19,29 +19,29 @@ There are two types of tags, lightweight and annotated.  The following explanati
 
 ### Create lightweight tag
 
-`git tag 0.1.0`
+<pre>git tag <var>TAG</var></pre>
 
 ### Create annotated tag
 
-`git tag -a 0.1.0 -m "some message"`
+<pre>git tag -a <var>TAG</var> -m <var>COMMIT MESSAGE</var></pre>
 
 ## Handling tags
 
 ### Pushing new tags
 
-`git push origin 0.1.0`
+<pre>git push origin <var>TAG</var></pre>
 
 ### Deleting local tags
 
-`git tag -d 0.1.0`
+<pre>git tag -d <var>TAG</var></pre>
 
 ### Deleting remote tags
 
-`git push origin --delete 0.1.0`
+<pre>git push origin --delete <var>TAG</var></pre>
 
 ## Listing tags
 
-`git tag`
+<pre>git tag</pre>
 
 ### Sorting output
 
