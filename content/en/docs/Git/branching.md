@@ -23,6 +23,7 @@ To clone a repo using SSH:
 $ git clone git@github.com:JamesCacioppo/git-zero-to-hero-demo.git
 ```
 
+
 ## Remotes
 
 Display configured remotes:
@@ -31,6 +32,9 @@ $ git remote -v
 origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git (fetch)
 origin  git@github.com:JamesCacioppo/JamesCacioppo.github.io.git (push)
 ```
+
+To add a remote:
+<pre>git remote add upstream <var>URL</var></pre>
 
 To change a local branch's upstream tracking:
 <pre>git branch --set-upstream-to <var>REMOTE_NAME</var>/<var>BRANCH_NAME</var></pre>
@@ -65,6 +69,10 @@ To list branches locally and remotely: <code>git branch -a</code>
 To rename the current branch: <code>git branch -m <var>BRANCH-NAME</var></code>
 
 To checkout a branch use: <code>git checkout <var>BRANCH-NAME</var></code> 
+
+{{% alert title="git-checkout" color="info" %}}
+The git-checkout command only moves the _HEAD_ pointer, not the branch pointer.  This is different from git-reset.
+{{% /alert %}}
 
 ### Deleting Branches
 When it comes time to delete a branch there are a few things to note.
