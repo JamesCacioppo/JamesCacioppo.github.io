@@ -1,5 +1,5 @@
 ---
-categories: ["SSL"]
+categories: ["Docs"]
 tags: ["openssl", "ssl", "tls", "certificates"]
 title: "OpenSSL Cheat Sheet"
 linkTitle: "OpenSSL Cheat Sheet"
