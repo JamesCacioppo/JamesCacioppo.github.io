@@ -1,10 +1,10 @@
 ---
-categories: ["Markdown"]
-tags: ["markdown", "sample", "docs"]
 title: "Markdown"
 linkTitle: "Markdown"
 date: 2022-04-25
 weight: 3
+categories: ["Docs"]
+tags: ["markdown", "md"]
 description: >
   A complete breakdown of widely accepted Markdown
 ---

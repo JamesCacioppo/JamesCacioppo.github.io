@@ -1,5 +1,5 @@
 ---
-categories: ["Kubernetes", "Security", "Examples"]
+categories: ["Docs"]
 tags: ["k8s","kubernetes","security","docs","kube-bench"] 
 title: "Kube Bench"
 linkTitle: "kube-bench"

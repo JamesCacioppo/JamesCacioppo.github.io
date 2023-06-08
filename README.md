@@ -1,52 +1,35 @@
-# Docsy Example
+# Contributions
+Contributions are welcome and encouraged!  While I try to stay on top of these docs, at the end of the day I have limited time and I have to get my notes shoved in here.  As a result, WIP's will be published and may not be refined for a long time.  I welcome help with this.  Additionally, if you'd like to add content, please feel free to do so.  Remember, don't let perfect be the enemy of good enough.
 
-[Docsy][] is a [Hugo theme module][] for technical documentation sites, providing easy
-site navigation, structure, and more. This **Docsy Example Project** uses the Docsy
-theme component as a hugo module and provides a skeleton documentation structure for you to use.
-You can clone/copy this project and edit it with your own content, or use it as an example.
+## PR process
+To contribute to this project, fork this repository and submit PR's from a branch on your fork.  The best way to do this is:
 
-In this project, the Docsy theme component is pulled in as a Hugo module, together with other module dependencies:
+1) Create a fork of the repository
+1) Clone your fork:
+   ```bash
+   git clone git@github.com:[USER_NAME]/JamesCacioppo.github.io.git
+   ```
+1) Add an _upstream_ remote
+   ```bash
+   git remote add upstream git@github.com:JamesCacioppo/JamesCacioppo.github.io.git
+   ```
+1) Create a branch for your work:
+   ```bash
+   git checkout -b [BRANCH_NAME]
+   ```
+1) Push that branch to your fork:
+   ```bash
+   git push --set-upstream origin [BRANCH_NAME]
+   ```
+1) Submit a PR when complete
+1) When the PR has been merged, update your `main`:
+   ```bash
+   git checkout main && git pull upstream && git push origin
+   ```
 
-```bash
-$ hugo mod graph
-hugo: collected modules in 566 ms
-hugo: collected modules in 578 ms
-github.com/google/docsy-example github.com/google/docsy@v0.2.0
-github.com/google/docsy-example github.com/google/docsy/dependencies@v0.2.0
-github.com/google/docsy/dependencies@v0.2.0 github.com/twbs/bootstrap@v4.6.1+incompatible
-github.com/google/docsy/dependencies@v0.2.0 github.com/FortAwesome/Font-Awesome@v0.0.0-20210804190922-7d3d774145ac
-```
-
-You can find detailed theme instructions in the [Docsy user guide][].
-
-This Docsy Example Project is hosted on [Netlify][] at [example.docsy.dev][].
-You can view deploy logs from the [deploy section of the project's Netlify
-dashboard][deploys], or this [alternate dashboard][].
-
-This is not an officially supported Google product. This project is currently maintained.
-
-## Using the Docsy Example Project as a template
-
-A simple way to get started is to use this project as a template, which gives you a site project that is set up and ready to use. To do this: 
-
-1. Click **Use this template**.
-
-2. Select a name for your new project and click **Create repository from template**.
-
-3. Make your own local working copy of your new repo using git clone, replacing https://github.com/me/example.git with your repo’s web URL:
-
-```bash
-git clone --depth 1 https://github.com/me/example.git
-```
-
-You can now edit your own versions of the site’s source files.
-
-If you want to do SCSS edits and want to publish these, you need to install `PostCSS`
-
-```bash
-npm install
-```
-
+## Issues
+If you'd like to report a problem or request documentation be added but don't can't contribute, please create an issue at https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues.
+# Development Environments
 ## Running the website locally
 
 Building and running the site locally requires a recent `extended` version of [Hugo](https://gohugo.io).
@@ -61,7 +44,7 @@ hugo server
 
 ## Running a container locally
 
-You can run docsy-example inside a [Docker](https://docs.docker.com/)
+You can run _Modern Engineer_ inside a [Docker](https://docs.docker.com/)
 container, the container runs with a volume bound to the `docsy-example`
 folder. This approach doesn't require you to install any dependencies other
 than [Docker Desktop](https://www.docker.com/products/docker-desktop) on
