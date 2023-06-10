@@ -47,7 +47,7 @@ Create an IAM policy allowing write access to a specific S3 bucket:
       “Action”: [
                “s3:PutObject”
        ],
-       “Resource”: “arn:aws:s3:::kluster-bucket”
+       “Resource”: “arn:aws:s3:::kluster-bucket/*”
     }
  ]
 }
