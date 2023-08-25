@@ -59,7 +59,7 @@ Here you will find the main purpose of this site: documentation, cheat sheets, a
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.18c11a928986eefe1c33566df1aec60f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.f144bd575a0928445d40e66706558e7a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -99,7 +99,13 @@ This is the multi-page printable view of this section.
 <li>4: <a href=#pg-5e21f753738e878cd64571cab14673ef>Kube Bench</a></li>
 <ul>
 </ul>
-<li>5: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
+<li>5: <a href=#pg-92c27ea962011595550955f7c41b869a>Python</a></li>
+<ul>
+<li>5.1: <a href=#pg-25f0fc747a43e426abe5e799bae26667>venv</a></li>
+<li>5.2: <a href=#pg-53649de095686aeee23ac7b7ea4778d3>Pytest</a></li>
+<li>5.3: <a href=#pg-57d045430feb096ff52b18f9ffa67d26>Pyenv</a></li>
+</ul>
+<li>6: <a href=#pg-d77fd444f8f51d12a8a2fdbaba8cce61>Markdown</a></li>
 <ul>
 </ul>
 </ul>
@@ -831,7 +837,53 @@ The git-checkout command only moves the <em>HEAD</em> pointer, not the branch po
 </span></code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-d77fd444f8f51d12a8a2fdbaba8cce61>5 - Markdown</h1>
+<h1 id=pg-92c27ea962011595550955f7c41b869a>5 - Python</h1>
+<div class=lead>Python notes for myself as I learn the language.</div>
+</div>
+<div class=td-content>
+<h1 id=pg-25f0fc747a43e426abe5e799bae26667>5.1 - venv</h1>
+<div class=lead>venv</div>
+<p>Create a dir (and any subdirs) and place a <code>pyvenv.cfg</code> as well as a <code>bin</code> dir.</p>
+<pre>python -m venv <var>PATH</var></pre>
+<p>For example:</p>
+<pre>python -m venv .venv</pre>
+<p>To activate the virtual environment:</p>
+<pre>source <var>PATH</var>/bin/activate</pre>
+<p>To deactivate the virtual environment:</p>
+<pre>deactivate</pre>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-53649de095686aeee23ac7b7ea4778d3>5.2 - Pytest</h1>
+<div class=lead>Pytest</div>
+<p>To install:</p>
+<pre>pip install pytest</pre>
+<p>To execute:</p>
+<pre>pytest</pre>
+<p>Pytest will run the tests in any file prefixed with <code>test_</code>.</p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-57d045430feb096ff52b18f9ffa67d26>5.3 - Pyenv</h1>
+<div class=lead>How to install and configure Pyenv. This is a WIP.</div>
+<p>Install pyenv:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>brew update
+brew install pyenv
+</code></pre></div><p>Configure pyenv:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.zshrc
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#39;command -v pyenv &gt;/dev/null || export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+<span style=color:#204a87>echo</span> <span style=color:#4e9a06>&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</code></pre></div><p>Install build deps of MacOS: <code>brew install openssl readline sqlite3 xz zlib tcl-tk</code></p>
+<p>List available versions: <code>pyenv install -l</code></p>
+<p>Install a version: <code>pyenv install <var>version</var></code></p>
+<p>Set a global version to use: <code>pyenv global <var>version</var></code></p>
+<p>There are three ways to set the python version to be used:</p>
+<ul>
+<li>Select just for current shell session: <code>pyenv shell <var>version</var></code></li>
+<li>Automatically select whenever you are in the current directory (or its subdirectories): <code>pyenv local <var>version</var></code></li>
+<li>Select globally for your user account: <code>pyenv global <var>version</var></code></li>
+</ul>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-d77fd444f8f51d12a8a2fdbaba8cce61>6 - Markdown</h1>
 <div class=lead>A complete breakdown of widely accepted Markdown</div>
 <div class="pageinfo pageinfo-primary">
 <p>This is a placeholder page. Replace it with your own content.</p>
