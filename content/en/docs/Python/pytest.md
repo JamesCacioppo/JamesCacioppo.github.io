@@ -9,24 +9,11 @@ description: >
   Pytest
 ---
 
-Install pyenv:
-```bash
-brew update
-brew install pyenv
-```
+To install:
+<pre>pip install pytest</pre>
 
-Configure pyenv:
-```bash
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-```
+To execute:
+<pre>pytest</pre>
 
-Install build deps of MacOS: `brew install openssl readline sqlite3 xz zlib tcl-tk`
-
-List available versions: <code>pyenv install -l</code>
-
-Install a version: <code>pyenv install <var>version</var></code>
-
-Set a global version to use: <code>pyenv global <var>version</var></code>
+Pytest will run the tests in any file prefixed with <code>test_</code>.
 
