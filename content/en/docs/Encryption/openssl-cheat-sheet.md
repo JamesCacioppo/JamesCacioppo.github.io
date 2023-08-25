@@ -45,7 +45,10 @@ PKCS#12 (also known as PKCS12 or PFX) is a common binary format for storing a ce
 Extract the private key:
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_KEY_FILE</var> -nocerts -nodes</pre>
 
-Extract the certificate:
+Extra the certificate alone:
+<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes -clcerts</pre>
+
+Extract the certificate and the CA chain:
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes</pre>
 
 Extract the CA chain:
