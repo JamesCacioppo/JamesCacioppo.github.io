@@ -23,12 +23,12 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/encryption/openssl-cheat-sheet/"><meta property="article:section" content="docs">
 <meta property="article:published_time" content="2023-02-07T00:00:00+00:00">
-<meta property="article:modified_time" content="2023-03-20T21:45:19-04:00"><meta property="og:site_name" content="Modern Engineer">
+<meta property="article:modified_time" content="2023-08-25T17:45:35-04:00"><meta property="og:site_name" content="Modern Engineer">
 <meta itemprop=name content="OpenSSL Cheat Sheet">
 <meta itemprop=description content="OpenSSL command cheat sheet
 "><meta itemprop=datePublished content="2023-02-07T00:00:00+00:00">
-<meta itemprop=dateModified content="2023-03-20T21:45:19-04:00">
-<meta itemprop=wordCount content="440">
+<meta itemprop=dateModified content="2023-08-25T17:45:35-04:00">
+<meta itemprop=wordCount content="457">
 <meta itemprop=keywords content="openssl,ssl,tls,certificates,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="OpenSSL Cheat Sheet">
 <meta name=twitter:description content="OpenSSL command cheat sheet
@@ -60,7 +60,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.5c7f9eff1d8a76ec1c0a434659ca19b6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.18c11a928986eefe1c33566df1aec60f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -70,7 +70,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.5c7f9eff1d8a76ec1c0a434659ca19b6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.18c11a928986eefe1c33566df1aec60f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -244,7 +244,9 @@
 <h4 id=convert-pkcs-to-x509>Convert PKCS to x509</h4>
 <p>Extract the private key:</p>
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_KEY_FILE</var> -nocerts -nodes</pre>
-<p>Extract the certificate:</p>
+<p>Extra the certificate alone:</p>
+<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes -clcerts</pre>
+<p>Extract the certificate and the CA chain:</p>
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes</pre>
 <p>Extract the CA chain:</p>
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CA_CHAIN_FILE</var> -nokeys -cacerts -chain</pre>
@@ -293,7 +295,7 @@
 </tbody>
 </table>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified March 20, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/da9c24cddec1ffe840f81cc464c7046e73fdafdb>Add notes, styling, and taxonomies (da9c24c)</a>
+Last modified August 25, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/8677789f4de49f4428d9b6dc8f836de9ae38c9e2>Detail how to get a cert by itself (8677789)</a>
 </div>
 </div>
 </main>
