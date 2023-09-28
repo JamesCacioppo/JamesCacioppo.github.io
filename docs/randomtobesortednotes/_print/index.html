@@ -56,7 +56,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.cb5b64776be8a2aa2b553cbd969d6aa2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.09a544df64c719c82c58941e165d8b0f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -76,15 +76,54 @@ This is the multi-page printable view of this section.
 <h1 class=title>Random Notes</h1>
 <div class=lead>A scratch pad for random notes</div>
 <ul>
-<li>1: <a href=#pg-24ae67c1d25ae474309b8b67003fc761>Safer bash scripts with 'set -euxo pipefail'</a></li>
-<li>2: <a href=#pg-47d637b9567e863a215dbfde351c37ae>Scratch Pad</a></li>
-<li>3: <a href=#pg-b9c924164a9ecf974bab37b2fd4f85b4>Pulumi</a></li>
+<li>1: <a href=#pg-12929019df18211201ce12a4650aa1f5>Bash Globbing'</a></li>
+<li>2: <a href=#pg-24ae67c1d25ae474309b8b67003fc761>Safer bash scripts with 'set -euxo pipefail'</a></li>
+<li>3: <a href=#pg-47d637b9567e863a215dbfde351c37ae>Scratch Pad</a></li>
+<li>4: <a href=#pg-b9c924164a9ecf974bab37b2fd4f85b4>Pulumi</a></li>
 </ul>
 <div class=content>
 </div>
 </div>
 <div class=td-content>
-<h1 id=pg-24ae67c1d25ae474309b8b67003fc761>1 - Safer bash scripts with 'set -euxo pipefail'</h1>
+<h1 id=pg-12929019df18211201ce12a4650aa1f5>1 - Bash Globbing'</h1>
+<div class=lead>Explanation of globbing in Bash</div>
+<div class="pageinfo pageinfo-primary">
+<p>The following is a brilliant explanation from Yogesh Umesh Vaity on Stack Exchange at <a href=https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean>https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean</a>. I have not personally validated this to do your own homework.</p>
+</div>
+<h3 id=segments-and-separators->Segments and Separators (<code>/</code>)</h3>
+<p>The separator is always the <code>/</code> character. A segment is everything that comes between the two separators.</p>
+<p>Example: <code>Tests/HelloWorld.js</code></p>
+<p>Here, <code>Tests</code> and <code>HelloWorld.js</code> are the segments and <code>/</code> is the separator.</p>
+<h3 id=single-asterisk->Single Asterisk (<code>*</code>)</h3>
+<p>Single Asterisk (<code>*</code>) matches zero or more characters within one segment. It is used for globbing the files within one directory.</p>
+<p>Example: <code>*.js</code></p>
+<p>This glob will match files such as <code>HelloWorld.js</code> but not files like <code>Tests/HelloWorld.js</code> or <code>Tests/UI/HelloWorld.js</code></p>
+<h3 id=double-asterisk->Double Asterisk (<code>**</code>)</h3>
+<p>Double Asterisk (<code>**</code>) matches zero or more characters across multiple segments. It is used for globbing files that are in nested directories.</p>
+<p>Example: <code>Tests/**/*.js</code></p>
+<p>Here, the file selecting will be restricted to the <code>Tests</code> directory. The glob will match the files such as <code>Tests/HelloWorld.js</code>, <code>Tests/UI/HelloWorld.js</code>, <code>Tests/UI/Feature1/HelloWorld.js</code>.</p>
+<h3 id=question-mark>Question Mark(<code>?</code>)</h3>
+<p>Question mark(<code>?</code>) matches a single character within one segment. When some files or directories differ in their name by just one character, you can use the <code>?</code>.</p>
+<p>Example: <code>tests/?at.js</code></p>
+<p>This will match files such as <code>tests/cat.js</code>, <code>test/Cat.js</code>, <code>test/bat.js</code> etc.</p>
+<h3 id=square-brackets-abc>Square Brackets (<code>[abc]</code>)</h3>
+<p>Square Brackets (<code>[...]</code>) globs the files with a single character mentioned in the square brackets.</p>
+<p>Example: <code>tests/[CB]at.js</code></p>
+<p>This glob will match files like <code>tests/Cat.js</code> or <code>tests/Bat.js</code></p>
+<h3 id=square-brackets-range-a-z>Square Brackets Range (<code>[a-z]</code>)</h3>
+<p>Square Brackets Range (<code>[a-z]</code>), matches one character specified in the range.</p>
+<p>Example: <code>tests/feature[1-9]/HelloWorld.js</code></p>
+<p>This glob will match files like <code>tests/feature1/HelloWorld.js</code>, <code>test/feature2/HelloWorld.js</code> and so on&mldr; up to <code>9</code>.</p>
+<h3 id=negation->Negation (<code>!</code>)</h3>
+<p>Negation (<code>!</code>) can be used for excluding some files.</p>
+<p>Example 1: <code>tests/[!C]at.js</code></p>
+<p>This will exclude the file <code>tests/Cat.js</code> and will match files like <code>tests/Bat.js</code>, <code>tests/bat.js</code>, <code>tests/cat.js</code>.</p>
+<p>Negation is also used in configuration files inside an array to negate or exclude some files.</p>
+<p>Example 2: <code>['Tests/**/*.js', '!Tests/UI/**']</code></p>
+<p>This will exclude all files and folders from <code>Tests/UI</code> directory.</p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-24ae67c1d25ae474309b8b67003fc761>2 - Safer bash scripts with 'set -euxo pipefail'</h1>
 <div class=lead>Safer bash scripts, taken from Tom Van Eyck</div>
 <div class="pageinfo pageinfo-primary">
 <p>The following post was sourced from Tom Van Eyck&rsquo;s blog over at <a href=https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/>https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/</a>. His last post was in 2018 and his github has been idle for as long so I&rsquo;ve become worried that something might happen to his blog. Because I refer to this article so frequently, I have decided to preserve it here.</p>
@@ -335,13 +374,13 @@ myfunc
 <p>I hope this post showed you why using <code>set -euxo pipefail</code> (or <code>set -Eeuxo pipefail</code>) is such a good idea. If you have any other options you want to suggest, then please let me know and I&rsquo;ll be happy to add them to this list.</p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-47d637b9567e863a215dbfde351c37ae>2 - Scratch Pad</h1>
+<h1 id=pg-47d637b9567e863a215dbfde351c37ae>3 - Scratch Pad</h1>
 <div class=lead>A scratch pad for random notes</div>
 <pre>jq '.prefixes[] | select(.region=="us-gov-east-1") | select(.service=="EC2")' < ~/Downloads/ip-ranges.json</pre>
 <p><a href=https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html>https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html</a></p>
 </div>
 <div class=td-content style=page-break-before:always>
-<h1 id=pg-b9c924164a9ecf974bab37b2fd4f85b4>3 - Pulumi</h1>
+<h1 id=pg-b9c924164a9ecf974bab37b2fd4f85b4>4 - Pulumi</h1>
 <div class=lead>How to use Pulumi. This is a WIP.</div>
 </div>
 </main>

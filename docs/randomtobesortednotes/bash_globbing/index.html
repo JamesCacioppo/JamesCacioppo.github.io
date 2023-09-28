@@ -14,24 +14,24 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Git Tagging | Modern Engineer</title>
-<meta name=description content="How to create and handle tags in Git.
+<title>Bash Globbing' | Modern Engineer</title>
+<meta name=description content="Explanation of globbing in Bash
 ">
-<meta property="og:title" content="Git Tagging">
-<meta property="og:description" content="How to create and handle tags in Git.
+<meta property="og:title" content="Bash Globbing'">
+<meta property="og:description" content="Explanation of globbing in Bash
 ">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/docs/git/tagging/"><meta property="article:section" content="docs">
-<meta property="article:published_time" content="2023-01-30T00:00:00+00:00">
-<meta property="article:modified_time" content="2023-03-20T21:19:58-04:00"><meta property="og:site_name" content="Modern Engineer">
-<meta itemprop=name content="Git Tagging">
-<meta itemprop=description content="How to create and handle tags in Git.
-"><meta itemprop=datePublished content="2023-01-30T00:00:00+00:00">
-<meta itemprop=dateModified content="2023-03-20T21:19:58-04:00">
-<meta itemprop=wordCount content="239">
-<meta itemprop=keywords content="git,git-tag,tagging,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Git Tagging">
-<meta name=twitter:description content="How to create and handle tags in Git.
+<meta property="og:url" content="/docs/randomtobesortednotes/bash_globbing/"><meta property="article:section" content="docs">
+<meta property="article:published_time" content="2023-09-28T00:00:00+00:00">
+<meta property="article:modified_time" content="2023-09-28T12:47:48-04:00"><meta property="og:site_name" content="Modern Engineer">
+<meta itemprop=name content="Bash Globbing'">
+<meta itemprop=description content="Explanation of globbing in Bash
+"><meta itemprop=datePublished content="2023-09-28T00:00:00+00:00">
+<meta itemprop=dateModified content="2023-09-28T12:47:48-04:00">
+<meta itemprop=wordCount content="310">
+<meta itemprop=keywords content="bash,globbing,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Bash Globbing'">
+<meta name=twitter:description content="Explanation of globbing in Bash
 ">
 <link rel=preload href=/scss/main.min.dcab2c3dae6e6fefb7672f19e4b612cc4e75ca208740f642aa2f1fe378478a8f.css as=style>
 <link href=/scss/main.min.dcab2c3dae6e6fefb7672f19e4b612cc4e75ca208740f642aa2f1fe378478a8f.css rel=stylesheet integrity>
@@ -79,11 +79,11 @@
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Documentation</span></a>
 <ul class=ul-1>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsrandomtobesortednotes-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsrandomtobesortednotes-li>
 <a href=/docs/randomtobesortednotes/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsrandomtobesortednotes><span>Random Notes</span></a>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotesbash_globbing-li>
-<a href=/docs/randomtobesortednotes/bash_globbing/ title="Bash Globbing'" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotesbash_globbing><span>Bash globbing</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsrandomtobesortednotesbash_globbing-li>
+<a href=/docs/randomtobesortednotes/bash_globbing/ title="Bash Globbing'" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotesbash_globbing><span class=td-sidebar-nav-active-item>Bash globbing</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotessafer_bash_scripts_with_set_euxo_pipefail-li>
 <a href=/docs/randomtobesortednotes/safer_bash_scripts_with_set_euxo_pipefail/ title="Safer bash scripts with 'set -euxo pipefail'" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsrandomtobesortednotessafer_bash_scripts_with_set_euxo_pipefail><span>Safer BASH</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrandomtobesortednotesscratch_pad-li>
@@ -99,13 +99,13 @@
 <a href=/docs/encryption/openssl-cheat-sheet/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsencryptionopenssl-cheat-sheet><span>OpenSSL Cheat Sheet</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsgit-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsgit-li>
 <a href=/docs/git/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgit><span>Git</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitworking_tree-li>
 <a href=/docs/git/working_tree/ title="The Working Tree and Stashing" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitworking_tree><span>Working Tree and Stash</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsgittagging-li>
-<a href=/docs/git/tagging/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsgittagging><span class=td-sidebar-nav-active-item>Git Tagging</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgittagging-li>
+<a href=/docs/git/tagging/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgittagging><span>Git Tagging</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitcommands-li>
 <a href=/docs/git/commands/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgitcommands><span>Git Commands</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgitconfiguration-li>
@@ -138,32 +138,24 @@
 </aside>
 <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/tree/main/content/en/docs/Git/tagging.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-<a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/edit/main/content/en/docs/Git/tagging.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/JamesCacioppo/JamesCacioppo.github.io/new/main/content/en/docs/Git/tagging.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
-<a href="https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues/new?title=Git%20Tagging" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/tree/main/content/en/docs/RandomToBeSortedNotes/bash_globbing.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+<a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/edit/main/content/en/docs/RandomToBeSortedNotes/bash_globbing.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/JamesCacioppo/JamesCacioppo.github.io/new/main/content/en/docs/RandomToBeSortedNotes/bash_globbing.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues/new?title=Bash%20Globbing%27" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-<a id=print href=/docs/git/_print/><i class="fa fa-print fa-fw"></i> Print entire section</a>
+<a id=print href=/docs/randomtobesortednotes/_print/><i class="fa fa-print fa-fw"></i> Print entire section</a>
 </div>
 <div class=td-toc><nav id=TableOfContents>
 <ul>
-<li><a href=#creating-tags>Creating tags</a>
+<li>
 <ul>
-<li><a href=#create-lightweight-tag>Create lightweight tag</a></li>
-<li><a href=#create-annotated-tag>Create annotated tag</a></li>
-</ul>
-</li>
-<li><a href=#handling-tags>Handling tags</a>
-<ul>
-<li><a href=#pushing-new-tags>Pushing new tags</a></li>
-<li><a href=#deleting-local-tags>Deleting local tags</a></li>
-<li><a href=#deleting-remote-tags>Deleting remote tags</a></li>
-</ul>
-</li>
-<li><a href=#listing-tags>Listing tags</a>
-<ul>
-<li><a href=#sorting-output>Sorting output</a></li>
-<li><a href=#examples>Examples</a></li>
+<li><a href=#segments-and-separators->Segments and Separators (<code>/</code>)</a></li>
+<li><a href=#single-asterisk->Single Asterisk (<code>*</code>)</a></li>
+<li><a href=#double-asterisk->Double Asterisk (<code>**</code>)</a></li>
+<li><a href=#question-mark>Question Mark(<code>?</code>)</a></li>
+<li><a href=#square-brackets-abc>Square Brackets (<code>[abc]</code>)</a></li>
+<li><a href=#square-brackets-range-a-z>Square Brackets Range (<code>[a-z]</code>)</a></li>
+<li><a href=#negation->Negation (<code>!</code>)</a></li>
 </ul>
 </li>
 </ul>
@@ -218,23 +210,22 @@
 <a href=/docs/>Documentation</a>
 </li>
 <li class=breadcrumb-item>
-<a href=/docs/git/>Git</a>
+<a href=/docs/randomtobesortednotes/>Random Notes</a>
 </li>
 <li class="breadcrumb-item active" aria-current=page>
-<a href=/docs/git/tagging/>Git Tagging</a>
+<a href=/docs/randomtobesortednotes/bash_globbing/>Bash globbing</a>
 </li>
 </ol>
 </nav>
 <div class=td-content>
-<h1>Git Tagging</h1>
-<div class=lead>How to create and handle tags in Git.</div>
+<h1>Bash Globbing'</h1>
+<div class=lead>Explanation of globbing in Bash</div>
 <header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
 <h5 class=taxonomy-title>Tags:</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=/tags/git/ data-taxonomy-term=git><span class=taxonomy-label>git</span></a></li>
-<li><a class=taxonomy-term href=/tags/git-tag/ data-taxonomy-term=git-tag><span class=taxonomy-label>git-tag</span></a></li>
-<li><a class=taxonomy-term href=/tags/tagging/ data-taxonomy-term=tagging><span class=taxonomy-label>tagging</span></a></li>
+<li><a class=taxonomy-term href=/tags/bash/ data-taxonomy-term=bash><span class=taxonomy-label>bash</span></a></li>
+<li><a class=taxonomy-term href=/tags/globbing/ data-taxonomy-term=globbing><span class=taxonomy-label>globbing</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-article taxo-categories">
@@ -244,62 +235,42 @@
 </ul>
 </div>
 </header>
-<h2 id=creating-tags>Creating tags</h2>
-<p>There are two types of tags, lightweight and annotated. The following explanation was taken from a Stack Overflow post:</p>
-<blockquote>
-<p>A lightweight tag is very much like a branch that doesn&rsquo;t change - it&rsquo;s just a pointer to a specific commit.</p>
-</blockquote>
-<blockquote>
-<p>Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.</p>
-</blockquote>
-<h3 id=create-lightweight-tag>Create lightweight tag</h3>
-<pre>git tag <var>TAG</var></pre>
-<h3 id=create-annotated-tag>Create annotated tag</h3>
-<pre>git tag -a <var>TAG</var> -m <var>COMMIT MESSAGE</var></pre>
-<h2 id=handling-tags>Handling tags</h2>
-<h3 id=pushing-new-tags>Pushing new tags</h3>
-<pre>git push origin <var>TAG</var></pre>
-<h3 id=deleting-local-tags>Deleting local tags</h3>
-<pre>git tag -d <var>TAG</var></pre>
-<h3 id=deleting-remote-tags>Deleting remote tags</h3>
-<pre>git push origin --delete <var>TAG</var></pre>
-<h2 id=listing-tags>Listing tags</h2>
-<pre>git tag</pre>
-<h3 id=sorting-output>Sorting output</h3>
-<p>Use the <em>sort</em> switch <code>--sort=&lt;type></code>, where <em>type</em> can be:</p>
-<ul>
-<li><code>refname</code>: lexicographic order</li>
-<li><code>version:refname</code> or <code>v:refname</code>: tag names are treated as versions
-<div class="alert alert-info" role=alert>
-<h4 class=alert-heading>Reverse order</h4>
-Prepend <em>type</em> with <code>-</code> to reverse order.
+<div class="pageinfo pageinfo-primary">
+<p>The following is a brilliant explanation from Yogesh Umesh Vaity on Stack Exchange at <a href=https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean>https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean</a>. I have not personally validated this to do your own homework.</p>
 </div>
-</li>
-</ul>
-<h3 id=examples>Examples</h3>
-<p>Lexical sort</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
-foo1.10
-foo1.3
-foo1.6
-</code></pre></div><p>Version sort</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>version:refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
-foo1.10
-foo1.6
-foo1.3
-</code></pre></div><p>Reverse version sort</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>-version:refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
-foo1.10
-foo1.6
-foo1.3
-</code></pre></div><p>Reverse lexical sort</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git tag -l --sort<span style=color:#ce5c00;font-weight:700>=</span>-refname <span style=color:#4e9a06>&#34;foo*&#34;</span>
-foo1.6
-foo1.3
-foo1.10
-</code></pre></div>
+<h3 id=segments-and-separators->Segments and Separators (<code>/</code>)</h3>
+<p>The separator is always the <code>/</code> character. A segment is everything that comes between the two separators.</p>
+<p>Example: <code>Tests/HelloWorld.js</code></p>
+<p>Here, <code>Tests</code> and <code>HelloWorld.js</code> are the segments and <code>/</code> is the separator.</p>
+<h3 id=single-asterisk->Single Asterisk (<code>*</code>)</h3>
+<p>Single Asterisk (<code>*</code>) matches zero or more characters within one segment. It is used for globbing the files within one directory.</p>
+<p>Example: <code>*.js</code></p>
+<p>This glob will match files such as <code>HelloWorld.js</code> but not files like <code>Tests/HelloWorld.js</code> or <code>Tests/UI/HelloWorld.js</code></p>
+<h3 id=double-asterisk->Double Asterisk (<code>**</code>)</h3>
+<p>Double Asterisk (<code>**</code>) matches zero or more characters across multiple segments. It is used for globbing files that are in nested directories.</p>
+<p>Example: <code>Tests/**/*.js</code></p>
+<p>Here, the file selecting will be restricted to the <code>Tests</code> directory. The glob will match the files such as <code>Tests/HelloWorld.js</code>, <code>Tests/UI/HelloWorld.js</code>, <code>Tests/UI/Feature1/HelloWorld.js</code>.</p>
+<h3 id=question-mark>Question Mark(<code>?</code>)</h3>
+<p>Question mark(<code>?</code>) matches a single character within one segment. When some files or directories differ in their name by just one character, you can use the <code>?</code>.</p>
+<p>Example: <code>tests/?at.js</code></p>
+<p>This will match files such as <code>tests/cat.js</code>, <code>test/Cat.js</code>, <code>test/bat.js</code> etc.</p>
+<h3 id=square-brackets-abc>Square Brackets (<code>[abc]</code>)</h3>
+<p>Square Brackets (<code>[...]</code>) globs the files with a single character mentioned in the square brackets.</p>
+<p>Example: <code>tests/[CB]at.js</code></p>
+<p>This glob will match files like <code>tests/Cat.js</code> or <code>tests/Bat.js</code></p>
+<h3 id=square-brackets-range-a-z>Square Brackets Range (<code>[a-z]</code>)</h3>
+<p>Square Brackets Range (<code>[a-z]</code>), matches one character specified in the range.</p>
+<p>Example: <code>tests/feature[1-9]/HelloWorld.js</code></p>
+<p>This glob will match files like <code>tests/feature1/HelloWorld.js</code>, <code>test/feature2/HelloWorld.js</code> and so on&mldr; up to <code>9</code>.</p>
+<h3 id=negation->Negation (<code>!</code>)</h3>
+<p>Negation (<code>!</code>) can be used for excluding some files.</p>
+<p>Example 1: <code>tests/[!C]at.js</code></p>
+<p>This will exclude the file <code>tests/Cat.js</code> and will match files like <code>tests/Bat.js</code>, <code>tests/bat.js</code>, <code>tests/cat.js</code>.</p>
+<p>Negation is also used in configuration files inside an array to negate or exclude some files.</p>
+<p>Example 2: <code>['Tests/**/*.js', '!Tests/UI/**']</code></p>
+<p>This will exclude all files and folders from <code>Tests/UI</code> directory.</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified March 20, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/ac16cbaf5a27eb1b2092c92028e370db5a638570>Styling of code blocks (ac16cba)</a>
+Last modified September 28, 2023: <a href=https://github.com/JamesCacioppo/JamesCacioppo.github.io/commit/33fa0bf6d909f3fcc25bb498ca094f91b71c1580>Add clipped bash globbing explanation from stack exchange (33fa0bf)</a>
 </div>
 </div>
 </main>
