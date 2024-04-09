@@ -39,7 +39,16 @@ jobs:
       - run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish deployment notification on ntfy.sh
+        uses: robiningelbrecht/ntfy-action@v1.0.0
+        if: $${{ job.status == 'success' }}
+        with:
+            url: ${{ secrets.NTFY_URL }}
+            topic: ${{ secrets.NTFY_TOPIC }}
+            icon: 'https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png'
+            job_status: ${{ job.status }}
