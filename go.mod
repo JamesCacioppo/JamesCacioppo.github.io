@@ -1,5 +1,5 @@
-module github.com/google/docsy-example
+module github.com/JamesCacioppo/JamesCacioppo.github.io
 
-go 1.12
+go 1.27.3
 
-require github.com/google/docsy v0.9.1 // indirect
+require github.com/docsy/docsy/theme v0.18.0 // indirect
