@@ -21,7 +21,7 @@
   "devDependencies": {
     "hugo-extended": "0.169.0",
     "parse5": "8.0.1",
-    "sass-embedded": "1.105.0"
+    "sass-embedded": "1.107.1"
   },
   "overrides": {
     "hugo-extended": {
