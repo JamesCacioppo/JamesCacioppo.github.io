@@ -60,7 +60,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish deployment notification on ntfy.sh
-        uses: robiningelbrecht/ntfy-action@v1.0.0
+        uses: robiningelbrecht/ntfy-action@v2.0.0
         if: success()
         with:
             url: ${{ secrets.NTFY_URL }}
