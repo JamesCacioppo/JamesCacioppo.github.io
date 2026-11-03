@@ -1,52 +1,67 @@
-name: GitHub Pages
+name: Build and deploy
 
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+  build:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
-          submodules: recursive  # Fetch the Docsy theme
-          fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.124.0'
-          extended: true
+          fetch-depth: 0 # Hugo uses Git history for page modification dates.
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
+      - name: Setup Go
+        uses: actions/setup-go@v7
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          go-version-file: go.mod
+          cache: false
 
       - run: npm ci
-      - run: hugo --minify
+      - run: npm test
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public/
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: public/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish deployment notification on ntfy.sh
         uses: robiningelbrecht/ntfy-action@v1.0.0
-        if: $${{ job.status == 'success' }}
+        if: success()
         with:
             url: ${{ secrets.NTFY_URL }}
             topic: ${{ secrets.NTFY_TOPIC }}

@@ -1,28 +1,20 @@
-# How to Contribute
+# Contributing
 
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+Contributions to Modern Engineer are welcome, including corrections, new
+technical notes, and improvements to the site. Work in progress is fine; do not
+let perfect be the enemy of good enough.
 
-## Contributor License Agreement
+1. Fork the repository and create a feature branch from `main`.
+2. Make your changes using the setup in [README.md](README.md).
+3. Run `npm test`, and preview affected pages with `npm run serve`. For theme or
+   layout changes, check desktop and mobile views, dark mode, and print pages.
+4. Use conventional commits, such as `docs(git): clarify branching examples` or
+   `fix(site): correct a navigation link`.
+5. Submit a pull request describing the change and how you checked it.
 
-Contributions to this project must be accompanied by a Contributor License
-Agreement. You (or your employer) retain the copyright to your contribution;
-this simply gives us permission to use and redistribute your contributions as
-part of the project. Head over to <https://cla.developers.google.com/> to see
-your current agreements on file or to sign a new one.
+Preserve existing page URLs. When intentionally moving a page, add an appropriate
+Hugo alias so old links continue to work. Keep images with their page bundles,
+and keep theme dependencies external rather than copying theme source here.
 
-You generally only need to submit a CLA once, so if you've already submitted one
-(even if it was for a different project), you probably don't need to do it
-again.
-
-## Code reviews
-
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
-
-## Community Guidelines
-
-This project follows
-[Google's Open Source Community Guidelines](https://opensource.google.com/conduct/).
+Report problems or request documentation through
+[GitHub issues](https://github.com/JamesCacioppo/JamesCacioppo.github.io/issues).

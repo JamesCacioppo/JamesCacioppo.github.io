@@ -22,11 +22,19 @@ The easy button in my house used to be the brown sugar option until my son decid
 * 2 lbs wild caught salmon
 * Nevermind those scrumptious little shrimps over there.  These are not the shrimp you're looking for.
 
-{{< alert title="Salt" >}}Use whatever salt you want.  This pink salt was on my counter top and I liked that it was a bit more coarse than Morton's salt.{{< /alert >}}
+{{% alert title="Salt" %}}
 
-{{< alert color="warning" title="Warning from a marine biologist" >}}*Farm raised fish are pumped full of hormones.  Genetically engineered farm raised fish take about half as long to reach maturity and full size compared to their ocean counterparts.  I'm sure all the crap that's pumped into them are within FDA regulated limits, but still.*
+Use whatever salt you want.  This pink salt was on my counter top and I liked that it was a bit more coarse than Morton's salt.
 
-Maybe stick with wild caught salmon.{{< /alert >}}
+{{% /alert %}}
+
+{{% alert color="warning" title="Warning from a marine biologist" %}}
+
+*Farm raised fish are pumped full of hormones.  Genetically engineered farm raised fish take about half as long to reach maturity and full size compared to their ocean counterparts.  I'm sure all the crap that's pumped into them are within FDA regulated limits, but still.*
+
+Maybe stick with wild caught salmon.
+
+{{% /alert %}}
 
 ## Cook method
 
