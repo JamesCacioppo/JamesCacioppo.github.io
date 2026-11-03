@@ -12,7 +12,7 @@ first build; it is not copied into this repository.
 | --- | --- | --- |
 | Node.js | 24.22.1 | `.nvmrc` |
 | Go | 1.27.3 | `go.mod` |
-| Hugo Extended | 0.166.0 | `package.json` and `package-lock.json` |
+| Hugo Extended | 0.169.0 | `package.json` and `package-lock.json` |
 | Docsy | 0.18.0 | `go.mod` and `go.sum` |
 | Dart Sass | 1.107.1 | `package.json` and `package-lock.json` |
 
