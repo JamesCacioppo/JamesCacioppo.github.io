@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "hugo-extended": "0.166.0",
-    "parse5": "8.0.0",
+    "parse5": "8.0.1",
     "sass-embedded": "1.107.1"
   },
   "overrides": {

@@ -14,7 +14,7 @@ first build; it is not copied into this repository.
 | Go | 1.27.3 | `go.mod` |
 | Hugo Extended | 0.166.0 | `package.json` and `package-lock.json` |
 | Docsy | 0.18.0 | `go.mod` and `go.sum` |
-| Dart Sass | 1.105.0 | `package.json` and `package-lock.json` |
+| Dart Sass | 1.107.1 | `package.json` and `package-lock.json` |
 
 Install Git, Go, and Node.js. If you use nvm, run `nvm install` and `nvm use`.
 `npm ci` installs the pinned Hugo and Sass binaries, plus the theme's Bootstrap
