@@ -55,6 +55,14 @@ Getting them attached to the tree is easy. Getting the attachment cord loose dur
 
 I either carry the sticks by hand or strap them underneath the Transfer pack. The pack has MOLLE-like webbing on the bottom, so I rigged up straps using **one-inch webbing, tri-glides, and G-hooks**. That gives me a way to carry the sticks on the pack when I want my hands free.
 
+### Carrying the sticks up the tree
+
+For carrying the sticks while climbing, I borrowed an idea from Latitude. I tied a piece of 550 paracord to a loop of MOLLE webbing on my saddle using a double anchor knot. At the other end, I made a loop with a slip knot. That loop slips over the end of a step, letting the stack of sticks hang from the saddle.
+
+This has worked well, but the sticks swing freely. I like that they generally hang clear of my other gear. The downside is that they can make noise if they swing into something. I'd like them to hang a little tighter to me so they don't move around as much.
+
+The next variation I want to try is tying a loop around one of the sticks and clipping it to an S-biner that lives on my saddle. I haven't tested that arrangement yet, but I want to see whether it keeps the stack closer and cuts down on the swinging.
+
 ## Hanging the bow
 
 I use the **[Tethrd HYS strap](https://tethrd.com/products/hys-strap)** with the **[Tethrd Fold N Go](https://tethrd.com/products/fold-n-go)** to hold my bow once I'm in the tree. It's another part of the setup that packs away for the walk in, with the HYS strap currently living underneath a rope in one of the SYS Haulers.
