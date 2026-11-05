@@ -57,6 +57,8 @@ I either carry the sticks by hand or strap them underneath the Transfer pack. Th
 
 I use the **[Tethrd HYS strap](https://tethrd.com/products/hys-strap)** with the **[Tethrd Fold N Go](https://tethrd.com/products/fold-n-go)** to hold my bow once I'm in the tree. It's another part of the setup that packs away for the walk in, with the HYS strap currently living underneath a rope in one of the SYS Haulers.
 
+![Saddle hunting setup on a tree in the woods, with the tether in front, bow hanging on the left, and pack on the right](setup-in-the-woods.jpg)
+
 ## Why I carry the Transfer pack
 
 The **[First Lite Transfer](https://firstlite.com/products/transfer-pack)** is a little big and heavy. It's probably more pack than many people would carry for this kind of hunt, but it works well for how I want to enter these parks.
