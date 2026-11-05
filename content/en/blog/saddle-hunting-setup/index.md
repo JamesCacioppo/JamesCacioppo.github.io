@@ -15,6 +15,8 @@ There's also the cost. With a saddle, I'm paying for one setup that I can take w
 
 Here's what I'm using, what I like about it, and what I'm still figuring out. The bow and my homemade arrows deserve posts of their own.
 
+![Saddle hunting setup on a tree in the woods, with the tether in front, bow hanging on the left, and pack on the right](setup-in-the-woods.jpg)
+
 ## The saddle and storage pockets
 
 My saddle is the **[Tethrd Phantom XP](https://tethrd.com/products/phantom-xp-saddle)**, and I love it. So far, I have zero complaints about the saddle itself. I also have **[Tethrd knee pads](https://tethrd.com/products/knee-pads)**, which stay in my pack with the saddle until I get to my tree.
@@ -56,8 +58,6 @@ I either carry the sticks by hand or strap them underneath the Transfer pack. Th
 ## Hanging the bow
 
 I use the **[Tethrd HYS strap](https://tethrd.com/products/hys-strap)** with the **[Tethrd Fold N Go](https://tethrd.com/products/fold-n-go)** to hold my bow once I'm in the tree. It's another part of the setup that packs away for the walk in, with the HYS strap currently living underneath a rope in one of the SYS Haulers.
-
-![Saddle hunting setup on a tree in the woods, with the tether in front, bow hanging on the left, and pack on the right](setup-in-the-woods.jpg)
 
 ## Why I carry the Transfer pack
 
