@@ -7,41 +7,47 @@ author: James Cacioppo
 draft: true
 ---
 
-I'm a member of a deer management archery program. Among its requirements: archery only, and shots must be taken from at least 10 feet off the ground. That means figuring out how to get myself and my gear into a tree.
+I'm a member of a deer management archery program. One of the critical requirements is shots must be taken from at least 10 feet off the ground. That means figuring out how to get myself and my gear into a tree. For me, that means saddle hunting.
 
-I'm not a huge fan of ladder stands. I prefer the mobility of saddle hunting, especially somewhere that's new to me. Scouting is limited in this program, and without much time to scout before the season, it's hard to know where I should set up. I want the flexibility to choose a suitable tree once I have a better idea of where I need to be.
+I'm not a huge fan of ladder stands and ther's zero chance you'll ever find me in one of those climbers. I just don't trust equipment that's being left out all season and those climbers scare the crap out of me.  Plus, I prefer the mobility of saddle hunting, especially somewhere that's new to me.
 
-There's also the cost. With a saddle, I'm paying for one setup that I can take wherever I hunt.
+Scouting is limited in this program, and without much time to scout before the season, it's hard to know where I should set up. I want the flexibility to choose a suitable tree once I have a better idea of where I need to be. Every time I've gone into the woods, I've picked a different tree to climb because my awareness of what the deer are doing has improved. When I was scouting this season, I found what looked like a high traffic deer highway that followed an elevation contour and then crossed over a point. Literally the stuff you hear and read about. After two sits I realized the location was dead and moved on.
 
-Here's what I'm using, what I like about it, and what I'm still figuring out. The bow and my homemade arrows deserve posts of their own.
+There's also the cost. If you're using stands, you need one stand for each location which adds up fast. It's also hard and noisy to move them mid season if you realize a location isn't producing like you originally thought it would. 
+
+With that in mind, here's what I'm using, what I like about it, and what I'm still figuring out.
 
 ![Saddle hunting setup on a tree in the woods, with the tether in front, bow hanging on the left, and pack on the right](setup-in-the-woods.jpg)
 
 ## The saddle and storage pockets
 
-My saddle is the **[Tethrd Phantom XP](https://tethrd.com/products/phantom-xp-saddle)**, and I love it. So far, I have zero complaints about the saddle itself. I also have **[Tethrd knee pads](https://tethrd.com/products/knee-pads)**, which stay in my pack with the saddle until I get to my tree.
+My saddle is the **[Tethrd Phantom XP](https://tethrd.com/products/phantom-xp-saddle)**, and I love it. So far, I have zero complaints about the saddle itself. I also have **[Tethrd knee pads](https://tethrd.com/products/knee-pads)**, which stay in my pack with the saddle until I get to my tree. The saddle is quite comfortable. I haven't yet sat in it all day, but I have sat in it for four hours. To be clear, I prefer to stand or lean. I find sitting to be hard on my knees and legs and I think I move a lot more when I'm sitting. But, no matter which position I'm in, I'm quite comfortable.
 
-Where I'm still experimenting is how to hang and organize everything around me. I have a **[Tethrd SYS Hauler ES2.0](https://tethrd.com/products/sys-hauler-es-2-0) pocket on each side**, one for my lineman's rope and one for my tether.
+This is a new setup for me. The saddle was just released this year. At this point, I think I have it mostly dialed in. I have a **[Tethrd SYS Hauler ES2.0](https://tethrd.com/products/sys-hauler-es-2-0) pocket on each side**, one for my lineman's rope and one for my tether.
 
-I have two small complaints about the pockets. First, the drawstring closures make getting the ropes back in a little fiddly. Second, the smaller pockets on the outside aren't deep enough to securely hold my HYS strap or the platform's cam buckle and strap. I've started putting those in the main pockets, underneath the ropes. That works, but I'm still playing with where everything belongs.
+On the left side I keep my lineman's belt attached to the saddle and stowed in the SYS Hauler. Under the lineman's belt is the cam buckle and strap for the platform. This works because my lineman's belt is out of the pocket and wrapped around the tree whenever I need to retrieve or stow the platform strap.
+
+On the right side I keep the tether. Under the tether is the HYS strap. Similar to the other pocket setup, any time the HYS strap needs to be retrieved or stowed the tether is wrapped around the tree.
+
+I have two small complaints about the pockets. First, the drawstring closures make getting the ropes back in a little fiddly. Second, the smaller pockets on the outside aren't deep enough to securely hold my HYS strap or the platform's cam buckle and strap. This is why I put them under the ropes. It works, but I'd rather have dedicated pockets for these items.
 
 ## Why I chose the Latitude ropes
 
 I use the **Latitude 8mm Vapor Line [lineman's belt](https://www.latitudeoutdoors.com/products/vapor-line-8mm-lineman-belt) and [tree tether](https://www.latitudeoutdoors.com/products/vapor-line-8mm-tether)**. The feature that sold me on them was the included prusik tender.
 
-A prusik is a friction hitch used to adjust the rope system. The tender helps move that hitch along the rope with one hand. That one-handed adjustment is the convenience I wanted from a mechanical rope grab, while keeping the prusik as the gripping component. Latitude supplies both the lineman's belt and tree tether configured for single-handed operation.
+A prusik is a friction hitch used to adjust the rope system. The tender helps move that hitch along the rope with one hand. That one-handed adjustment is the convenience I wanted. Latitude supplies both the lineman's belt and tree tether configured for single-handed operation.
 
-For me, the appeal is avoiding an additional mechanical device, along with the extra metal that could make noise or add weight. It was a specific reason to choose these ropes over the other options I was considering.
+A lot of folks use a mechanical ascender for this purpose, such as the Kong Duck, which replaces the prusik knot. For me, the appeal to the prusik tender is avoiding an additional mechanical device, along with the extra metal that could make noise or add weight.
 
 ## The Predator V platform
 
-The **[Tethrd Predator V](https://tethrd.com/products/predator-v)** is a little small for my liking once I'm up in the tree. I'd prefer more room underfoot.
+The **[Tethrd Predator V](https://tethrd.com/products/predator-v)** is a little small for my liking once I'm up in the tree. I'd prefer more room underfoot. I wear a size 12.5, so I find the platform a little uncomfortable at times. I do a lot of rock climbing, so I'm used to having only a small part of my foot on a hold, but it can be clunky and difficult to turn around stealthily to get an angle on an unsuspecting deer.
 
-On the walk in, though, that size is useful. It fits inside my **[First Lite Transfer pack](https://firstlite.com/products/transfer-pack)**, and I'm not sure how I'd fit a larger platform in there with everything else. So there's a tradeoff: I'd like a larger platform during the sit, but I appreciate being able to pack this one away.
+On the walk in, though, that size is useful. It fits inside my **[First Lite Transfer pack](https://firstlite.com/products/transfer-pack)**, and I'm not sure how I'd fit a larger platform in there with everything else. The pack is designed so that you can remove the it from the frame and sandwich a platform between the frame and pack. However, it's clearly meant for larger platforms, like the Timber Ninja Kunai. I don't know if the extra-large Predator V will be big enough, but I'll certainly provide updates when I get a chance to try it. 
 
-It's also a little loud and needs [Stealth Strips](https://www.stealthoutdoors.com/store/stealth-strips-roll/) to quiet it down.
+The Predator V is also a little loud and needs [Stealth Strips](https://www.stealthoutdoors.com/store/stealth-strips-roll/) to quiet it down. This is normal for metal platforms and sticks, but worth noting as the industry starts releasing things made of carbon.
 
-Once attached, it's been pretty stable, though that has depended on the tree's bark. I've never had it kick out, but it has moved a little. That's been my experience so far, and it's something I pay attention to when getting settled.
+One of the most important factors for a platform is stability. It's all well and good to make a platform that sticks when you're just standing on it. A platform for saddle hunting needs to be stable no matter what angle you're kicking it from. If I lean out to my left, hanging from the tether and resting my feet against the left side of the platform, I need to know that it's not going to kick out on me. Thus far, the Predator V has not dissapointed me. As I've gotten more familiar with deploying it, it's gotten even more stable.
 
 ## The Carbon Synergy climbing sticks
 
