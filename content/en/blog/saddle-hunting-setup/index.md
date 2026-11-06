@@ -4,7 +4,7 @@ title: "My saddle hunting setup for archery season"
 linkTitle: "My saddle hunting setup"
 description: "The saddle, ropes, sticks, platform, and pack I use for a deer management archery program, including what works and what I am still adjusting."
 author: James Cacioppo
-draft: true
+draft: false
 ---
 
 I'm a member of a deer management archery program. One of the critical requirements is shots must be taken from at least 10 feet off the ground. That means figuring out how to get myself and my gear into a tree. For me, that means saddle hunting.
