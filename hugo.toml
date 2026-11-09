@@ -37,7 +37,8 @@ block = true
 unsafe = true
 
 [markup.highlight]
-style = "tango"
+# Let Docsy's light/dark styles control syntax colors instead of inline styles.
+noClasses = false
 
 # The About section is authored as HTML. Hugo 0.166 blocks HTML content
 # files by default; keep that existing page enabled.
@@ -61,7 +62,6 @@ github_repo = "https://github.com/JamesCacioppo/JamesCacioppo.github.io"
 github_project_repo = "https://github.com/JamesCacioppo/JamesCacioppo.github.io"
 github_branch = "main"
 offlineSearch = false
-prism_syntax_highlighting = true
 
 [params.taxonomy]
 taxonomyCloud = ["tags", "categories"]
