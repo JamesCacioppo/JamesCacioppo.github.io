@@ -116,6 +116,13 @@ The build artifact is published to the existing `gh-pages` branch only from
 settings, keep **Deploy from a branch**, with `gh-pages` and `/ (root)` selected.
 The build job has read-only repository access; only the deployment job can write.
 
+Notifications use the Actions secrets `NTFY_URL` (the server root, normally
+`https://ntfy.sh`) and `NTFY_TOPIC` (`modern_engineer`, as linked on the homepage).
+The workflow posts JSON directly to ntfy and requires a successful HTTP response
+with a message ID and the expected topic. It logs the message ID without exposing
+the secret values. A notification failure fails the deployment job after the site
+has already been published; a confirmed publication does not prove device delivery.
+
 Netlify is an optional alternative. `netlify.toml` uses the same npm build tools
 and pins Node and Go; preview builds use Netlify's `DEPLOY_PRIME_URL`.
 
