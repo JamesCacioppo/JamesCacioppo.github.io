@@ -60,10 +60,56 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish deployment notification on ntfy.sh
-        uses: robiningelbrecht/ntfy-action@v2.0.0
         if: success()
-        with:
-            url: ${{ secrets.NTFY_URL }}
-            topic: ${{ secrets.NTFY_TOPIC }}
-            icon: 'https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png'
-            job_status: ${{ job.status }}
+        env:
+          NTFY_URL: ${{ secrets.NTFY_URL }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${NTFY_URL:?NTFY_URL must be configured}"
+          : "${NTFY_TOPIC:?NTFY_TOPIC must be configured}"
+
+          payload=$(mktemp)
+          response=$(mktemp)
+          trap 'rm -f "$payload" "$response"' EXIT
+
+          jq -n \
+            --arg topic "$NTFY_TOPIC" \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg run_url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            '{
+              topic: $topic,
+              title: $repository,
+              message: "Modern Engineer was deployed successfully.",
+              tags: ["white_check_mark"],
+              icon: "https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png",
+              click: "https://jamescacioppo.github.io/",
+              actions: [{action: "view", label: "View Run", url: $run_url}]
+            }' > "$payload"
+
+          # Do not follow redirects: a successful HTML page is not a publish receipt.
+          http_status=$(curl --fail --silent --show-error \
+            --connect-timeout 10 --max-time 30 \
+            --header 'Content-Type: application/json' \
+            --data-binary "@$payload" \
+            --output "$response" --write-out '%{http_code}' \
+            "$NTFY_URL")
+
+          if [[ ! "$http_status" =~ ^2[0-9][0-9]$ ]]; then
+            echo "::error::ntfy returned HTTP $http_status; no publication confirmed."
+            exit 1
+          fi
+
+          if ! jq -e --arg topic "$NTFY_TOPIC" '
+            type == "object" and
+            .event == "message" and
+            .topic == $topic and
+            (.id | type == "string" and length > 0)
+          ' "$response" > /dev/null 2>&1; then
+            echo "::error::ntfy did not return a message ID and receipt for the expected topic."
+            exit 1
+          fi
+
+          message_id=$(jq -r '.id' "$response")
+          printf 'ntfy publication confirmed (HTTP %s); message ID: %s\n' "$http_status" "$message_id"
