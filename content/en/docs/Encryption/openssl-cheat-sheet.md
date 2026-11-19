@@ -51,8 +51,10 @@ Extra the certificate alone:
 Extract the certificate and the CA chain:
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes</pre>
 
-Extract the CA chain:
-<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CA_CHAIN_FILE</var> -nokeys -cacerts -chain</pre>
+Extract only the CA certificates included in the PKCS#12 file:
+<pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CA_CHAIN_FILE</var> -nokeys -cacerts</pre>
+
+OpenSSL uses `-chain` with `-export` to build a certificate chain when creating a PKCS#12 file.
 
 # Handy commands
 
