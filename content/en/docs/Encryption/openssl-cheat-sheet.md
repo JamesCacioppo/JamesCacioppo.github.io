@@ -45,7 +45,7 @@ PKCS#12 (also known as PKCS12 or PFX) is a common binary format for storing a ce
 Extract the private key:
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_KEY_FILE</var> -nocerts -nodes</pre>
 
-Extra the certificate alone:
+Extract the certificate alone:
 <pre>openssl pkcs12 -in <var>P12_CERT_FILE</var> -out <var>X509_CERT_FILE</var> -nokeys -nodes -clcerts</pre>
 
 Extract the certificate and the CA chain:
@@ -60,18 +60,19 @@ OpenSSL uses `-chain` with `-export` to build a certificate chain when creating 
 
 ## Misc commands
 Get an x509 secret from Kubernetes and output details:
-<pre>kubectl get secret <var>SECRET_NAME</var> -ojson | jq -r '.data."<var>KEY</var>"' | base64 -d | openssl x509 -text</pre>
+<pre>kubectl get secret <var>SECRET_NAME</var> -ojson | jq -r '.data."<var>KEY</var>"' | base64 -d | openssl x509 -text -noout</pre>
 
 Create a self signed X.509 certificate:
 <pre>openssl req -x509 -nodes -newkey rsa:4096 -keyout "<var>PRIVATE_KEY_FILE</var>" -out "<var>PUBLIC_KEY_FILE</var>" -subj "<var>SUBJECT</var>"</pre>
 
 Extract the client key and pass to AWK to remove all newline characters:
-<pre>openssl pkcs12 -in <var>PKCS12_FILE</var> -clcerts -nokeys -password pass:<var>PASSWORD</var> | awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}'</pre>
+<pre>openssl pkcs12 -in <var>PKCS12_FILE</var> -clcerts -nokeys | awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}'</pre>
+
+OpenSSL prompts for the PKCS#12 password. For scripts, use `-passin file:PATH` to read it from a protected file. The `pass:PASSWORD` form exposes the password in process arguments.
 
 | option | arg | explanation |
 |-----|-----|-----|
 | -in | file | Input file to read from. STDIN if not provided |
 | -clcerts | | Only output client certificates (not CA certs) |
 | -nokeys | | Do not output private keys |
-| -password |  | not found in linux or mac openssl |
-| pass:password | | Where password is the password |
+| -passin | password source | Sets the input PKCS#12 password source, such as `file:PATH` |
