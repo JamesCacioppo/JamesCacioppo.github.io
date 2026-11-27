@@ -19,7 +19,7 @@
     "test": "npm run build && npm run check:links"
   },
   "devDependencies": {
-    "hugo-extended": "0.169.0",
+    "hugo-extended": "0.170.1",
     "parse5": "8.1.1",
     "sass-embedded": "1.107.1"
   },
